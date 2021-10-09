@@ -1,16 +1,23 @@
 import Banner from "../component/Banner";
-import Friends from "../contents/Friends";
+import Friends from "../component/contents/Friends";
 import LeftMenu from "../component/LeftMenu";
 import Header from "../component/Header";
+import {useState} from "react";
 
 
 function MainPage() {
-    return (
 
+    const [searchText, setSearchText] = useState('');
+
+    const receive = (props) => {
+        setSearchText(props);
+    }
+
+    return (
         <>
             <div>
-                <Header/>
-                <Friends/>
+                <Header receive={receive}/>
+                <Friends searchText={searchText}/>
             </div>
             <LeftMenu/>
 

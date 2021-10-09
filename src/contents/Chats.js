@@ -1,9 +1,7 @@
-
-
 function Chats() {
     return (
         <div>
-            Friends
+            Chats
         </div>
     );
 }

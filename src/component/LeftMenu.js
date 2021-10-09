@@ -1,5 +1,3 @@
-
-
 function LeftMenu() {
     return (
         <div>

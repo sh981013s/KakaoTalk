@@ -1,9 +1,7 @@
-
-
 function Banner() {
     return (
         <div>
-            Bottom
+            Banner
         </div>
     );
 }

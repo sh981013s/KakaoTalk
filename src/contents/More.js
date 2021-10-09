@@ -1,11 +1,11 @@
 
 
-function Chats() {
+function More() {
     return (
         <div>
-            Friends
+            More
         </div>
     );
 }
 
-export default Chats;
+export default More;

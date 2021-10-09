@@ -1,6 +1,6 @@
 
 
-function Friends() {
+function Chats() {
     return (
         <div>
             Friends
@@ -8,4 +8,4 @@ function Friends() {
     );
 }
 
-export default Friends;
+export default Chats;

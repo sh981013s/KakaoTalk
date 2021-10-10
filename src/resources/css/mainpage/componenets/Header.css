@@ -1,15 +1,17 @@
 .screenHeader {
     width: 100%;
-    height: 50px;
-    padding-left: 8rem;
-    background-color: red;
+    height: 5rem;
     display: flex;
-    flex-wrap: wrap;
-
-    /*gap : 500px;*/
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5rem 2.5rem 2.5rem 10.5rem;
 }
 
-.screenHeader div{
-    flex-grow: 1;
-    /*margin-right: 900px;*/
+.screenHeaderTitle {
+    font-size: 2.4rem;
+    font-weight: 600;
+}
+
+.screenHeaderIcons span {
+    margin-right: 2.5rem;
 }

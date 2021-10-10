@@ -27,10 +27,11 @@ function Header(props) {
             <KakaoModal showModal={showModal} contents={'아 좋아'}/>
         </div>*/
 		<header className="screenHeader">
-			<div>asd</div>
-			<div>asd</div>
-			<div>asd</div>
-			<div>asd</div>
+			<h1 className='screenHeaderTitle'>Friends</h1>
+			<div className="screenHeaderIcons">
+				<span><i className="fas fa-search fa-lg"></i></span>
+				<span><i className="fas fa-user-plus fa-lg"></i></span>
+			</div>
 		</header>
 	);
 }

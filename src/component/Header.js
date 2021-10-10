@@ -13,8 +13,10 @@ function Header(props) {
 		props.receive(text);
 	}, [text]);
 
+
+
 	return (
-		/*        <div>
+/*		        <div>
             <SearchIcon onClick={() => setTrigger(!trigger)}/>
             <UserAddOutlined style={{fontSize: 40}} onClick={() => setShowModal(true)}/>
             {trigger && <>
@@ -27,11 +29,29 @@ function Header(props) {
             <KakaoModal showModal={showModal} contents={'아 좋아'}/>
         </div>*/
 		<header className="screenHeader">
-			<h1 className='screenHeaderTitle'>Friends</h1>
-			<div className="screenHeaderIcons">
-				<span><i className="fas fa-search fa-lg"></i></span>
-				<span><i className="fas fa-user-plus fa-lg"></i></span>
+			<div className='mainTop'>
+				<h1 className='screenHeaderTitle'>Friends</h1>
+				<div className="screenHeaderIcons">
+					<span><i className="fas fa-search fa-lg" onClick={() => {
+						setTrigger(!trigger)
+					}}/></span>
+					<span><i className="fas fa-user-plus fa-lg" onClick={() => setShowModal(true)}></i></span>
+				</div>
 			</div>
+
+			{
+				trigger ?
+					<div className='searchModal'>
+						<input class='searchModalInput' type='text' placeholder='&#xf002;  Search Friends' onChange={(e) => {
+							setText(e.target.value)
+						}
+						}/>
+					</div>
+					: null
+			}
+			<KakaoModal showModal={showModal} contents={'아 좋아'}/>
+
+
 		</header>
 	);
 }

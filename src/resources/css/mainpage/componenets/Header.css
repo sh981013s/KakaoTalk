@@ -1,10 +1,15 @@
 .screenHeader {
     width: 100%;
-    height: 5rem;
+    /*height: 5rem;*/
+    padding: 2.5rem 2.5rem 2.5rem 10.5rem;
+}
+
+.mainTop {
     display: flex;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    padding: 2.5rem 2.5rem 2.5rem 10.5rem;
+    width: 100%;
 }
 
 .screenHeaderTitle {
@@ -14,4 +19,22 @@
 
 .screenHeaderIcons span {
     margin-right: 2.5rem;
+}
+
+.screenHeaderIcons i {
+    opacity: .8;
+    cursor: pointer;
+}
+
+.searchModal {
+    width: 100%;
+    padding: 1rem .5rem;
+}
+
+.searchModalInput {
+    font-family: 'Helvetica', FontAwesome, sans-serif;
+    appearance: none;
+    border: none;
+    width: 100%;
+    background-color: #F8F8F8;
 }

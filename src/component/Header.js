@@ -15,7 +15,7 @@ function Header(props) {
     }, [text])
 
     return (
-        <div>
+/*        <div>
             <SearchIcon onClick={() => setTrigger(!trigger)}/>
             <UserAddOutlined style={{fontSize: 40}} onClick={() => setShowModal(true)}/>
             {trigger && <>
@@ -26,7 +26,8 @@ function Header(props) {
             </>
             }
             <KakaoModal showModal={showModal} contents={'아 좋아'}/>
-        </div>
+        </div>*/
+        <header className='screenHeader'></header>
     );
 }
 

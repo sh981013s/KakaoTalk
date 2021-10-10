@@ -3,6 +3,7 @@ import Friends from "../component/contents/Friends";
 import LeftMenu from "../component/LeftMenu";
 import Header from "../component/Header";
 import {useState} from "react";
+import '../resources/css/mainpage/MainPage.css';
 
 
 function MainPage() {

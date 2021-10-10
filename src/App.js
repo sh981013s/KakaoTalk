@@ -1,3 +1,4 @@
+import './resources/css/base/styles.css'
 import MainPage from "./page/MainPage";
 
 

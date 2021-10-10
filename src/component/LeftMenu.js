@@ -1,7 +1,9 @@
+
+
 function LeftMenu() {
     return (
-        <div>
-            LeftMenu
+        <div className='leftMenu'>
+            
         </div>
     );
 }

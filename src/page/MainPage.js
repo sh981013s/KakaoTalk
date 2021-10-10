@@ -1,31 +1,28 @@
-import Banner from "../component/Banner";
-import Friends from "../component/contents/Friends";
-import LeftMenu from "../component/LeftMenu";
-import Header from "../component/Header";
-import {useState} from "react";
+import Banner from '../component/Banner';
+import Friends from '../component/contents/Friends';
+import LeftMenu from '../component/LeftMenu';
+import Header from '../component/Header';
+import { useState } from 'react';
 import '../resources/css/mainpage/MainPage.css';
 
-
 function MainPage() {
+	const [searchText, setSearchText] = useState('');
 
-    const [searchText, setSearchText] = useState('');
+	const receive = (props) => {
+		setSearchText(props);
+	};
 
-    const receive = (props) => {
-        setSearchText(props);
-    }
+	return (
+		<div className="mainPage">
+			<div>
+				<Header receive={receive} />
+				<Friends searchText={searchText} />
+			</div>
+			<LeftMenu />
 
-    return (
-        <>
-            <div>
-                <Header receive={receive}/>
-                <Friends searchText={searchText}/>
-            </div>
-            <LeftMenu/>
-
-
-            <Banner/>
-        </>
-    );
+			<Banner />
+		</div>
+	);
 }
 
 export default MainPage;

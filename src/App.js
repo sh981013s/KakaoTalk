@@ -1,17 +1,16 @@
-import './resources/css/base/styles.css'
-import MainPage from "./page/MainPage";
-
+import './resources/css/base/styles.css';
+import MainPage from './page/MainPage';
 
 /**
  * @author Lee seung hwan
  * @description ~~~~
  */
 function App() {
-    return (
-        <>
-            <MainPage/>
-        </>
-    );
+	return (
+		<>
+			<MainPage />
+		</>
+	);
 }
 
 export default App;

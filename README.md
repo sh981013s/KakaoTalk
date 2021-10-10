@@ -4,4 +4,4 @@
 
 developer : Lee seung hwan.
 
-skill stack : 
+skill stack :

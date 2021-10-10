@@ -1,21 +1,20 @@
-import {CloseOutlined, UserAddOutlined} from "@ant-design/icons";
-import {Input} from "antd";
-import {useEffect, useState} from "react";
-import KakaoModal from "./common/KakaoModal";
-import {SearchIcon} from "../resources/styled/layout";
+import { CloseOutlined, UserAddOutlined } from '@ant-design/icons';
+import { Input } from 'antd';
+import { useEffect, useState } from 'react';
+import KakaoModal from './common/KakaoModal';
+import { SearchIcon } from '../resources/styled/layout';
 
 function Header(props) {
-    const [text, setText] = useState('');
-    const [showModal, setShowModal] = useState(false);
-    const [trigger, setTrigger] = useState(false);
+	const [text, setText] = useState('');
+	const [showModal, setShowModal] = useState(false);
+	const [trigger, setTrigger] = useState(false);
 
+	useEffect(() => {
+		props.receive(text);
+	}, [text]);
 
-    useEffect(() => {
-        props.receive(text)
-    }, [text])
-
-    return (
-/*        <div>
+	return (
+		/*        <div>
             <SearchIcon onClick={() => setTrigger(!trigger)}/>
             <UserAddOutlined style={{fontSize: 40}} onClick={() => setShowModal(true)}/>
             {trigger && <>
@@ -27,8 +26,8 @@ function Header(props) {
             }
             <KakaoModal showModal={showModal} contents={'아 좋아'}/>
         </div>*/
-        <header className='screenHeader'></header>
-    );
+		<header className="screenHeader"></header>
+	);
 }
 
 export default Header;

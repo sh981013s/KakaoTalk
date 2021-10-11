@@ -38,3 +38,7 @@
     width: 100%;
     background-color: #F8F8F8;
 }
+
+.searchModalInput:focus {
+    outline: yellow;
+}

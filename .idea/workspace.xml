@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dc72bcb3-e5f7-4a98-9378-19a65d7c122d" name="Changes" comment="change Commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/css/base/reset.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/base/reset.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/contents/Friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/contents/Friends.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/css/mainpage/MainPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/mainpage/MainPage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/Header.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +62,7 @@
       <workItem from="1633866438758" duration="82000" />
       <workItem from="1633866551035" duration="178000" />
       <workItem from="1633866745736" duration="57000" />
-      <workItem from="1633866824128" duration="15315000" />
+      <workItem from="1633866824128" duration="23184000" />
     </task>
     <task id="LOCAL-00001" summary="change Commit">
       <created>1633774566726</created>

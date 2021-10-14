@@ -8,6 +8,7 @@ function Header(props) {
 	const [text, setText] = useState('');
 	const [showModal, setShowModal] = useState(false);
 	const [trigger, setTrigger] = useState(false);
+	const [addFriends, setAddFriends] = useState(false);
 
 	useEffect(() => {
 		props.receive(text);
@@ -33,11 +34,37 @@ function Header(props) {
 				<h1 className='screenHeaderTitle'>Friends</h1>
 				<div className="screenHeaderIcons">
 					<span><i className="fas fa-search fa-lg" onClick={() => {
-						setTrigger(!trigger)
+						setTrigger(!trigger);
 					}}/></span>
-					<span><i className="fas fa-user-plus fa-lg" onClick={() => setShowModal(true)}></i></span>
+					<span><i className="fas fa-user-plus fa-lg" onClick={() => {
+						setAddFriends(!addFriends);
+					}}></i></span>
 				</div>
 			</div>
+
+			{
+				addFriends
+				? 			<div className='friendsModal'>
+						<h2>Add Friends</h2>
+						<div className='friendsAddSelect'>
+							<div className='friendsAddSelectContacts'>
+								Contacts
+							</div>
+							<div className='friendsAddSelectId'>
+								ID
+							</div>
+						</div>
+						<div className='namePhone'>
+							<input className='name' type='text' placeholder='Name' />
+							<input className='phone' type='phone' placeholder='Phone Number'/>
+						</div>
+						<p className='friendsAddInstruction'>Enter a name and phone number</p>
+						<div className='addFriendsBtnBox'>
+							<button className='addFriendsBtn'>Add Friends</button>
+						</div>
+					</div>
+					: null
+			}
 
 			{
 				trigger ?
@@ -49,7 +76,6 @@ function Header(props) {
 					</div>
 					: null
 			}
-			<KakaoModal showModal={showModal} contents={'아 좋아'}/>
 
 
 		</header>

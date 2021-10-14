@@ -1,7 +1,9 @@
 
 .friendsList {
-    /*display: flex;*/
-    /*justify-content: space-between;*/
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
     /*height: 1000vh;*/
     padding-left: 8rem;
@@ -46,4 +48,86 @@
 .friendsList p {
     padding: 2rem;
     opacity: .7;
+}
+
+.friendsModal {
+    position: absolute;
+    padding: 2rem;
+    top: 7rem;
+    right: 3rem;
+    width: 40rem;
+    height: 50rem;
+    background: #bdbdbd;
+    border-radius: 1rem;
+    border: .1rem solid rgba(5, 5, 5, 0.16);
+    z-index: 1;
+}
+
+.friendsModal:after {
+    border-top: 0 solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #bdbdbd;
+    content:"";
+    position:absolute;
+    top:-10px;
+    right:20px;
+}
+
+.friendsModal h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.friendsAddSelect {
+    display: flex;
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+
+.friendsAddSelectContacts {
+    width: 50%;
+    border-bottom: .1rem solid rgba(33, 33, 33, 0.51);
+}
+
+.friendsAddSelectId {
+    width: 50%;
+    border-bottom: .1rem solid rgba(33, 33, 33, 0.16);
+    opacity: .5;
+}
+
+.friendsAddSelect hr {
+    width: 90%;
+    text-align: center;
+}
+
+.name,
+.phone {
+    width: 100%;
+    height: 4rem;
+    margin-bottom: 1rem;
+    background: #bdbdbd;
+    border: none;
+    border-bottom: .1rem solid rgba(33, 33, 33, 0.51);
+    font-size: 2rem;
+}
+
+.friendsAddInstruction {
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.49);
+    margin-bottom: 12rem;
+}
+
+.addFriendsBtnBox {
+    display: flex;
+    justify-content: center;
+}
+
+.addFriendsBtn {
+    width: 100%;
+    height: 3rem;
+    border-radius: 1rem;
+    border: none;
 }

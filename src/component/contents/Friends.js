@@ -8,11 +8,11 @@ function Friends(props) {
 	const [showProfile, setShowProfile] = useState(true);
 
 	const bowl = [
-		{ name: 'robot1', desc: 'lol', pic: 'jason' },
+		{ name: 'robot1', desc: 'hi', pic: 'jason' },
 		{ name: 'robot2', desc: 'lol', pic: 'jason' },
-		{ name: 'robot3', desc: 'lol', pic: 'jason' },
-		{ name: 'robot4', desc: 'lol', pic: 'jason' },
-		{ name: 'robot5', desc: 'lol', pic: 'jason' },
+		{ name: 'robot3', desc: '', pic: 'jason' },
+		{ name: 'robot4', desc: 'kk', pic: 'jason' },
+		{ name: 'robot5', desc: 'good', pic: 'jason' },
 	];
 
 	useEffect(() => {

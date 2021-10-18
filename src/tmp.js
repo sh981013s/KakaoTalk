@@ -72,17 +72,17 @@ function App() {
 		<>
 
 
-			{/*<Input value={text} onChange={(e) => setText(e.target.value)} onPressEnter={searchEvent} suffix={<span onClick={()=>{setText('')}}>asdf</span>}/>*/}
-			{/*<div style={{textAlign: 'center'}}>*/}
-			{/*    <Popover placement="bottomRight" content={content} trigger="click">*/}
-			{/*        <Button>눌러</Button>*/}
-			{/*    </Popover>*/}
+			<Input value={text} onChange={(e) => setText(e.target.value)} onPressEnter={searchEvent} suffix={<span onClick={()=>{setText('')}}>asdf</span>}/>
+			<div style={{textAlign: 'center'}}>
+			    <Popover placement="bottomRight" content={content} trigger="click">
+			        <Button>눌러</Button>
+			    </Popover>
 
-			{/*    {datalist.map((value)=>{*/}
-			{/*        return <div>{value.name}</div>*/}
-			{/*    })}*/}
-			{/*</div>*/}
-			{/*<Button style={{backgroundColor : buttonState ? '' : 'yellow'}} disabled={buttonState}>{buttonState ? 'Add Friends' : '다이다이'}</Button>*/}
+			    {datalist.map((value)=>{
+			        return <div>{value.name}</div>
+			    })}
+			</div>
+			<Button style={{backgroundColor : buttonState ? '' : 'yellow'}} disabled={buttonState}>{buttonState ? 'Add Friends' : '다이다이'}</Button>
 
 			<div style={{width: 500}}>
 				<Select style={{width: 100}} value={selectVelue} onChange={(e)=> setSelectValue(e)}>

@@ -50,84 +50,52 @@
     opacity: .7;
 }
 
-.friendsModal {
-    position: absolute;
-    padding: 2rem;
-    top: 7rem;
-    right: 3rem;
-    width: 40rem;
-    height: 50rem;
-    background: #bdbdbd;
-    border-radius: 1rem;
-    border: .1rem solid rgba(5, 5, 5, 0.16);
-    z-index: 1;
+.addFriendsModal {
+    width: 30rem;
+    height: 42rem;
+    border-radius: 50%;
 }
 
-.friendsModal:after {
-    border-top: 0 solid transparent;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid #bdbdbd;
-    content:"";
-    position:absolute;
-    top:-10px;
-    right:20px;
+.ant-popover-placement-bottomRight .ant-popover-arrow {
+    right: 11px;
 }
 
-.friendsModal h2 {
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.friendsAddSelect {
-    display: flex;
-    text-align: center;
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-}
-
-.friendsAddSelectContacts {
-    width: 50%;
-    border-bottom: .1rem solid rgba(33, 33, 33, 0.51);
-}
-
-.friendsAddSelectId {
-    width: 50%;
-    border-bottom: .1rem solid rgba(33, 33, 33, 0.16);
-    opacity: .5;
-}
-
-.friendsAddSelect hr {
-    width: 90%;
-    text-align: center;
-}
-
-.name,
-.phone {
-    width: 100%;
-    height: 4rem;
-    margin-bottom: 1rem;
-    background: #bdbdbd;
-    border: none;
-    border-bottom: .1rem solid rgba(33, 33, 33, 0.51);
-    font-size: 2rem;
-}
-
-.friendsAddInstruction {
-    font-size: 1.5rem;
-    color: rgba(0, 0, 0, 0.49);
-    margin-bottom: 12rem;
-}
-
-.addFriendsBtnBox {
+.addFriends {
     display: flex;
     justify-content: center;
+    color: red;
 }
 
-.addFriendsBtn {
-    width: 100%;
-    height: 3rem;
-    border-radius: 1rem;
-    border: none;
+.ant-popover-inner {
+    border-radius: 2rem !important;
 }
+
+.addFriendsModalTitle {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.ant-menu-overflow-item {
+    width: 50%;
+    text-align: center;
+}
+
+.ant-menu-item {
+    color: #5d5d5d !important;
+}
+
+.ant-menu-item-selected {
+    color: black !important;
+}
+
+.ant-menu-item-selected::after {
+    border-bottom: 2px solid #000 !important;
+}
+
+.ant-menu-horizontal {
+    margin-bottom: 5.9rem !important;
+}
+
+
+

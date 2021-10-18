@@ -3,12 +3,22 @@ import { Input } from 'antd';
 import { useEffect, useState } from 'react';
 import KakaoModal from './common/KakaoModal';
 import { SearchIcon } from '../resources/styled/layout';
+import {getData} from '../utils/Api';
+import * as Friends from './contents/Friends';
 
 function Header(props) {
 	const [text, setText] = useState('');
 	const [showModal, setShowModal] = useState(false);
 	const [trigger, setTrigger] = useState(false);
 	const [addFriends, setAddFriends] = useState(false);
+
+
+	const getSearchData = async () => {
+	}
+
+	useEffect(()=>{
+		getSearchData()
+	},[])
 
 	useEffect(() => {
 		props.receive(text);
@@ -45,6 +55,9 @@ function Header(props) {
 			{
 				addFriends
 				? 			<div className='friendsModal'>
+						<input className="radio" id="one" name="group" type="radio" checked />
+							<input className="radio" id="two" name="group" type="radio" />
+								<input className="radio" id="three" name="group" type="radio" />
 						<h2>Add Friends</h2>
 						<div className='friendsAddSelect'>
 							<div className='friendsAddSelectContacts'>
@@ -76,7 +89,6 @@ function Header(props) {
 					</div>
 					: null
 			}
-
 
 		</header>
 	);

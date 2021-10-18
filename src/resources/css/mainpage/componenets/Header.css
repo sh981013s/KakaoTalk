@@ -42,3 +42,17 @@
 .searchModalInput:focus {
     outline: yellow;
 }
+
+.addFriendsContent p{
+    margin-bottom: 13rem;
+}
+
+.addFriendsButton {
+    width: 100%;
+    background: #d7d7d7 !important;
+    border-radius: .5rem !important;
+}
+
+.addFriendsButton-active {
+    background: #fcd411 !important;
+}

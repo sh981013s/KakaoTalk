@@ -1,5 +1,10 @@
 const telCode = [
 	{
+		"name": "Korea, Republic of South Korea",
+		"dial_code": "+82",
+		"code": "KR"
+	},
+	{
 		"name": "Afghanistan",
 		"dial_code": "+93",
 		"code": "AF"
@@ -563,11 +568,6 @@ const telCode = [
 		"name": "Korea, Democratic People's Republic of Korea",
 		"dial_code": "+850",
 		"code": "KP"
-	},
-	{
-		"name": "Korea, Republic of South Korea",
-		"dial_code": "+82",
-		"code": "KR"
 	},
 	{
 		"name": "Kuwait",

@@ -6,7 +6,8 @@
       <change beforePath="$PROJECT_DIR$/src/component/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/contents/Friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/contents/Friends.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/Friends.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/Friends.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tmp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tmp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/Header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/telCode.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/telCode.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +66,7 @@
       <workItem from="1633866745736" duration="57000" />
       <workItem from="1633866824128" duration="51027000" />
       <workItem from="1634472569675" duration="454000" />
-      <workItem from="1634530974628" duration="6880000" />
+      <workItem from="1634530974628" duration="12216000" />
     </task>
     <task id="LOCAL-00001" summary="change Commit">
       <created>1633774566726</created>

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import jason from '../../resources/img/jason.jpg';
 import basic from '../../resources/img/basic_profile.jpg';
 import {getData} from '../../utils/Api';
-import {Button, Input, Menu, Popover, Select} from "antd";
+import {Input, Menu, Popover, Select} from "antd";
 
 function Friends(props) {
 

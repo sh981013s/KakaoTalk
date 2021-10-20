@@ -2,9 +2,9 @@ import Banner from '../component/Banner';
 import Friends from '../component/contents/Friends';
 import LeftMenu from '../component/LeftMenu';
 import Header from '../component/Header';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import '../resources/css/mainpage/MainPage.css';
-import {getData} from '../utils/Api';
+// import {getData} from '../utils/Api';
 
 function MainPage() {
 	const [searchText, setSearchText] = useState('');

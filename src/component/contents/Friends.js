@@ -17,20 +17,11 @@ function Friends(props) {
 		setCopyList(resultData.data);
 	}
 
+
 	useEffect(()=>{
 		getFriendsData();
 	},[])
 
-	const entireUser = [
-		{ name: 'robot1', desc: 'hi', pic: 'jason' },
-		{ name: 'robot2', desc: 'lol', pic: 'jason' },
-		{ name: 'robot3', desc: '', pic: 'jason' },
-		{ name: 'robot4', desc: 'kk', pic: 'jason' },
-		{ name: 'robot5', desc: 'good', pic: 'jason' },
-		{ name: 'robot6', desc: 'good', pic: 'jason' },
-		{ name: 'robot7', desc: 'good', pic: 'jason' },
-
-	];
 
 
 	const bowl = [

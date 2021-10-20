@@ -4,6 +4,7 @@ import * as Friends from './contents/Friends';
 import {Button, Input, Menu, Popover, Select, Modal } from "antd";
 import {Option} from "antd/es/mentions";
 import telCode from  '../utils/telCode';
+import basic from '../resources/img/basic_profile.jpg';
 
 
 function Header(props) {
@@ -20,9 +21,10 @@ function Header(props) {
 	const [isAlreadyExistAsFriend, setIsAlreadyExistAs] = useState(false);
 
 	const [searchFriendsById, setSearchFriendsById] = useState('');
-	const [isExistById, setIsExistById] = useState(false);
+	const [isExistById, setIsExistById] = useState('');
 
 	const [searchByIdResult, setSearchByIdResult] = useState('');
+	const [searchByIdInputSave, setSearchByIdInputSave] = useState('');
 
 	let addFriendsButtonColor = 'addFriendsButton' + (allFilled ? ' addFriendsButton-active' : '');
 
@@ -52,10 +54,10 @@ function Header(props) {
 
 
 	const entireUser = [
-		{countryCode: '+82', name: 'lee', phoneNumber: '01093021013', kakaoID: 'sh981013'},
-		{countryCode: '+82', name: 'kim', phoneNumber: '01011111111', kakaoID: 'aaa'},
-		{countryCode: '+82', name: 'kwon', phoneNumber: '01022222222', kakaoID: 'bbb'},
-		{countryCode: '+82', name: 'park', phoneNumber: '01033333333', kakaoID: 'ccc'},
+		{countryCode: '+82', name: 'lee', phoneNumber: '01093021013', kakaoID: 'sh981013', desc: 'lol'},
+		{countryCode: '+82', name: 'kim', phoneNumber: '01011111111', kakaoID: 'aaa', desc: 'h1'},
+		{countryCode: '+82', name: 'kwon', phoneNumber: '01022222222', kakaoID: 'bbb', desc: 'bye'},
+		{countryCode: '+82', name: 'park', phoneNumber: '01033333333', kakaoID: 'ccc', desc: 'good'},
 	]
 
 	let friendsList = [];
@@ -86,6 +88,7 @@ function Header(props) {
 		const userToAdd = entireUser.filter(user => {
 			return (user.kakaoID === searchFriendsById);
 		})
+
 		if(userToAdd.length > 0) {
 			const isAlreadyExist = friendsList.find((c)=> c.phoneNumber === userToAdd[0].phoneNumber);
 			if(isAlreadyExist) {
@@ -109,6 +112,8 @@ function Header(props) {
 		let result = entireUser.filter(user => {
 			return user.kakaoID === searchFriendsById
 		})
+		setSearchByIdInputSave(searchFriendsById);
+		console.log(searchByIdInputSave);
 		if (result.length > 0) {
 			setIsExistById(true);
 			console.log(isExistById);
@@ -126,10 +131,27 @@ function Header(props) {
 
 
 	let searchByIdContent = (
-		isExistById ?
-			<div>{ searchByIdResult[0].name }</div>
-			: <div>nope</div>
-	);
+			isExistById === true ? <div className = 'searchByIdContent'>
+					<div className='addFriendsByIdProfilePicBox'>
+						<img src={ basic } alt='lol' className="addFriendsByIdProfilePic" />
+					</div>
+					<p className='searchByIdContentName'>{searchByIdResult[0].name}</p>
+					<p className='searchByIdContentDesc'>{searchByIdResult[0].desc}</p>
+				</div>
+				: isExistById === false ? <div className= 'searchByIdContent'>
+						<p className='searchByIdContentName'>Unable to find '{searchByIdInputSave}'</p>
+						<p className='searchByIdContentDesc'>The ID does not exist or is non-searchable.</p>
+				</div>
+		: isExistById === '' ?<div>
+							<p className='searchByIdContentDesc'>You can find friends if they have created an ID and it is set as searchable to others</p>
+		</div>
+					: null
+	)
+
+
+
+
+
 
 
 
@@ -144,6 +166,11 @@ function Header(props) {
 		isAlreadyExistAsFriend ? 'This user is alreay on your KakaoTalk friends list.'
 			: 'Invalid phone number. Please enter a different number.');
 
+
+	const addFriendsClearBtnFunc = () => {
+		setIsExistById('');
+		setSearchFriendsById('');
+	}
 
 
 
@@ -181,12 +208,11 @@ function Header(props) {
 					:
 					<>
 						<div className='addFriendsContent'>
-							<Input placeholder='KakakoTalk ID' value={searchFriendsById} onChange={(e) => setSearchFriendsById(e.target.value)} onPressEnter={searchById} suffix={<span onClick={()=>{setSearchFriendsById('')}}><i
+							<Input placeholder='KakakoTalk ID' value={searchFriendsById} onChange={(e) => setSearchFriendsById(e.target.value)} onPressEnter={searchById} suffix={<span onClick={addFriendsClearBtnFunc}><i
 								className="fas fa-times-circle"></i></span>}/>
-							<p>{ addFriendsModalDesc }</p>
-							<Button className={addFriendsButtonColor} disabled={!allFilled} onClick={addFriendEventById}>Add Friends</Button>
+							{/*<p>{ addFriendsModalDesc }</p>*/}
 							{ searchByIdContent }
-
+							<Button className={addFriendsButtonColor} disabled={!allFilled} >Add Friends</Button>
 						</div>
 					</>
 			}

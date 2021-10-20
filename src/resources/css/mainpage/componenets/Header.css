@@ -58,3 +58,39 @@
 .addFriendsButton-active {
     background: #fcd411 !important;
 }
+
+.searchByIdContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    height: 20rem;
+    text-align: center;
+}
+
+.searchByIdContent p {
+    width: 100%;
+}
+
+.addFriendsByIdProfilePic {
+    height: 95px;
+    border-radius: 38%;
+}
+
+.addFriendsByIdProfilePicBox {
+    width: 100%;
+}
+
+.searchByIdContent p {
+    height: 5px;
+}
+
+.searchByIdContentName {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.searchByIdContentDesc {
+    opacity: .6;
+}

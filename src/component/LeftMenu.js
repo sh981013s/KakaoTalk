@@ -1,4 +1,7 @@
 function LeftMenu() {
+
+	const [muted, setMuted] = useState(() => {})
+
 	return <nav className="leftMenu">
 		<ul className="navList">
 			<li className='navTop'>

@@ -26,6 +26,8 @@ function Header(props) {
 	const [searchByIdResult, setSearchByIdResult] = useState('');
 	const [searchByIdInputSave, setSearchByIdInputSave] = useState('');
 
+	const [friendsList, setFriendsList] = useState([]);
+	const [result, setResult] = useState([]);
 	let addFriendsButtonColor = 'addFriendsButton' + (allFilled ? ' addFriendsButton-active' : '');
 
 
@@ -60,21 +62,24 @@ function Header(props) {
 		{countryCode: '+82', name: 'park', phoneNumber: '01033333333', kakaoID: 'ccc', desc: 'good'},
 	]
 
-	let friendsList = [];
 
 	const addFriendEventByContacts = () => {
 		const userToAdd = entireUser.filter(user => {
 			return(user.countryCode === countryCode && user.phoneNumber === phoneNumber)
 		})
+		console.log(friendsList , 'friendsList');
+		console.log(userToAdd[0].phoneNumber);
 		if(userToAdd.length > 0) {
-			const isAlreadyExist = friendsList.find((c)=> c.phoneNumber === userToAdd[0].phoneNumber);
+			let isAlreadyExist = friendsList.find( c => c.phoneNumber === userToAdd[0].phoneNumber);
 			if(isAlreadyExist) {
 				setIsValidInfoToAdd(false);
 				setIsAlreadyExistAs(true);
 				setAllFilled(false);
 			} else {
 				userToAdd[0].name = searchFriends;
-				friendsList.push(...userToAdd);
+				// friendsList.push(...userToAdd);
+				console.log('added');
+				setFriendsList([...friendsList,{...userToAdd[0]}]);
 				setIsValidInfoToAdd(true);
 				console.log(friendsList);
 			}
@@ -84,45 +89,39 @@ function Header(props) {
 		}
 		};
 
-	const addFriendEventById = () => {
-		const userToAdd = entireUser.filter(user => {
-			return (user.kakaoID === searchFriendsById);
-		})
-
-		if(userToAdd.length > 0) {
-			const isAlreadyExist = friendsList.find((c)=> c.phoneNumber === userToAdd[0].phoneNumber);
-			if(isAlreadyExist) {
-				setIsValidInfoToAdd(false);
-				setIsAlreadyExistAs(true);
-				setAllFilled(false);
-			} else {
-				friendsList.push(...userToAdd);
-				setIsValidInfoToAdd(true);
-				console.log(friendsList);
-			}
-		} else {
-			setIsValidInfoToAdd(false);
-			setAllFilled(false);
-		}
-	}
 
 
 
 	const searchById = () => {
-		let result = entireUser.filter(user => {
+		const result = entireUser.filter(user => {
 			return user.kakaoID === searchFriendsById
 		})
 		setSearchByIdInputSave(searchFriendsById);
-		console.log(searchByIdInputSave);
 		if (result.length > 0) {
 			setIsExistById(true);
-			console.log(isExistById);
 			setSearchByIdResult(result);
 		} else {
 			setIsExistById(false);
-			console.log(isExistById);
 		}
 	}
+
+	const addFriendEventById = () => {
+		const userToAdd = [{...searchByIdResult[0]}];
+		console.log(userToAdd, 'userToAdd');
+		if(userToAdd.length > 0) {
+			let isAlreadyExist = friendsList.find( c => c.phoneNumber === userToAdd[0].phoneNumber);
+			if(isAlreadyExist) {
+				console.log('already exist');
+				return null;
+			} else {
+				console.log('added');
+				setFriendsList([...friendsList,{...userToAdd[0]}]);
+			}
+		} else {
+
+			return null;
+		}
+	};
 
 /*	useEffect(() => {
 		consol
@@ -212,7 +211,7 @@ function Header(props) {
 								className="fas fa-times-circle"></i></span>}/>
 							{/*<p>{ addFriendsModalDesc }</p>*/}
 							{ searchByIdContent }
-							<Button className={addFriendsButtonColor} disabled={!allFilled} >Add Friends</Button>
+							<Button className={addFriendsButtonColor} disabled={!allFilled} onClick={addFriendEventById}>Add Friends</Button>
 						</div>
 					</>
 			}
@@ -224,7 +223,9 @@ function Header(props) {
 	return (
 		<header className="screenHeader">
 			<div className='mainTop'>
-				<h1 className='screenHeaderTitle'>Friends</h1>
+				<h1 className='screenHeaderTitle' onClick={() => {
+					console.log(friendsList);
+				}}>Friends</h1>
 				<div className="screenHeaderIcons">
 					<span><i className="fas fa-search fa-lg" onClick={() => {
 						setTrigger(!trigger);

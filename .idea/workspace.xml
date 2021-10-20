@@ -4,7 +4,7 @@
     <list default="true" id="dc72bcb3-e5f7-4a98-9378-19a65d7c122d" name="Changes" comment="change Commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/Header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/LeftMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/LeftMenu.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +64,7 @@
       <workItem from="1633866824128" duration="51027000" />
       <workItem from="1634472569675" duration="454000" />
       <workItem from="1634530974628" duration="12465000" />
-      <workItem from="1634573787288" duration="22674000" />
+      <workItem from="1634573787288" duration="26992000" />
     </task>
     <task id="LOCAL-00001" summary="change Commit">
       <created>1633774566726</created>

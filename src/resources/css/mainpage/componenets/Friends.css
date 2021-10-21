@@ -55,9 +55,9 @@
 	border-radius: 50%;
 }
 
-.ant-popover-placement-bottomRight .ant-popover-arrow {
-	right: 11px;
-}
+/*.ant-popover-placement-bottomRight .ant-popover-arrow {*/
+/*	right: 11px;*/
+/*}*/
 
 .addFriends {
 	display: flex;
@@ -112,3 +112,42 @@
 .ant-btn:empty {
 	visibility: unset !important;
 }
+
+
+
+
+.birthDay {
+	left: 20rem !important;
+	top: 29rem !important;
+}
+
+.birthDay > .ant-popover-content > .ant-popover-inner {
+	width: 28rem;
+	min-height: 40rem;
+}
+
+.birthDay > .ant-popover-content > .ant-popover-arrow {
+	top: 10%;
+}
+
+.friendsListIcon {
+	width: 7rem;
+	height: 7rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 3rem;
+	background: #E1747A;
+}
+
+.friendsListIcon i {
+	color: white;
+	height: 70%;
+}
+
+.friendsModal h2 {
+	margin-bottom: 1.5rem;
+	text-align: center;
+	font-weight: 600;
+}
+

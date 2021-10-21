@@ -1,28 +1,22 @@
 import { useEffect, useState } from 'react';
 import jason from '../../resources/img/jason.jpg';
 import basic from '../../resources/img/basic_profile.jpg';
-import {getData} from '../../utils/Api';
-import {Input, Menu, Popover, Select} from "antd";
+import { getData } from '../../utils/Api';
+import { Input, Menu, Popover, Select } from 'antd';
 
 function Friends(props) {
-
-
-
 	const [copyList, setCopyList] = useState([]);
 
 	const [showProfile, setShowProfile] = useState(true);
 
-	const getFriendsData = async() => {
+	const getFriendsData = async () => {
 		const resultData = await getData.get('member/getFriends');
 		setCopyList(resultData.data);
-	}
+	};
 
-
-	useEffect(()=>{
+	useEffect(() => {
 		getFriendsData();
-	},[])
-
-
+	}, []);
 
 	const bowl = [
 		{ name: 'robot1', desc: 'hi', pic: 'jason' },
@@ -37,10 +31,10 @@ function Friends(props) {
 			value.name.includes(props.searchText)
 		);
 		setCopyList(resultData);
-		if(props.searchText !== '') {
+		if (props.searchText !== '') {
 			setShowProfile(false);
 		} else {
-			setShowProfile(true)
+			setShowProfile(true);
 		}
 	}, [props.searchText]);
 
@@ -48,53 +42,51 @@ function Friends(props) {
 		props.func(copyList);
 	}, [copyList]);
 
-
 	return (
-		<main className='friendsList'>
-			{
-				showProfile
-					? <>
-						<div className='userComponent'>
-
-							<img src={jason} alt='lol' className="userComponentAvatar userComponentAvatarXl" />
-							<div className='userComponentDetails'>
-								<div className='userComponentName'>
-									<h4>Jason Lee</h4>
-								</div>
-								<div className='userComponentDesc'>
-									<h5>Hi</h5>
-								</div>
+		<main className="friendsList">
+			{showProfile ? (
+				<>
+					<div className="userComponent">
+						<img
+							src={jason}
+							alt="lol"
+							className="userComponentAvatar userComponentAvatarXl"
+						/>
+						<div className="userComponentDetails">
+							<div className="userComponentName">
+								<h4>Jason Lee</h4>
 							</div>
-
-						</div>
-						<hr />
-						<p>friends { copyList.length }</p>
-					</>
-					: null
-			}
-
-			{copyList.map((e)=>{
-				return(
-					<div className='userComponent'>
-
-						<img src={ basic } alt='lol' className="userComponentAvatar userComponentAvatarXl" />
-						<div className='userComponentDetails'>
-							<div className='userComponentName'>
-								<h4>{ e.name }</h4>
-							</div>
-							<div className='userComponentDesc'>
-								<h5>{ e.desc }</h5>
+							<div className="userComponentDesc">
+								<h5>Hi</h5>
 							</div>
 						</div>
-
 					</div>
-				)
-			})}
+					<hr />
+					<p>friends {copyList.length}</p>
+				</>
+			) : null}
 
+			{copyList.map((e) => {
+				return (
+					<div className="userComponent">
+						<img
+							src={basic}
+							alt="lol"
+							className="userComponentAvatar userComponentAvatarXl"
+						/>
+						<div className="userComponentDetails">
+							<div className="userComponentName">
+								<h4>{e.name}</h4>
+							</div>
+							<div className="userComponentDesc">
+								<h5>{e.desc}</h5>
+							</div>
+						</div>
+					</div>
+				);
+			})}
 		</main>
 	);
-};
-
+}
 
 export default Friends;
-

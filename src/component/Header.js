@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
 // import {getData} from '../utils/Api';
-import * as Friends from './contents/Friends';
-import {Button, Input, Menu, Popover, Select, Modal } from "antd";
-import {Option} from "antd/es/mentions";
-import telCode from  '../utils/telCode';
+import { Button, Input, Menu, Popover, Select } from 'antd';
+import { Option } from 'antd/es/mentions';
+import telCode from '../utils/telCode';
 import basic from '../resources/img/basic_profile.jpg';
-
 
 function Header(props) {
 	const [text, setText] = useState('');
@@ -27,51 +25,78 @@ function Header(props) {
 	const [searchByIdInputSave, setSearchByIdInputSave] = useState('');
 
 	const [friendsList, setFriendsList] = useState([]);
-	const [result, setResult] = useState([]);
-	let addFriendsButtonColor = 'addFriendsButton' + (allFilled ? ' addFriendsButton-active' : '');
+	let addFriendsButtonColor =
+		'addFriendsButton' + (allFilled ? ' addFriendsButton-active' : '');
 
-
-	useEffect(()=> {
-		if(countryCode && searchFriends && phoneNumber !== '' || searchFriendsById !== '') {
+	useEffect(() => {
+		if (
+			(countryCode && searchFriends && phoneNumber !== '') ||
+			searchFriendsById !== ''
+		) {
 			setAllFilled(true);
 		} else {
 			setAllFilled(false);
 		}
-	}, [countryCode, searchFriends, phoneNumber, searchFriendsById])
+	}, [countryCode, searchFriends, phoneNumber, searchFriendsById]);
 
-	const getSearchData = async () => {
-	}
+	const getSearchData = async () => {};
 
 	const handleClick = (e) => {
-		setCurrent(e.key)
-	}
+		setCurrent(e.key);
+	};
 
-	useEffect(()=>{
-		getSearchData()
-	},[])
+	useEffect(() => {
+		getSearchData();
+	}, []);
 
 	useEffect(() => {
 		props.receive(text);
 	}, [text]);
 
-
 	const entireUser = [
-		{countryCode: '+82', name: 'lee', phoneNumber: '01093021013', kakaoID: 'sh981013', desc: 'lol'},
-		{countryCode: '+82', name: 'kim', phoneNumber: '01011111111', kakaoID: 'aaa', desc: 'h1'},
-		{countryCode: '+82', name: 'kwon', phoneNumber: '01022222222', kakaoID: 'bbb', desc: 'bye'},
-		{countryCode: '+82', name: 'park', phoneNumber: '01033333333', kakaoID: 'ccc', desc: 'good'},
-	]
-
+		{
+			countryCode: '+82',
+			name: 'lee',
+			phoneNumber: '01093021013',
+			kakaoID: 'sh981013',
+			desc: 'lol',
+		},
+		{
+			countryCode: '+82',
+			name: 'kim',
+			phoneNumber: '01011111111',
+			kakaoID: 'aaa',
+			desc: 'h1',
+		},
+		{
+			countryCode: '+82',
+			name: 'kwon',
+			phoneNumber: '01022222222',
+			kakaoID: 'bbb',
+			desc: 'bye',
+		},
+		{
+			countryCode: '+82',
+			name: 'park',
+			phoneNumber: '01033333333',
+			kakaoID: 'ccc',
+			desc: 'good',
+		},
+	];
 
 	const addFriendEventByContacts = () => {
-		const userToAdd = entireUser.filter(user => {
-			return(user.countryCode === countryCode && user.phoneNumber === phoneNumber)
-		})
-		console.log(friendsList , 'friendsList');
+		const userToAdd = entireUser.filter((user) => {
+			return (
+				user.countryCode === countryCode && user.phoneNumber === phoneNumber
+			);
+		});
+		console.log(friendsList, 'friendsList');
 		console.log(userToAdd[0].phoneNumber);
-		if(userToAdd.length > 0) {
-			let isAlreadyExist = friendsList.find( c => c.phoneNumber === userToAdd[0].phoneNumber);
-			if(isAlreadyExist) {
+		if (userToAdd.length > 0) {
+			let isAlreadyExist = friendsList.find(
+				(c) => c.phoneNumber === userToAdd[0].phoneNumber
+			);
+			if (isAlreadyExist) {
 				setIsValidInfoToAdd(false);
 				setIsAlreadyExistAs(true);
 				setAllFilled(false);
@@ -79,7 +104,7 @@ function Header(props) {
 				userToAdd[0].name = searchFriends;
 				// friendsList.push(...userToAdd);
 				console.log('added');
-				setFriendsList([...friendsList,{...userToAdd[0]}]);
+				setFriendsList([...friendsList, { ...userToAdd[0] }]);
 				setIsValidInfoToAdd(true);
 				console.log(friendsList);
 			}
@@ -87,15 +112,12 @@ function Header(props) {
 			setIsValidInfoToAdd(false);
 			setAllFilled(false);
 		}
-		};
-
-
-
+	};
 
 	const searchById = () => {
-		const result = entireUser.filter(user => {
-			return user.kakaoID === searchFriendsById
-		})
+		const result = entireUser.filter((user) => {
+			return user.kakaoID === searchFriendsById;
+		});
 		setSearchByIdInputSave(searchFriendsById);
 		if (result.length > 0) {
 			setIsExistById(true);
@@ -103,148 +125,199 @@ function Header(props) {
 		} else {
 			setIsExistById(false);
 		}
-	}
+	};
 
 	const addFriendEventById = () => {
-		const userToAdd = [{...searchByIdResult[0]}];
+		const userToAdd = [{ ...searchByIdResult[0] }];
 		console.log(userToAdd, 'userToAdd');
-		if(userToAdd.length > 0) {
-			let isAlreadyExist = friendsList.find( c => c.phoneNumber === userToAdd[0].phoneNumber);
-			if(isAlreadyExist) {
+		if (userToAdd.length > 0) {
+			let isAlreadyExist = friendsList.find(
+				(c) => c.phoneNumber === userToAdd[0].phoneNumber
+			);
+			if (isAlreadyExist) {
 				console.log('already exist');
 				return null;
 			} else {
 				console.log('added');
-				setFriendsList([...friendsList,{...userToAdd[0]}]);
+				setFriendsList([...friendsList, { ...userToAdd[0] }]);
 			}
 		} else {
-
 			return null;
 		}
 	};
 
-/*	useEffect(() => {
-		consol
-	},[setSearchByIdResult()])*/
 
-
-
-	let searchByIdContent = (
-			isExistById === true ? <div className = 'searchByIdContent'>
-					<div className='addFriendsByIdProfilePicBox'>
-						<img src={ basic } alt='lol' className="addFriendsByIdProfilePic" />
-					</div>
-					<p className='searchByIdContentName'>{searchByIdResult[0].name}</p>
-					<p className='searchByIdContentDesc'>{searchByIdResult[0].desc}</p>
+	let searchByIdContent =
+		isExistById === true ? (
+			<div className="searchByIdContent">
+				<div className="addFriendsByIdProfilePicBox">
+					<img src={basic} alt="lol" className="addFriendsByIdProfilePic" />
 				</div>
-				: isExistById === false ? <div className= 'searchByIdContent'>
-						<p className='searchByIdContentName'>Unable to find '{searchByIdInputSave}'</p>
-						<p className='searchByIdContentDesc'>The ID does not exist or is non-searchable.</p>
-				</div>
-		: isExistById === '' ?<div>
-							<p className='searchByIdContentDesc'>You can find friends if they have created an ID and it is set as searchable to others</p>
-		</div>
-					: null
-	)
-
-
-
-
-
-
-
-
+				<p className="searchByIdContentName">{searchByIdResult[0].name}</p>
+				<p className="searchByIdContentDesc">{searchByIdResult[0].desc}</p>
+			</div>
+		) : isExistById === false ? (
+			<div className="searchByIdContent">
+				<p className="searchByIdContentName">
+					Unable to find '{searchByIdInputSave}'
+				</p>
+				<p className="searchByIdContentDesc">
+					The ID does not exist or is non-searchable.
+				</p>
+			</div>
+		) : isExistById === '' ? (
+			<div>
+				<p className="searchByIdContentDesc">
+					You can find friends if they have created an ID and it is set as
+					searchable to others
+				</p>
+			</div>
+		) : null;
 
 	useEffect(() => {
 		props.receive(text);
 	}, [text]);
 
-
-
-	let addFriendsModalDesc = (isValidInfoToAdd ? 'Enter a name and phone number.' :
-		isAlreadyExistAsFriend ? 'This user is alreay on your KakaoTalk friends list.'
-			: 'Invalid phone number. Please enter a different number.');
-
+	let addFriendsModalDesc = isValidInfoToAdd
+		? 'Enter a name and phone number.'
+		: isAlreadyExistAsFriend
+		? 'This user is alreay on your KakaoTalk friends list.'
+		: 'Invalid phone number. Please enter a different number.';
 
 	const addFriendsClearBtnFunc = () => {
 		setIsExistById('');
 		setSearchFriendsById('');
-	}
-
-
+	};
 
 	const content = (
-		<div className='addFriendsModal'>
-			<h2 className='addFriendsModalTitle'>Add Friends</h2>
-			<Menu className='addFriends' onClick={handleClick} selectedKeys={[current]} mode="horizontal">
-				<Menu.Item key="contacts">
-					Contacts
-				</Menu.Item>
-				<Menu.Item key="ID">
-					ID
-				</Menu.Item>
+		<div className="addFriendsModal">
+			<h2 className="addFriendsModalTitle">Add Friends</h2>
+			<Menu
+				className="addFriends"
+				onClick={handleClick}
+				selectedKeys={[current]}
+				mode="horizontal"
+			>
+				<Menu.Item key="contacts">Contacts</Menu.Item>
+				<Menu.Item key="ID">ID</Menu.Item>
 			</Menu>
-			{
-				current === 'contacts' ?
-					<>
-						<div className='addFriendsContent'>
-							<Input placeholder='Name' value={searchFriends} onChange={(e) => setSearchFriends(e.target.value)} suffix={<span onClick={()=>{setSearchFriends('')}}><i
-								className="fas fa-times-circle"></i></span>}/>
-							<div className='addFriendsFirstInput'>
-								<Select className='addFriendsCountry' onChange={(e)=> setCountryCode(e)} value={countryCode} style={{width:100}}>
-									{ telCode.map((country) => {
-										return (<Option value={country.dial_code}>{country.dial_code} {country.name}</Option>)
-									}) }
-								</Select>
-								<Input  placeholder='Phone Number' className='addFriendsPhone' value={phoneNumber} onChange={(e)=>setPhoneNumber(e.target.value)}/>
-							</div>
-							<p>{ addFriendsModalDesc }</p>
-							<Button className={addFriendsButtonColor} disabled={!allFilled} onClick={addFriendEventByContacts}>Add Friends</Button>
-
+			{current === 'contacts' ? (
+				<>
+					<div className="addFriendsContent">
+						<Input
+							placeholder="Name"
+							value={searchFriends}
+							onChange={(e) => setSearchFriends(e.target.value)}
+							suffix={
+								<span
+									onClick={() => {
+										setSearchFriends('');
+									}}
+								>
+									<i className="fas fa-times-circle"></i>
+								</span>
+							}
+						/>
+						<div className="addFriendsFirstInput">
+							<Select
+								className="addFriendsCountry"
+								onChange={(e) => setCountryCode(e)}
+								value={countryCode}
+								style={{ width: 100 }}
+							>
+								{telCode.map((country) => {
+									return (
+										<Option value={country.dial_code}>
+											{country.dial_code} {country.name}
+										</Option>
+									);
+								})}
+							</Select>
+							<Input
+								placeholder="Phone Number"
+								className="addFriendsPhone"
+								value={phoneNumber}
+								onChange={(e) => setPhoneNumber(e.target.value)}
+							/>
 						</div>
-
-					</>
-					:
-					<>
-						<div className='addFriendsContent'>
-							<Input placeholder='KakakoTalk ID' value={searchFriendsById} onChange={(e) => setSearchFriendsById(e.target.value)} onPressEnter={searchById} suffix={<span onClick={addFriendsClearBtnFunc}><i
-								className="fas fa-times-circle"></i></span>}/>
-							{/*<p>{ addFriendsModalDesc }</p>*/}
-							{ searchByIdContent }
-							<Button className={addFriendsButtonColor} disabled={!allFilled} onClick={addFriendEventById}>Add Friends</Button>
-						</div>
-					</>
-			}
+						<p>{addFriendsModalDesc}</p>
+						<Button
+							className={addFriendsButtonColor}
+							disabled={!allFilled}
+							onClick={addFriendEventByContacts}
+						>
+							Add Friends
+						</Button>
+					</div>
+				</>
+			) : (
+				<>
+					<div className="addFriendsContent">
+						<Input
+							placeholder="KakakoTalk ID"
+							value={searchFriendsById}
+							onChange={(e) => setSearchFriendsById(e.target.value)}
+							onPressEnter={searchById}
+							suffix={
+								<span onClick={addFriendsClearBtnFunc}>
+									<i className='fas fa-times-circle'/>
+								</span>
+							}
+						/>
+						{/*<p>{ addFriendsModalDesc }</p>*/}
+						{searchByIdContent}
+						<Button
+							className={addFriendsButtonColor}
+							disabled={!allFilled}
+							onClick={addFriendEventById}
+						>
+							Add Friends
+						</Button>
+					</div>
+				</>
+			)}
 		</div>
 	);
 
-
-
 	return (
 		<header className="screenHeader">
-			<div className='mainTop'>
-				<h1 className='screenHeaderTitle' onClick={() => {
-					console.log(friendsList);
-				}}>Friends</h1>
+			<div className="mainTop">
+				<h1
+					className="screenHeaderTitle"
+					onClick={() => {
+						console.log(friendsList);
+					}}
+				>
+					Friends
+				</h1>
 				<div className="screenHeaderIcons">
-					<span><i className="fas fa-search fa-lg" onClick={() => {
-						setTrigger(!trigger);
-					}}/></span>
-					<span><Popover placement="bottomRight" content={content} trigger="click">
-						<i className="fas fa-user-plus fa-lg" />
-					</Popover></span>
+					<span>
+						<i
+							className="fas fa-search fa-lg"
+							onClick={() => {
+								setTrigger(!trigger);
+							}}
+						/>
+					</span>
+					<span>
+						<Popover placement="bottomRight" content={content} trigger="click">
+							<i className="fas fa-user-plus fa-lg" />
+						</Popover>
+					</span>
 				</div>
 			</div>
-			{
-				trigger ?
-					<div className='searchModal'>
-						<input class='searchModalInput' type='text' placeholder='&#xf002;  Search Friends' onChange={(e) => {
-							setText(e.target.value)
-						}
-						}/>
-					</div>
-					: null
-			}
+			{trigger ? (
+				<div className="searchModal">
+					<input
+						class="searchModalInput"
+						type="text"
+						placeholder="&#xf002;  Search Friends"
+						onChange={(e) => {
+							setText(e.target.value);
+						}}
+					/>
+				</div>
+			) : null}
 		</header>
 	);
 }

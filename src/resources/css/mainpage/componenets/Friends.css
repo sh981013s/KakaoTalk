@@ -1,117 +1,114 @@
-
 .friendsList {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    /*height: 1000vh;*/
-    padding-left: 8rem;
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 100%;
+	/*height: 1000vh;*/
+	padding-left: 8rem;
 }
 
 .userComponent img {
-    width: 7rem;
-    height: 7rem;
-    border-radius: 3rem;
+	width: 7rem;
+	height: 7rem;
+	border-radius: 3rem;
 }
 
 .userComponent {
-    width: 100%;
-    height: 11rem;
-    display: flex;
-    padding: 2rem;
+	width: 100%;
+	height: 11rem;
+	display: flex;
+	padding: 2rem;
 }
 
 .userComponentDetails {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-left: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-left: 2rem;
 }
 
 .userComponentDetails h4 {
-    font-size: 1.5rem;
-    font-weight: 600;
+	font-size: 1.5rem;
+	font-weight: 600;
 }
 
 .userComponentDetails h5 {
-    opacity: .8;
+	opacity: 0.8;
 }
 
 .friendsList hr {
-    border: solid 1px black;
-    opacity: .1;
-    margin: 0 25px;
+	border: solid 1px black;
+	opacity: 0.1;
+	margin: 0 25px;
 }
 
 .friendsList p {
-    padding: 2rem;
-    opacity: .7;
+	padding: 2rem;
+	opacity: 0.7;
 }
 
 .addFriendsModal {
-    width: 30rem;
-    height: 42rem;
-    border-radius: 50%;
+	width: 30rem;
+	height: 42rem;
+	border-radius: 50%;
 }
 
 .ant-popover-placement-bottomRight .ant-popover-arrow {
-    right: 11px;
+	right: 11px;
 }
 
 .addFriends {
-    display: flex;
-    justify-content: center;
-    color: red;
+	display: flex;
+	justify-content: center;
+	color: red;
 }
 
 .ant-popover-inner {
-    border-radius: 2rem !important;
+	border-radius: 2rem !important;
 }
 
 .addFriendsModalTitle {
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 600;
+	text-align: center;
+	font-size: 1.5rem;
+	font-weight: 600;
 }
 
 .ant-menu-overflow-item {
-    width: 45%;
-    text-align: center;
+	width: 45%;
+	text-align: center;
 }
 
 .ant-menu-item {
-    color: #5d5d5d !important;
+	color: #5d5d5d !important;
 }
 
 .ant-menu-item-selected {
-    color: black !important;
+	color: black !important;
 }
 
 .ant-menu-item-selected::after {
-    border-bottom: 2px solid #000 !important;
+	border-bottom: 2px solid #000 !important;
 }
 
 .ant-menu-horizontal {
-    margin-bottom: 5.9rem !important;
+	margin-bottom: 5.9rem !important;
 }
 
 .addFriendsCountry {
-    width: 30% !important;
+	width: 30% !important;
 }
 
 .addFriendsPhone {
-    width: 70%;
+	width: 70%;
 }
 
 .addFriendsFirstInput {
-    display: flex;
-    margin: 1rem 0 2rem 0;
+	display: flex;
+	margin: 1rem 0 2rem 0;
 }
 
 .ant-btn:empty {
-    visibility: unset !important;
+	visibility: unset !important;
 }
-
-

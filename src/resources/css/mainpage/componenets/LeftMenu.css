@@ -1,61 +1,57 @@
 .leftMenu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 8rem;
-    height: 100%;
-    padding: 61px 15px 30px 15px;
-    background-color: #e6e6e6;
-    border-right: 1px solid rgba(121, 121, 121, 0.3);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 8rem;
+	height: 100%;
+	padding: 61px 15px 30px 15px;
+	background-color: #e6e6e6;
+	border-right: 1px solid rgba(121, 121, 121, 0.3);
 }
 
 .navList {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: column;
+	align-items: center;
+	height: 100%;
 }
 
-.navTop{
-    height: 25%;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.navTop {
+	height: 25%;
+	flex-shrink: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .navSpace {
-    height: 60%;
+	height: 60%;
 }
 
 .navBottom {
-    height: 15%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+	height: 15%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 /*.navList li {
     margin-bottom: 50%;
 }*/
 
-.navLink i{
-    color: #000;
-    opacity: .5;
+.navLink i {
+	color: #000;
+	opacity: 0.5;
 }
 
 .navList i:hover {
-    opacity: 0.7;
+	opacity: 0.7;
 }
 
 /*.navMore {
     margin-bottom: 1300% !important;
 }*/
-
-
-
-
 
 /*position: fixed;
 top: 0;
@@ -69,4 +65,3 @@ height: 100%;
 padding: 61px 15px 30px 15px;
 background-color: #e6e6e6;
 border-right: 1px solid rgba(121, 121, 121, 0.3);*/
-

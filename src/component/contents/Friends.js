@@ -227,8 +227,8 @@ function Friends(props) {
 			{copyList.map((value) => {
 				return (
 					<div className="userComponent" onDoubleClick={()=>{console.log('채팅창 오픈')}}>
-						<Popover placement="left"  content={Profile(value, 'friends')} trigger="click">
-						<img onClick={()=>{window.open('123')}}
+						<Popover placement="left" overlayClassName='profileOverall' content={Profile(value, 'friends')} trigger="click">
+						<img onClick={()=>{console.log(value,'프로필 오픈')}}
 							src={basic}
 							alt="lol"
 							className="userComponentAvatar userComponentAvatarXl"

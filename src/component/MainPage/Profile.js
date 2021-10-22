@@ -1,10 +1,32 @@
 
 // Profile 컴포넌트
-export default function Profile({name}, type){
+import basic from '../../resources/img/basic_profile.jpg';
+
+export default function Profile({name, desc}, type){
 	return (
 		<>
-		<div>
-			{name}
+		<div className='profileEntire'>
+			<div className='profileHeader'>
+				<i className="far fa-user-circle" />
+				<i className="far fa-star" />
+			</div>
+			<div className='profileInfo'>
+				<div class='profileImg'>
+					<img
+							 src={basic}
+							 alt="lol"
+							 className="userComponentAvatar userComponentAvatarXl"
+					/>
+				</div>
+				<h2>{name}</h2>
+				{
+					desc ?
+						<p>{desc}</p>
+						: null
+				}
+			</div>
+			<hr/>
+
 		</div>
 			<Tester type={type}/>
 		</>

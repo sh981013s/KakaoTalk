@@ -52,8 +52,8 @@ function LeftMenu() {
 				<li className="navSpace" />
 				<li className="navBottom">
 					<li className="navSound">
-						<a className="navLink">
-							<i className= {mutedState ? 'far fa-bell-slash fa-2x' : 'far fa-bell fa-2x'}
+						<a className="navLink sound">
+							<i className= {mutedState ? 'far fa-bell-slash fa-2x bell-slash' : 'far fa-bell fa-2x'}
 							onClick={()=> setMutedState(!mutedState)} />
 						</a>
 					</li>

@@ -3,17 +3,27 @@ import jason from '../../resources/img/jason.jpg';
 import basic from '../../resources/img/basic_profile.jpg';
 import { getData } from '../../utils/Api';
 import { Popover } from 'antd';
+import { useStore } from '../../zustand/FriendsStore';
+import Profile from '../MainPage/Profile';
 
 function Friends(props) {
+
+	const {friendsLists, setFriendsLists} = useStore(state => state)
+
 	const [copyList, setCopyList] = useState([]);
 	const [showProfile, setShowProfile] = useState(true);
 	const [birthDayFriends, setBirthDayFriends] = useState([[],[],[]]);
-	const [bdLastPersonSave, setBdLastPersonSave] = useState([]);
+	const [trigger, setTrigger] = useState(false);
 
 	const getFriendsData = async () => {
 		const resultData = await getData.get('member/getFriends');
 		setCopyList(resultData.data);
 	};
+
+	useEffect(()=>{
+		console.log(friendsLists)
+		setFriendsLists('111');
+	},[friendsLists])
 
 	useEffect(() => {
 		getFriendsData();
@@ -172,6 +182,7 @@ function Friends(props) {
 		</div>
 	)
 
+
 	return (
 		<main className="friendsList">
 			{showProfile ? (
@@ -193,9 +204,9 @@ function Friends(props) {
 					</div>
 					<hr />
 					<p>Friends with Birthdays {copyList.length}</p>
-					<Popover placement='left' overlayClassName='birthDay' content={content} trigger='click' onClick={getMonthlyBirthDay}>
+					<Popover placement='left' overlayClassName='birthDay' visible={trigger} content={content}  onClick={getMonthlyBirthDay}>
 						{/*<Button onClick={()=>setTmp(!tmp)}>Click me</Button>*/}
-						<div className='userComponent'>
+						<div className='userComponent' onDoubleClick={()=>setTrigger(true)}>
 							<div className='friendsListIcon'>
 								<div className='iconBox'>
 									<i className="fas fa-birthday-cake fa-3x" />
@@ -213,20 +224,22 @@ function Friends(props) {
 				</>
 			) : null}
 
-			{copyList.map((e) => {
+			{copyList.map((value) => {
 				return (
-					<div className="userComponent">
-						<img
+					<div className="userComponent" onDoubleClick={()=>{console.log('채팅창 오픈')}}>
+						<Popover placement="left"  content={Profile(value, 'friends')} trigger="click">
+						<img onClick={()=>{window.open('123')}}
 							src={basic}
 							alt="lol"
 							className="userComponentAvatar userComponentAvatarXl"
 						/>
+						</Popover>
 						<div className="userComponentDetails">
 							<div className="userComponentName">
-								<h4>{e.name}</h4>
+								<h4>{value.name}</h4>
 							</div>
 							<div className="userComponentDesc">
-								<h5>{e.desc}</h5>
+								<h5>{value.desc}</h5>
 							</div>
 						</div>
 					</div>

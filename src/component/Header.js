@@ -4,8 +4,11 @@ import { Button, Input, Menu, Popover, Select } from 'antd';
 import { Option } from 'antd/es/mentions';
 import telCode from '../utils/telCode';
 import basic from '../resources/img/basic_profile.jpg';
+import { useStore } from '../zustand/FriendsStore';
 
 function Header(props) {
+	const {friendsLists, setFriendsLists} = useStore(state => state)
+
 	const [text, setText] = useState('');
 	const [showModal, setShowModal] = useState(false);
 	const [trigger, setTrigger] = useState(false);
@@ -27,6 +30,11 @@ function Header(props) {
 	const [friendsList, setFriendsList] = useState([]);
 	let addFriendsButtonColor =
 		'addFriendsButton' + (allFilled ? ' addFriendsButton-active' : '');
+
+
+	useEffect(()=>{
+		console.log(friendsLists,'friendsLists 여기는 header')
+	},[friendsLists])
 
 	useEffect(() => {
 		if (

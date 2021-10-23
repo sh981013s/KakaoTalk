@@ -3,11 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="dc72bcb3-e5f7-4a98-9378-19a65d7c122d" name="Changes" comment="change Commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/LeftMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/LeftMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/MainPage/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/MainPage/Profile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/contents/Friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/contents/Friends.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/account/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/Friends.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/Friends.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/LeftMenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/LeftMenu.css" afterDir="false" />
+    </list>
+    <list id="df0c32cb-e95e-4eb3-8ba0-577b67bd718c" name="Changes by Safetics_07" comment="">
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +37,16 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/App.js">
+      <ranges>
+        <range start1="4" end1="5" start2="4" end2="6" changelist="dc72bcb3-e5f7-4a98-9378-19a65d7c122d" />
+        <range start1="8" end1="9" start2="9" end2="10" changelist="df0c32cb-e95e-4eb3-8ba0-577b67bd718c" />
+        <range start1="13" end1="14" start2="14" end2="15" changelist="dc72bcb3-e5f7-4a98-9378-19a65d7c122d" />
+        <range start1="15" end1="15" start2="16" end2="17" changelist="dc72bcb3-e5f7-4a98-9378-19a65d7c122d" />
+      </ranges>
+    </file>
+  </component>
   <component name="ProjectId" id="1zGVXFg4WZEG4DdtR5LjsKZXiMS" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -45,6 +60,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/kakao_back" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -52,6 +68,16 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/kakao_back" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/page/account" />
+      <recent name="$PROJECT_DIR$/src/component/contents" />
+      <recent name="$PROJECT_DIR$/src/component/friends" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -74,7 +100,7 @@
       <workItem from="1634746166820" duration="40000" />
       <workItem from="1634746227047" duration="445000" />
       <workItem from="1634746817091" duration="24557000" />
-      <workItem from="1634881958546" duration="14301000" />
+      <workItem from="1634881958546" duration="24434000" />
     </task>
     <task id="LOCAL-00001" summary="change Commit">
       <created>1633774566726</created>

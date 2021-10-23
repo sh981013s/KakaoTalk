@@ -209,4 +209,27 @@
 }
 
 
+.profileAction {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 10rem;
+	padding: 0 3rem;
+	color: #fff;
+	font-size: 1.5rem;
+}
+
+.profileAction i {
+	width: 100%;
+	text-align: center;
+}
+
+.profileAction div {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 33%;
+}
+
+
 

@@ -106,83 +106,16 @@ function Friends(props) {
 
 	let last = {bd:1};
 
-	const content = (
-		<div class='friendsModal'>
-
-			<h2>Friends with Birthdays</h2>
-			<div className='friendsModalRow'>
-				<h3>Past Birthdays</h3>
-			{
-				birthDayFriends[0].map((user) => {
-					if(user.bd !== last.bd) {
-						last = user;
-						console.log(last);
-						return(
-							<>
-								<div>{user.bd}</div>
-								<div>{user.name}</div>
-							</>
-						)
-					} else {
-						last = user;
-						return(
-							<div>{user.name}</div>
-						)
-					}
-				})
-			}
-			<hr/>
-			</div>
-			<div className='friendsModalRow'>
-				<h3>Today</h3>
-				{
-					birthDayFriends[1].map((user) => {
-						if(user.bd !== last.bd) {
-							last = user;
-							console.log(last);
-							return(
-								<>
-									<div>{user.bd}</div>
-									<div>{user.name}</div>
-								</>
-							)
-						} else {
-							last = user;
-							return(
-								<div>{user.name}</div>
-							)
-						}
-					})
-				}
-				<hr/>
-			</div>
-			<div className='friendsModalRow'>
-				<h3>Upcoming Birthdays</h3>
-				{
-					birthDayFriends[2].map((user) => {
-						if(user.bd !== last.bd) {
-							last = user;
-							console.log(last);
-							return(
-								<>
-									<div>{user.bd}</div>
-									<div>{user.name}</div>
-								</>
-							)
-						} else {
-							last = user;
-							return(
-								<div>{user.name}</div>
-							)
-						}
-					})
-				}
-			</div>
-
-		</div>
-	)
 
 
+
+	const openChat = () => {
+		window.open(`/adminMember`, "네이버새창", "width=500, height=800, toolbar=no, menubar=no, scrollbars=no, resizable=yes");
+	}
+
+	const openBirthPage = () =>{
+		window.open(`/birthFriends`, "네이버새창", "width=500, height=800, toolbar=no, menubar=no, scrollbars=no, resizable=yes");
+	}
 	return (
 		<main className="friendsList">
 			{showProfile ? (
@@ -204,9 +137,9 @@ function Friends(props) {
 					</div>
 					<hr />
 					<p>Friends with Birthdays {copyList.length}</p>
-					<Popover placement='left' overlayClassName='birthDay' visible={trigger} content={content}  onClick={getMonthlyBirthDay}>
+					{/*<Popover placement='left' overlayClassName='birthDay' visible={trigger} content={content}  onClick={getMonthlyBirthDay}>*/}
 						{/*<Button onClick={()=>setTmp(!tmp)}>Click me</Button>*/}
-						<div className='userComponent' onDoubleClick={()=>setTrigger(true)}>
+						<div className='userComponent' onDoubleClick={openBirthPage}>
 							<div className='friendsListIcon'>
 								<div className='iconBox'>
 									<i className="fas fa-birthday-cake fa-3x" />
@@ -218,7 +151,7 @@ function Friends(props) {
 							</div>
 
 						</div>
-					</Popover>
+					{/*</Popover>*/}
 					<hr />
 					<p>friends {copyList.length}</p>
 				</>
@@ -226,7 +159,7 @@ function Friends(props) {
 
 			{copyList.map((value) => {
 				return (
-					<div className="userComponent" onDoubleClick={()=>{console.log('채팅창 오픈')}}>
+					<div className="userComponent" onDoubleClick={openChat}>
 						<Popover placement="left" overlayClassName='profileOverall' content={Profile(value, 'friends')} trigger="click">
 						<img onClick={()=>{console.log(value,'프로필 오픈')}}
 							src={basic}

@@ -1,6 +1,6 @@
 import { Button, Input } from 'antd';
 import { useState } from 'react';
-import { getData } from '../utils/Api';
+import { getData } from '../../utils/Api';
 
 const Login = () => {
 

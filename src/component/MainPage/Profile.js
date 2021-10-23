@@ -2,7 +2,7 @@
 // Profile 컴포넌트
 import basic from '../../resources/img/basic_profile.jpg';
 
-export default function Profile({name, desc}, type){
+export default function Profile({name, state}, type){
 	return (
 		<>
 		<div className='profileEntire'>
@@ -20,8 +20,8 @@ export default function Profile({name, desc}, type){
 				</div>
 				<h2>{name}</h2>
 				{
-					desc ?
-						<p>{desc}</p>
+					state ?
+						<p>{state}</p>
 						: null
 				}
 			</div>
@@ -39,8 +39,10 @@ const Tester = ({type}) =>{
 	return (
 		<>
 			{type === 'friends' ?
-				<div>
-					<i className='fas fa-comment'></i>
+				<div className='profileAction'>
+					<div><i className='fas fa-comment' />1:1 Chat</div>
+					<div><i className="fas fa-phone-alt" />Call</div>
+					<div><i className="fas fa-comment-alt" />KakaoStory</div>
 				</div>
 				:
 				<div>

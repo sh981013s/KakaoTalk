@@ -3,31 +3,31 @@ import { useEffect, useState } from 'react';
 function LeftMenu() {
 	const [mutedState, setMutedState] = useState(false);
 
-
-
 	const muteSingle = (elem) => {
 		elem.muted = true;
 		elem.pause();
-	}
+	};
 
 	const unMuteSingle = (elem) => {
 		elem.muted = false;
 		elem.play();
-	}
+	};
 
 	const muteAllFunc = () => {
-		document.querySelectorAll('video, audio').forEach(elem => muteSingle(elem));
-	}
+		document
+			.querySelectorAll('video, audio')
+			.forEach((elem) => muteSingle(elem));
+	};
 
 	const unMuteAllFunc = () => {
-		document.querySelectorAll('video, audio').forEach(elem => unMuteSingle(elem));
-	}
+		document
+			.querySelectorAll('video, audio')
+			.forEach((elem) => unMuteSingle(elem));
+	};
 
-	useEffect(()=>{
-		mutedState ?
-			muteAllFunc()
-		: unMuteAllFunc()
-	},[mutedState])
+	useEffect(() => {
+		mutedState ? muteAllFunc() : unMuteAllFunc();
+	}, [mutedState]);
 
 	return (
 		<nav className="leftMenu">
@@ -53,8 +53,14 @@ function LeftMenu() {
 				<li className="navBottom">
 					<li className="navSound">
 						<a className="navLink sound">
-							<i className= {mutedState ? 'far fa-bell-slash fa-2x bell-slash' : 'far fa-bell fa-2x'}
-							onClick={()=> setMutedState(!mutedState)} />
+							<i
+								className={
+									mutedState
+										? 'far fa-bell-slash fa-2x bell-slash'
+										: 'far fa-bell fa-2x'
+								}
+								onClick={() => setMutedState(!mutedState)}
+							/>
 						</a>
 					</li>
 					<li className="navSetting">

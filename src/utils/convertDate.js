@@ -1,8 +1,8 @@
-export default function convertDate(month){
+export default function convertDate(month) {
 	switch (month) {
-		case '9' :
+		case '9':
 			return 'october';
-		default :
+		default:
 			return '불법체류자입니다';
 	}
-};
+}

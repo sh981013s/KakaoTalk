@@ -3,18 +3,18 @@ import { getData } from '../utils/Api';
 import moment from 'moment';
 import convertDate from '../utils/convertDate';
 
-
 /**
  * @author seung hwan lee
  * @date 2021.10.23
  * @description birth friends component
  **/
 const BirthFriends = () => {
-
-
 	const getBirthFriends = async () => {
 		const resultData = await getData.get('member/getFriends');
-		const filterBirth = moment(resultData.data[0].birth, 'YYYY MM DD hh:mm:ss').format('MM-DD');
+		const filterBirth = moment(
+			resultData.data[0].birth,
+			'YYYY MM DD hh:mm:ss'
+		).format('MM-DD');
 		const words = filterBirth.split('-');
 		const month = convertDate(words[0]);
 	};
@@ -25,10 +25,9 @@ const BirthFriends = () => {
 
 	return (
 		<div>
-			<div className='friendsModal'>
-
+			<div className="friendsModal">
 				<h2>Friends with Birthdays</h2>
-				<div className='friendsModalRow'>
+				<div className="friendsModalRow">
 					{/*<h3>Past Birthdays</h3>
 					{
 						birthDayFriends[0].map((user) => {
@@ -96,7 +95,6 @@ const BirthFriends = () => {
 						})
 					} */}
 				</div>
-
 			</div>
 		</div>
 	);

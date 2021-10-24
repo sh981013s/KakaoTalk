@@ -7,7 +7,7 @@ import basic from '../resources/img/basic_profile.jpg';
 import { useStore } from '../zustand/FriendsStore';
 
 function Header(props) {
-	const {friendsLists, setFriendsLists} = useStore(state => state)
+	const { friendsLists, setFriendsLists } = useStore((state) => state);
 
 	const [text, setText] = useState('');
 	const [showModal, setShowModal] = useState(false);
@@ -31,10 +31,9 @@ function Header(props) {
 	let addFriendsButtonColor =
 		'addFriendsButton' + (allFilled ? ' addFriendsButton-active' : '');
 
-
-	useEffect(()=>{
-		console.log(friendsLists,'friendsLists 여기는 header')
-	},[friendsLists])
+	useEffect(() => {
+		console.log(friendsLists, 'friendsLists 여기는 header');
+	}, [friendsLists]);
 
 	useEffect(() => {
 		if (
@@ -154,7 +153,6 @@ function Header(props) {
 		}
 	};
 
-
 	let searchByIdContent =
 		isExistById === true ? (
 			<div className="searchByIdContent">
@@ -268,7 +266,7 @@ function Header(props) {
 							onPressEnter={searchById}
 							suffix={
 								<span onClick={addFriendsClearBtnFunc}>
-									<i className='fas fa-times-circle'/>
+									<i className="fas fa-times-circle" />
 								</span>
 							}
 						/>

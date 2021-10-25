@@ -113,6 +113,9 @@
 	visibility: unset !important;
 }
 
+
+
+
 .birthDay {
 	left: 20rem !important;
 	top: 29rem !important;
@@ -134,7 +137,7 @@
 	justify-content: center;
 	align-items: center;
 	border-radius: 3rem;
-	background: #e1747a;
+	background: #E1747A;
 }
 
 .friendsListIcon i {
@@ -205,6 +208,7 @@
 	color: red;
 }
 
+
 .profileAction {
 	display: flex;
 	justify-content: space-between;
@@ -226,3 +230,6 @@
 	flex-wrap: wrap;
 	width: 33%;
 }
+
+
+

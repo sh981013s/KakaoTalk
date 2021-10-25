@@ -3,25 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="dc72bcb3-e5f7-4a98-9378-19a65d7c122d" name="Changes" comment="change Commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kakao_back/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/kakao_back/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kakao_back/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/kakao_back/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kakao_back/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/kakao_back/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kakao_back/server/config/dbconfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/kakao_back/server/config/dbconfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kakao_back/server/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/kakao_back/server/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kakao_back/server/logger.js" beforeDir="false" afterPath="$PROJECT_DIR$/kakao_back/server/logger.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kakao_back/server/module/member.js" beforeDir="false" afterPath="$PROJECT_DIR$/kakao_back/server/module/member.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kakao_back/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/kakao_back/server/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/LeftMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/LeftMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/MainPage/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/MainPage/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/contents/Friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/contents/Friends.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/BirthFriends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/BirthFriends.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/account/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/account/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/css/layout.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/Friends.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/Friends.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/LeftMenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/LeftMenu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/convertDate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/convertDate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/zustand/FriendsStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/zustand/FriendsStore.js" afterDir="false" />
     </list>
     <list id="df0c32cb-e95e-4eb3-8ba0-577b67bd718c" name="Changes by Safetics_07" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +90,7 @@
       <workItem from="1634746166820" duration="40000" />
       <workItem from="1634746227047" duration="445000" />
       <workItem from="1634746817091" duration="24557000" />
-      <workItem from="1634881958546" duration="25048000" />
+      <workItem from="1634881958546" duration="26634000" />
     </task>
     <task id="LOCAL-00001" summary="change Commit">
       <created>1633774566726</created>

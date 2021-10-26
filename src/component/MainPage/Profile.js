@@ -1,6 +1,7 @@
 // Profile 컴포넌트
 import basic from '../../resources/img/basic_profile.jpg';
 
+
 export default function Profile({ name, state }, type) {
 	return (
 		<>

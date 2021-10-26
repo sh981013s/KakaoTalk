@@ -7,7 +7,8 @@ import { useStore } from '../../zustand/FriendsStore';
 import Profile from '../MainPage/Profile';
 
 function Friends(props) {
-	const { friendsLists, setFriendsLists } = useStore((state) => state);
+	const { friendsLists, setFriendsLists, friendsWhoseBirthdayIsToday, setFriendsWhoseBirthdayIsToday } = useStore((state) => state);
+
 
 	const [copyList, setCopyList] = useState([]);
 	const [showProfile, setShowProfile] = useState(true);
@@ -20,7 +21,6 @@ function Friends(props) {
 	};
 
 	useEffect(() => {
-		console.log(friendsLists);
 		setFriendsLists('111');
 	}, [friendsLists]);
 
@@ -137,6 +137,12 @@ function Friends(props) {
 	};
 	return (
 		<main className="friendsList">
+			<div onClick={()=>{
+				console.log(friendsWhoseBirthdayIsToday);
+			}}
+			onDoubleClick={()=>{
+				setFriendsWhoseBirthdayIsToday(123);
+			}}>asdasdasdas</div>
 			{showProfile ? (
 				<>
 					<div className="userComponent">
@@ -179,6 +185,7 @@ function Friends(props) {
 			{copyList.map((value) => {
 				return (
 					<div className="userComponent" onDoubleClick={openChat}>
+
 						<Popover
 							placement="left"
 							overlayClassName="profileOverall"

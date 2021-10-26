@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
+import { useStore } from '../zustand/FriendsStore';
 
 function LeftMenu() {
 	const [mutedState, setMutedState] = useState(false);
+	const { friendsWhoseBirthdayIsToday } = useStore(state => state);
 
 	const muteSingle = (elem) => {
 		elem.muted = true;
@@ -31,6 +33,9 @@ function LeftMenu() {
 
 	return (
 		<nav className="leftMenu">
+			<div onClick={()=>{
+				console.log(friendsWhoseBirthdayIsToday)
+			}}>asdasd</div>
 			<ul className="navList">
 				<li className="navTop">
 					<li className="navFriend">

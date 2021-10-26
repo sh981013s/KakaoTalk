@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import moment from 'moment';
+// import { Popover } from 'antd';
 import { getData } from '../utils/Api';
 import basic from '../resources/img/basic_profile.jpg';
+import { useStore } from '../zustand/FriendsStore';
 
 /**
  * @author seung hwan lee
@@ -10,6 +12,8 @@ import basic from '../resources/img/basic_profile.jpg';
  * */
 
 const BirthFriends = () => {
+  const { friendsLists } = useStore((state) => state);
+
   const [pastTodayUpcomingBirthday, setPastTodayUpcomingBirthday] = useState([
     [],
     [],
@@ -75,20 +79,33 @@ const BirthFriends = () => {
     });
 
     setPastTodayUpcomingBirthday(tmp);
-
-    // pastTodayUpcomingBirthday[0].push();
-    // eslint-disable-next-line no-console
-    console.log(pastTodayUpcomingBirthday);
   };
 
   // getBirthFriends();
 
   useEffect(() => {
     getBirthFriends();
+    console.log(friendsLists);
   }, []);
 
   return (
     <div className='entireBirthday'>
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
+      <p
+        onClick={() => {
+          console.log(friendsLists, ':::::::');
+        }}
+      >
+        asdasdsa
+      </p>
+      {/*      <Popover
+        placement='left'
+        overlayClassName='profileOverall'
+        content={<div>asdads</div>}
+        trigger='click'
+      >
+        <div>asdasd</div>
+      </Popover> */}
       <div className='birthdayModal'>
         <h1>Friends with Birthdays</h1>
         <div className='birthdayModalDivision'>
@@ -202,7 +219,7 @@ const BirthFriends = () => {
             : null}
           {/* eslint-disable-next-line consistent-return,func-names */}
           {(function () {
-            if (pastTodayUpcomingBirthday[0].length > 0) {
+            if (pastTodayUpcomingBirthday[1].length > 0) {
               return (
                 <>
                   <hr />

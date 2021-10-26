@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc72bcb3-e5f7-4a98-9378-19a65d7c122d" name="Changes" comment="change Commit">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7ae3fa3c-214c-4c25-b09d-44a707114e03.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7ae3fa3c-214c-4c25-b09d-44a707114e03.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/LeftMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/LeftMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/MainPage/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/MainPage/Profile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/contents/Friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/contents/Friends.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/BirthFriends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/BirthFriends.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/convertDate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/convertDate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/zustand/FriendsStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/zustand/FriendsStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/Friends.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/Friends.css" afterDir="false" />
     </list>
     <list id="df0c32cb-e95e-4eb3-8ba0-577b67bd718c" name="Changes by Safetics_07" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +44,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/kakao_back" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources/css" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -89,7 +85,7 @@
       <workItem from="1634746227047" duration="445000" />
       <workItem from="1634746817091" duration="24557000" />
       <workItem from="1634881958546" duration="36360000" />
-      <workItem from="1635238106742" duration="5044000" />
+      <workItem from="1635238106742" duration="10779000" />
     </task>
     <task id="LOCAL-00001" summary="change Commit">
       <created>1633774566726</created>

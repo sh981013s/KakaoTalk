@@ -231,5 +231,71 @@
 	width: 33%;
 }
 
+.birthdayModal {
+	width: 100%;
+	min-height: 100vh;
+	padding: 2.1rem;
+}
+
+.birthdayModal h1 {
+	font-size: 1.7rem;
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 1.6rem;
+}
+
+.birthdayModal h3 {
+	font-size: 1.5rem;
+	font-weight: 700;
+	margin-bottom: 1.5rem;
+}
+
+.birthdayModal hr {
+	border: solid 1px black;
+	opacity: 0.1;
+	margin: 0 25px 2rem 25px;
+}
+
+.birthdayModalDate {
+	opacity: .6;
+}
+
+.birthdayDesc {
+	display: flex;
+	margin-bottom: 2rem;
+}
+
+.birthdayPic img{
+	object-fit: cover;
+	width: 4.3rem;
+	height: 4.3rem;
+	border-radius: 35%;
+	margin-right: 1.5rem;
+}
+
+.birthdayUsername {
+	display: flex;
+	align-items: center;
+	margin-right: 11rem;
+}
+
+.sendGiftContainer {
+	position: absolute;
+	right: 5rem;
+	margin-top: 1rem;
+	display: flex;
+	align-items: center;
+}
+
+.sendGift {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #d7d7d7;
+	border-radius: 1.5rem 1.5rem;
+	width: 7rem;
+	height: 2.3rem;
+	opacity: .8;
+}
 
 

@@ -132,7 +132,7 @@ function Friends(props) {
 		window.open(
 			`/birthFriends`,
 			'네이버새창',
-			'width=500, height=800, toolbar=no, menubar=no, scrollbars=no, resizable=yes'
+			'width=400, height=600, toolbar=no, menubar=no, scrollbars=no, resizable=yes'
 		);
 	};
 	return (

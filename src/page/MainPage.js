@@ -3,7 +3,7 @@ import Banner from '../component/Banner';
 import Friends from '../component/contents/Friends';
 import LeftMenu from '../component/LeftMenu';
 import Header from '../component/Header';
-import '../resources/css/mainpage/MainPage.css';
+import '../resources/css/mainpage/MainPage.scss';
 // import {getData} from '../utils/Api';
 
 /**

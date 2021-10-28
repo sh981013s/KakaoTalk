@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
+import NewWindow from 'react-new-window';
 import { useStore } from '../zustand/FriendsStore';
 
 function LeftMenu() {
   const [mutedState, setMutedState] = useState(false);
-  const { friendsWhoseBirthdayIsToday } = useStore((state) => state);
+  const { friendsLists, friendsWhoseBirthdayIsToday } = useStore(
+    (state) => state
+  );
 
   const muteSingle = (elem) => {
     // eslint-disable-next-line no-param-reassign
@@ -34,25 +37,34 @@ function LeftMenu() {
     mutedState ? muteAllFunc() : unMuteAllFunc();
   }, [mutedState]);
 
-  const { friendsLists } = useStore((state) => state);
-
   return (
     <nav className='leftMenu'>
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
+      <p
+        onClick={() => (
+          <NewWindow>
+            <h1>asdasda</h1>
+          </NewWindow>
+        )}
+      >
+        newinow
+      </p>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
       <p
         onClick={() => {
           console.log(friendsLists, ':::::::');
         }}
       >
-        asdasdsa
+        friendslist
       </p>
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-      <div
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
+      <p
         onClick={() => {
-          // eslint-disable-next-line no-console
-          console.log(friendsWhoseBirthdayIsToday);
+          console.log(friendsWhoseBirthdayIsToday, ':::::::');
         }}
-      />
+      >
+        birthday
+      </p>
       <ul className='navList'>
         <li className='navTop'>
           <li className='navFriend'>

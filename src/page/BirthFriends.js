@@ -12,7 +12,7 @@ import { useStore } from '../zustand/FriendsStore';
  * */
 
 const BirthFriends = () => {
-  const { friendsLists } = useStore((state) => state);
+  const { setFriendsLists } = useStore((state) => state);
 
   const [pastTodayUpcomingBirthday, setPastTodayUpcomingBirthday] = useState([
     [],
@@ -79,13 +79,14 @@ const BirthFriends = () => {
     });
 
     setPastTodayUpcomingBirthday(tmp);
+    setFriendsLists(pastTodayUpcomingBirthday);
   };
 
   // getBirthFriends();
 
   useEffect(() => {
     getBirthFriends();
-    console.log(friendsLists);
+    setFriendsLists(pastTodayUpcomingBirthday);
   }, []);
 
   return (
@@ -93,7 +94,7 @@ const BirthFriends = () => {
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
       <p
         onClick={() => {
-          console.log(friendsLists, ':::::::');
+          console.log(':::::::');
         }}
       >
         asdasdsa

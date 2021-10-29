@@ -1,26 +1,34 @@
-import './resources/css/base/styles.css';
-import MainPage from './page/MainPage';
-import 'antd/dist/antd.css';
+import './resources/css/base/styles.scss';
+// import './resources/css/initialpage/initialpage.scss';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import MainPage from './page/MainPage';
+import InitialPage from './page/InitialPage';
+import 'antd/dist/antd.css';
 import Login from './page/account/Login';
 import BirthFriends from './page/BirthFriends';
+import Chat from './component/contents/Chat';
+import Register from './page/register/Register';
 
 /**
  * @author Lee seung hwan
  * @description
  */
+
 function App() {
-	return (
-		<>
-			<BrowserRouter basename="/kakao">
-				<Switch>
-					<Route path={'/birthFriends'} component={BirthFriends} />
-					<Route path={'/mainpage'} component={MainPage} />
-					<Route path={'/login'} component={Login} />
-				</Switch>
-			</BrowserRouter>
-		</>
-	);
+  return (
+    <>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path='/initialPage' component={InitialPage} />
+          <Route exact path='/register' component={Register} />
+          <Route exact path='/' component={MainPage} />
+          <Route exact path='/birthFriends' component={BirthFriends} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/chat' component={Chat} />
+        </Switch>
+      </BrowserRouter>
+    </>
+  );
 }
 
 export default App;

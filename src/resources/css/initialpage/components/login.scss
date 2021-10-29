@@ -1,0 +1,193 @@
+.loginPage {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .yellowBox {
+    width: 40rem;
+    height: 70rem;
+    padding: 3rem 6rem;
+    background: #FDEA42;
+    border-radius: 1.3rem;
+
+
+    .loginMain {
+      margin-top: 7rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .loginImage {
+        width: 100%;
+        height: 20%;
+        img {
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+
+      .inputBox {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+        input {
+          border-radius: .2rem;
+          width: 100%;
+          height: 4rem;
+          border: 1px solid #d7d7d7;
+          text-align: left;
+        }
+      }
+
+      .loginDisabled {
+        width: 100%;
+        height: 4rem;
+        border: 1px solid #d7d7d7;
+        color: rgba(0, 0, 0, 0.31);
+        margin-bottom: 1rem;
+      }
+
+      .loginActive {
+        width: 100%;
+        height: 4rem;
+        border: 1px solid #423730;
+        background: #423730;
+        color: #ffffff;
+        margin-bottom: 1rem;
+      }
+
+      .desc {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        margin-bottom: 15rem;
+        p {
+          margin-left: 1rem;
+          color: rgba(0, 0, 0, 0.51);
+        }
+      }
+      .register {
+        width: 100%;
+        p {
+          text-align: center;
+          color: rgba(0, 0, 0, 0.51);
+        }
+      }
+
+    }
+
+  }
+
+}
+
+.firstEntire {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //padding-top: 20rem;
+
+  .firstContents {
+    width: 70rem;
+    padding: 0 5rem;
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 600;
+    }
+
+    .first {
+      .firstBox {
+        height: 60rem;
+        border: 1px solid #d7d7d7;
+        text-align: center;
+
+        h2 {
+          font-size: 3rem;
+          font-weight: 600;
+          margin-top: 7rem;
+        }
+        h3 {
+          font-size: 1.5rem;
+          opacity: .6;
+        }
+        h4 {
+          font-size: 1.5rem;
+          opacity: .6;
+          margin-top: 5rem;
+        }
+        button {
+          width: 70%;
+          height: 5rem;
+          background: #F8D737;
+          border: 1px solid #F8D737;
+          border-radius: .7rem;
+          margin: 2rem 0 8rem 0;
+        }
+        p {
+          font-size: 1.5rem;
+          opacity: .6;
+        }
+        p:last-child {
+          color: black;
+          opacity: 1;
+          text-decoration: underline;
+        }
+      }
+      ul {
+        margin-top: 2rem;
+        padding: 0 5rem;
+        display: flex;
+        justify-content: space-between;
+      }
+      p {
+        text-align: center;
+        opacity: .6;
+      }
+    }
+
+
+  }
+}
+
+.secondBox {
+  height: 80rem;
+  border: 1px solid #d7d7d7;
+  padding: 5rem 5rem;
+
+  .progressBar {
+    width: 7rem;
+    height: 1rem;
+    background: #E8E8E8;
+    margin-bottom: 2rem;
+  }
+  h2 {
+    font-size: 2.6rem;
+    font-weight: 600;
+    text-align: start;
+  }
+  .firstCheckbox {
+    display: flex;
+    align-items: center;
+    height: 2.2rem;
+  }
+  .checkboxText {
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 0 0 0 1rem;
+  }
+  .tmp {
+    width: 50%;
+    height: 100%;
+    background: red;
+    display: flex;
+    align-items: center;
+  }
+
+}

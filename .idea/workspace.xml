@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc72bcb3-e5f7-4a98-9378-19a65d7c122d" name="Changes" comment="change Commit">
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/contents/Friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/contents/Friends.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/BirthFriends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/BirthFriends.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/Friends.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/Friends.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/register/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/register/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/css/base/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/base/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/css/mainpage/MainPage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/mainpage/MainPage.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zustand/FriendsStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/zustand/FriendsStore.js" afterDir="false" />
     </list>
     <list id="df0c32cb-e95e-4eb3-8ba0-577b67bd718c" name="Changes by Safetics_07" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +37,12 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/page/InitialPage.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/resources/css/base/styles.scss" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/App.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/resources/css/initialpage/initialpage.scss" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="1zGVXFg4WZEG4DdtR5LjsKZXiMS" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -44,17 +56,21 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources/img" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$USER_HOME$/.nvm/versions/node/v14.17.3/lib/node_modules/prettier" />
+    <property name="settings.editor.selected.configurable" value="actions.on.save" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/resources/img" />
       <recent name="$PROJECT_DIR$/kakao_back" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -85,7 +101,7 @@
       <workItem from="1634746227047" duration="445000" />
       <workItem from="1634746817091" duration="24557000" />
       <workItem from="1634881958546" duration="36360000" />
-      <workItem from="1635238106742" duration="10779000" />
+      <workItem from="1635238106742" duration="44655000" />
     </task>
     <task id="LOCAL-00001" summary="change Commit">
       <created>1633774566726</created>

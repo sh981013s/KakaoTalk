@@ -1,8 +1,10 @@
 import create from 'zustand';
 
+// eslint-disable-next-line import/prefer-default-export
 export const useStore = create((set) => ({
-	friendsLists: '1',
-	setFriendsLists: (props) => set((state) => set({ friendsLists: props })),
-	friendsWhoseBirthdayIsToday : [],
-	setFriendsWhoseBirthdayIsToday: (props) => set({friendsWhoseBirthdayIsToday: props})
+  friendsLists: [],
+  setFriendsLists: (props) => set({ friendsLists: props }),
+  friendsWhoseBirthdayIsToday: [],
+  setFriendsWhoseBirthdayIsToday: (props) =>
+    set({ friendsWhoseBirthdayIsToday: props }),
 }));

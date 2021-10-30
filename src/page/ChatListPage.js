@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import Friends from '../component/contents/Friends';
-import LeftMenu from '../component/LeftMenu';
-import Header from '../component/Header';
+// import { useState } from 'react';
+/* import Friends from '../component/contents/Friends';
+import LeftMenu from '../component/LeftMenu'; */
+// import Header from '../component/Header';
 import '../resources/css/mainpage/MainPage.scss';
 // import {getData} from '../utils/Api';
 
@@ -11,26 +11,7 @@ import '../resources/css/mainpage/MainPage.scss';
  * @description Friends | Chat | More를 관리하는 컴포넌트
  */
 function ChatListPage() {
-  const [searchText, setSearchText] = useState('');
-  const [userList, setUserList] = useState([]);
-
-  const receive = (props) => {
-    setSearchText(props);
-  };
-
-  const pullData = (props) => {
-    setUserList(props);
-  };
-
-  return (
-    <div className='mainPage'>
-      <div>
-        <Header receive={receive} userList={userList} />
-        <Friends searchText={searchText} func={pullData} />
-      </div>
-      <LeftMenu />
-    </div>
-  );
+  return <div>asdsdadadas</div>;
 }
 
 export default ChatListPage;

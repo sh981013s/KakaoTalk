@@ -3,6 +3,7 @@ import Friends from '../component/contents/Friends';
 import LeftMenu from '../component/LeftMenu';
 import Header from '../component/Header';
 import '../resources/css/mainpage/MainPage.scss';
+import ChatListPage from './ChatListPage';
 // import {getData} from '../utils/Api';
 
 /**
@@ -31,8 +32,10 @@ function MainPage({ match }) {
     switch (page) {
       case 'friends':
         return <Friends searchText={searchText} func={pullData} />;
+      case 'chats':
+        return <ChatListPage />;
       default:
-        return <div>Chat component</div>;
+        return <div>4044040404404040404040404040</div>;
     }
   };
 

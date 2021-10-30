@@ -55,7 +55,7 @@ function LeftMenu() {
           <li className='navChat'>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className='navLink'>
-              <Link to='/mainpage/chat'>
+              <Link to='/mainpage/chats'>
                 <i
                   className='far fa-comment fa-2x'
                   style={{ cursor: 'pointer' }}

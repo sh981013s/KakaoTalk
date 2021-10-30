@@ -13,3 +13,15 @@ export const pageStepStore = create((set) => ({
   regPage: 0,
   setRegPage: (props) => set({ regPage: props }),
 }));
+
+export const userRegiInfoStore = create((set) => ({
+  userInfo: {
+    email: '',
+    pw: '',
+    name: '',
+    tel: '',
+    birth: '',
+    sex: '',
+  },
+  setUserInfo: (props) => set({ userInfo: props }),
+}));

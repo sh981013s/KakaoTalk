@@ -1,8 +1,14 @@
 import { Input } from 'antd';
-import { pageStepStore } from '../../../zustand/FriendsStore';
+import { useState } from 'react';
+import {
+  pageStepStore,
+  userRegiInfoStore,
+} from '../../../zustand/FriendsStore';
 
 const FourthPage = () => {
   const { setRegPage } = pageStepStore((state) => state);
+  const { userInfo, setUserInfo } = userRegiInfoStore((state) => state);
+  const [userEmail, setUserEmail] = useState('');
 
   return (
     <div className='firstEntire'>
@@ -15,7 +21,11 @@ const FourthPage = () => {
           <h2>카카오계정으로 사용할</h2>
           <h2>카카오 메일을 만들어 주세요</h2>
           <div className='registerThirdPhoneInput'>
-            <Input placeholder='아이디 입력' className='addFriendsPhone' />
+            <Input
+              placeholder='아이디 입력'
+              className='addFriendsPhone'
+              onChange={(e) => setUserEmail(e.target.value)}
+            />
             <button type='submit' className='thirdCertificationBtn'>
               @kako.com
             </button>
@@ -34,7 +44,13 @@ const FourthPage = () => {
           <button
             type='submit'
             className='agreeBtn'
-            onClick={() => setRegPage(4)}
+            onClick={() => {
+              setRegPage(4);
+              setUserInfo({
+                ...userInfo,
+                email: userEmail,
+              });
+            }}
           >
             다음
           </button>

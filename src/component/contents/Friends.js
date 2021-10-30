@@ -14,6 +14,9 @@ function Friends(props) {
   const [showProfile, setShowProfile] = useState(true);
 
   const getFriendsData = async () => {
+    const result2 = await getData.get('friend/getFriends');
+    // eslint-disable-next-line no-console
+    console.log(result2, 'result2');
     const resultData = await getData.get('member/getFriends');
     setRawFriendsData(resultData.data);
     setCopyList(resultData.data);

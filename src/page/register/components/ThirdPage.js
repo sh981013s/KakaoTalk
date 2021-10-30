@@ -1,11 +1,16 @@
 import { Input, Select } from 'antd';
 import { Option } from 'antd/es/mentions';
+import { useState } from 'react';
 import telCode from '../../../utils/telCode';
-import { pageStepStore } from '../../../zustand/FriendsStore';
+import {
+  pageStepStore,
+  userRegiInfoStore,
+} from '../../../zustand/FriendsStore';
 
 const ThirdPage = () => {
   const { setRegPage } = pageStepStore((state) => state);
-
+  const { setUserInfo } = userRegiInfoStore((state) => state);
+  const [userPhoneNum, setUserPhoneNum] = useState('');
   return (
     <div className='firstEntire'>
       <div className='third'>
@@ -25,8 +30,25 @@ const ThirdPage = () => {
                 </Option>
               ))}
             </Select>
-            <Input placeholder='전화번호 입력' className='addFriendsPhone' />
-            <button type='submit' className='thirdCertificationBtn'>
+            <Input
+              placeholder='전화번호 입력'
+              className='addFriendsPhone'
+              onChange={(e) => setUserPhoneNum(e.target.value)}
+            />
+            <button
+              type='submit'
+              className='thirdCertificationBtn'
+              onClick={() =>
+                setUserInfo({
+                  email: '',
+                  pw: '',
+                  name: '',
+                  tel: userPhoneNum,
+                  birth: '',
+                  sex: '',
+                })
+              }
+            >
               인증요청
             </button>
           </div>

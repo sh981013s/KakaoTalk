@@ -1,8 +1,11 @@
 import { Input } from 'antd';
+import { useState } from 'react';
 import { pageStepStore } from '../../../zustand/FriendsStore';
 
 const FifthPage = () => {
   const { setRegPage } = pageStepStore((state) => state);
+
+  const [inputPw, setInputPw] = useState({ pw: '', conPw: '' });
 
   return (
     <div className='firstEntire'>
@@ -23,10 +26,19 @@ const FifthPage = () => {
             <Input
               placeholder='비밀번호 입력 (8~32자리)'
               className='addFriendsPhone'
+              onChange={(e) => {
+                setInputPw({ ...inputPw, pw: e.target.value });
+              }}
             />
           </div>
           <div className='registerThirdPhoneInputSecond'>
-            <Input placeholder='비밀번호 재입력' className='addFriendsPhone' />
+            <Input
+              placeholder='비밀번호 재입력'
+              className='addFriendsPhone'
+              onChange={(e) => {
+                setInputPw({ ...inputPw, conPw: e.target.value });
+              }}
+            />
           </div>
           <ul className='fourthList'>
             <li>
@@ -44,7 +56,9 @@ const FifthPage = () => {
           <button
             type='submit'
             className='agreeBtn'
-            onClick={() => setRegPage(5)}
+            onClick={() => {
+              setRegPage(5);
+            }}
           >
             다음
           </button>

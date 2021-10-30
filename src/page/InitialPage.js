@@ -1,9 +1,11 @@
 import { Input, Checkbox } from 'antd';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import mainImg from '../resources/img/kakaoLoginMain.png';
+import { getData } from '../utils/Api';
 
 const InitialPage = () => {
+  const history = useHistory();
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
   const [allFilled, setAllFilled] = useState(false);
@@ -17,6 +19,18 @@ const InitialPage = () => {
   }, [emailInput, passwordInput, allFilled]);
 
   const loginBtnClassNames = ['loginDisabled', 'loginActive'];
+
+  const getLogin = async () => {
+    const parameter = {
+      email: emailInput,
+      pw: passwordInput,
+    };
+    const resultData = await getData.post('member/signin', parameter);
+    localStorage.setItem('token', resultData.data.accessToken);
+    if (resultData.data.resultType === 'success') {
+      history.push('mainpage/friends');
+    }
+  };
 
   return (
     <div className='loginPage'>
@@ -40,6 +54,7 @@ const InitialPage = () => {
               allFilled ? loginBtnClassNames[1] : loginBtnClassNames[0]
             }
             type='submit'
+            onClick={getLogin}
           >
             Login
           </button>

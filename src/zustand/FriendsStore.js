@@ -8,3 +8,8 @@ export const useStore = create((set) => ({
   setFriendsWhoseBirthdayIsToday: (props) =>
     set({ friendsWhoseBirthdayIsToday: props }),
 }));
+
+export const pageStepStore = create((set) => ({
+  regPage: 0,
+  setRegPage: (props) => set({ regPage: props }),
+}));

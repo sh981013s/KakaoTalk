@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Popover } from 'antd';
 
 function LeftMenu() {
   const [mutedState, setMutedState] = useState(false);
+  const history = useHistory();
 
   const muteSingle = (elem) => {
     // eslint-disable-next-line no-param-reassign
@@ -34,12 +35,18 @@ function LeftMenu() {
     mutedState ? muteAllFunc() : unMuteAllFunc();
   }, [mutedState]);
 
+  const logoutFunc = () => {
+    localStorage.removeItem('token');
+    history.push('/');
+  };
+
   const settingPopover = () => (
     <div className='settingPopoverInner'>
       <ul>
         <li>Settings</li>
         <li>Lock mode</li>
-        <li>Logout</li>
+        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
+        <li onClick={logoutFunc}>Logout</li>
         <li>Quit</li>
       </ul>
       <ul>

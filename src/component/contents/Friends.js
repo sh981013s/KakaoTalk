@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Popover } from 'antd';
 import jason from '../../resources/img/jason.jpg';
-import basic from '../../resources/img/basic_profile.jpg';
 import { getData } from '../../utils/Api';
 import { useStore } from '../../zustand/FriendsStore';
 import Profile from '../MainPage/Profile';
@@ -14,10 +13,9 @@ function Friends(props) {
   const [showProfile, setShowProfile] = useState(true);
 
   const getFriendsData = async () => {
-    const result2 = await getData.get('friend/getFriends');
-    // eslint-disable-next-line no-console
-    console.log(result2, 'result2');
-    const resultData = await getData.get('member/getFriends');
+
+    const resultData = await getData.get('friend/getFriends');
+    console.log(resultData,'::')
     setRawFriendsData(resultData.data);
     setCopyList(resultData.data);
   };
@@ -113,7 +111,7 @@ function Friends(props) {
             trigger='click'
           >
             <img
-              src={basic}
+              src={`http://localhost:8080/img/${value.pic}`}
               alt='lol'
               className='userComponentAvatar userComponentAvatarXl'
             />

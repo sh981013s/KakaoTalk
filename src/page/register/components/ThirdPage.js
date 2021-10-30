@@ -9,7 +9,7 @@ import {
 
 const ThirdPage = () => {
   const { setRegPage } = pageStepStore((state) => state);
-  const { setUserInfo } = userRegiInfoStore((state) => state);
+  const { userInfo, setUserInfo } = userRegiInfoStore((state) => state);
   const [userPhoneNum, setUserPhoneNum] = useState('');
   return (
     <div className='firstEntire'>
@@ -38,16 +38,7 @@ const ThirdPage = () => {
             <button
               type='submit'
               className='thirdCertificationBtn'
-              onClick={() =>
-                setUserInfo({
-                  email: '',
-                  pw: '',
-                  name: '',
-                  tel: userPhoneNum,
-                  birth: '',
-                  sex: '',
-                })
-              }
+              onClick={() => {}}
             >
               인증요청
             </button>
@@ -55,7 +46,13 @@ const ThirdPage = () => {
           <button
             type='submit'
             className='agreeBtn'
-            onClick={() => setRegPage(3)}
+            onClick={() => {
+              setUserInfo({
+                ...userInfo,
+                tel: userPhoneNum
+              });
+              setRegPage(3);
+            }}
           >
             다음
           </button>

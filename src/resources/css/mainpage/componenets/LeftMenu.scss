@@ -49,25 +49,33 @@
 	opacity: 0.7;
 }
 
+.settingsPopover {
+/*	left: 2.6rem !important;
+	top: 43.2rem !important;*/
+	.ant-popover-arrow {
+		display: none;
+	}
+	.ant-popover-inner {
+		background: #E1E1E2;
+		border-radius: 1rem !important;
+	}
+	.settingPopoverInner {
+		width: 13rem;
+		display: flex;
+		align-items: center;
+		ul:nth-child(1) {
+			li {
+				width: 100%;
+				height: 2rem;
+			}
+		}
+		ul:nth-child(2) {
+			li {
+				padding-left: 3rem;
+				width: 100%;
+				height: 2rem;
+			}
+		}
+	}
 
-
-/*.fa-bell-slash fa-2x {*/
-/*	w*/
-/*}*/
-
-/*.navMore {
-    margin-bottom: 1300% !important;
-}*/
-
-/*position: fixed;
-top: 0;
-left: 0;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-align-items: center;
-width: 80px;
-height: 100%;
-padding: 61px 15px 30px 15px;
-background-color: #e6e6e6;
-border-right: 1px solid rgba(121, 121, 121, 0.3);*/
+}

@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-// import { useStore } from '../zustand/FriendsStore';
+import { Link, useHistory } from 'react-router-dom';
+import { Popover } from 'antd';
 
 function LeftMenu() {
   const [mutedState, setMutedState] = useState(false);
-  // const { friendsLists, friendsWhoseBirthdayIsToday } = useStore(
-  //   (state) => state
-  // );
+  const history = useHistory();
 
   const muteSingle = (elem) => {
     // eslint-disable-next-line no-param-reassign
@@ -36,6 +34,29 @@ function LeftMenu() {
     // eslint-disable-next-line no-unused-expressions
     mutedState ? muteAllFunc() : unMuteAllFunc();
   }, [mutedState]);
+
+  const logoutFunc = () => {
+    localStorage.removeItem('token');
+    history.push('/');
+  };
+
+  const settingPopover = () => (
+    <div className='settingPopoverInner'>
+      <ul>
+        <li>Settings</li>
+        <li>Lock mode</li>
+        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
+        <li onClick={logoutFunc}>Logout</li>
+        <li>Quit</li>
+      </ul>
+      <ul>
+        <li />
+        <li>⌘ L</li>
+        <li />
+        <li>⌘ Q</li>
+      </ul>
+    </div>
+  );
 
   return (
     <nav className='leftMenu'>
@@ -92,7 +113,14 @@ function LeftMenu() {
           <li className='navSetting'>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className='navLink'>
-              <i className='fas fa-cog fa-2x' />
+              <Popover
+                overlayClassName='settingsPopover'
+                placement='rightBottom'
+                content={settingPopover}
+                trigger='click'
+              >
+                <i className='fas fa-cog fa-2x' />
+              </Popover>
             </a>
           </li>
         </li>

@@ -1,6 +1,7 @@
 import './resources/css/base/styles.scss';
 // import './resources/css/initialpage/initialpage.scss';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { useEffect } from 'react';
 import MainPage from './page/MainPage';
 import ChatListPage from './page/ChatListPage';
 import InitialPage from './page/InitialPage';
@@ -9,6 +10,7 @@ import Login from './page/account/Login';
 import BirthFriends from './page/BirthFriends';
 import Chat from './component/contents/Chat';
 import Register from './page/register/Register';
+import { getData } from './utils/Api';
 
 /**
  * @author Lee seung hwan
@@ -16,7 +18,18 @@ import Register from './page/register/Register';
  */
 
 function App() {
+  const getInfo = async () => {
+    const tokenValue = localStorage.getItem('token');
+    const parameter = {
+      token: tokenValue,
+    };
+    const resultData = await getData.get('member/me', { params: parameter });
+    console.log(resultData, 'resultData');
+  };
 
+  useEffect(() => {
+    getInfo();
+  }, []);
   return (
     <>
       <BrowserRouter>

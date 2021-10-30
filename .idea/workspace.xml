@@ -4,6 +4,11 @@
     <list default="true" id="dc72bcb3-e5f7-4a98-9378-19a65d7c122d" name="Changes" comment="change Commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/contents/Friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/contents/Friends.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/register/components/FifthPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/register/components/FifthPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/register/components/FourthPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/register/components/FourthPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/register/components/ThirdPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/register/components/ThirdPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zustand/FriendsStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/zustand/FriendsStore.js" afterDir="false" />
     </list>
     <list id="df0c32cb-e95e-4eb3-8ba0-577b67bd718c" name="Changes by Safetics_07" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,9 +35,9 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/page/InitialPage.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/resources/css/base/styles.scss" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/App.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/page/InitialPage.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/resources/css/initialpage/initialpage.scss" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1zGVXFg4WZEG4DdtR5LjsKZXiMS" />
@@ -48,7 +53,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../InteractionSafe_React" />
+    <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="PLAIN_TEXT" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources/img" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -94,7 +100,7 @@
       <workItem from="1634746817091" duration="24557000" />
       <workItem from="1634881958546" duration="36360000" />
       <workItem from="1635238106742" duration="44655000" />
-      <workItem from="1635522844610" duration="12298000" />
+      <workItem from="1635522844610" duration="28306000" />
     </task>
     <task id="LOCAL-00001" summary="change Commit">
       <created>1633774566726</created>

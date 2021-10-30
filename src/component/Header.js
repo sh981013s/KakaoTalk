@@ -320,7 +320,7 @@ function Header(props) {
                 content={content}
                 trigger='click'
               >
-                ???
+                <i className='fas fa-comment-medical fa-lg' />
               </Popover>
             )}
           </span>

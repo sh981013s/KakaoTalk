@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc72bcb3-e5f7-4a98-9378-19a65d7c122d" name="Changes" comment="change Commit">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7ae3fa3c-214c-4c25-b09d-44a707114e03.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7ae3fa3c-214c-4c25-b09d-44a707114e03.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/BirthFriends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/BirthFriends.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/ChatListPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/ChatListPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/css/mainpage/Chatlist.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/mainpage/Chatlist.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/Friends.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/Friends.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/LeftMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/LeftMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/LeftMenu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/LeftMenu.scss" afterDir="false" />
     </list>
     <list id="df0c32cb-e95e-4eb3-8ba0-577b67bd718c" name="Changes by Safetics_07" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +95,7 @@
       <workItem from="1634746817091" duration="24557000" />
       <workItem from="1634881958546" duration="36360000" />
       <workItem from="1635238106742" duration="44655000" />
-      <workItem from="1635522844610" duration="15808000" />
+      <workItem from="1635522844610" duration="18456000" />
     </task>
     <task id="LOCAL-00001" summary="change Commit">
       <created>1633774566726</created>

@@ -157,18 +157,19 @@
   opacity: .6;
 }
 
+.progressBar {
+  width: 7rem;
+  height: .4rem;
+  background: #E8E8E8;
+  margin-bottom: 2rem;
+}
+
 .secondBox {
   overflow-y: scroll;
   height: 80rem;
   border: 1px solid #d7d7d7;
   padding: 5rem 5rem;
 
-  .progressBar {
-    width: 7rem;
-    height: .4rem;
-    background: #E8E8E8;
-    margin-bottom: 2rem;
-  }
   h2 {
     font-size: 2.6rem;
     font-weight: 600;
@@ -186,13 +187,6 @@
     font-weight: 500;
     margin: 0 0 0 1rem;
   }
-  .tmp {
-    width: 50%;
-    height: 100%;
-    background: red;
-    display: flex;
-    align-items: center;
-  }
   .secondDesc {
     margin-top: 1rem;
     padding-left: 2.7rem;
@@ -209,13 +203,90 @@
     margin: 0 0 0 1rem;
     width: 100%;
   }
-  .agreeBtn {
-    margin-top: 2rem;
-    width: 100%;
-    height: 4rem;
-    font-size: 2rem;
-    background: #F8D737;
-    border: 1px solid #F8D737;
-    border-radius: 1rem;
+
+}
+.agreeBtn {
+  margin-top: 2rem;
+  width: 100%;
+  height: 4rem;
+  font-size: 2rem;
+  background: #F8D737;
+  border: 1px solid #F8D737;
+  border-radius: 1rem;
+}
+
+.third {
+  h1 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 600;
   }
+  .thirdBox {
+    width: 70rem;
+    height: 50rem;
+    border: 1px solid #d7d7d7;
+    padding: 7rem 5rem;
+
+    h2 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      text-align: start;
+      margin: 0;
+    }
+    .registerThirdPhoneInput {
+      height: 3.2rem;
+      display: flex;
+      margin: 8rem 0 2rem 0;
+    }
+    .thirdCountry {
+      width: 20%;
+    }
+    .thirdCertificationBtn {
+      height: 100%;
+      width: 20%;
+    }
+  }
+}
+
+
+.fourthBox {
+  width: 60rem;
+  height: 70rem;
+  border: 1px solid #d7d7d7;
+  padding: 7rem 5rem;
+}
+.fourthList {
+  opacity: .6;
+  padding-left: 1rem;
+  list-style-type: circle;
+}
+.regiTitle {
+  font-size: 2.6rem;
+  font-weight: 600;
+  text-align: start;
+  margin: 0;
+}
+.regiRow {
+  margin-top: 3rem;
+  opacity: .6;
+}
+.regiUsername {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.registerThirdPhoneInputSecond {
+  height: 3.2rem;
+  display: flex;
+  margin: 4rem 0 2rem 0;
+}
+
+.registerFourthPhoneInput {
+  width: 100%;
+  height: 3.2rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 4rem 0 2rem 0;
+}
+.regiGender {
+  display: flex;
 }

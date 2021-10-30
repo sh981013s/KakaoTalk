@@ -16,6 +16,7 @@ import Register from './page/register/Register';
  */
 
 function App() {
+
   return (
     <>
       <BrowserRouter>

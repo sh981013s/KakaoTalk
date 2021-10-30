@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import NewWindow from 'react-new-window';
-import { useStore } from '../zustand/FriendsStore';
+import { Link } from 'react-router-dom';
+// import { useStore } from '../zustand/FriendsStore';
 
 function LeftMenu() {
   const [mutedState, setMutedState] = useState(false);
-  const { friendsLists, friendsWhoseBirthdayIsToday } = useStore(
-    (state) => state
-  );
+  // const { friendsLists, friendsWhoseBirthdayIsToday } = useStore(
+  //   (state) => state
+  // );
 
   const muteSingle = (elem) => {
     // eslint-disable-next-line no-param-reassign
@@ -39,50 +39,37 @@ function LeftMenu() {
 
   return (
     <nav className='leftMenu'>
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
-      <p
-        onClick={() => (
-          <NewWindow>
-            <h1>asdasda</h1>
-          </NewWindow>
-        )}
-      >
-        newinow
-      </p>
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
-      <p
-        onClick={() => {
-          console.log(friendsLists, ':::::::');
-        }}
-      >
-        friendslist
-      </p>
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
-      <p
-        onClick={() => {
-          console.log(friendsWhoseBirthdayIsToday, ':::::::');
-        }}
-      >
-        birthday
-      </p>
       <ul className='navList'>
         <li className='navTop'>
           <li className='navFriend'>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className='navLink'>
-              <i className='fas fa-user fa-2x' />
+              <Link to='/mainpage/friends'>
+                <i
+                  className='fas fa-user fa-2x'
+                  style={{ cursor: 'pointer' }}
+                />
+              </Link>
             </a>
           </li>
           <li className='navChat'>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className='navLink'>
-              <i className='far fa-comment fa-2x' />
+              <Link to='/mainpage/chat'>
+                <i
+                  className='far fa-comment fa-2x'
+                  style={{ cursor: 'pointer' }}
+                />
+              </Link>
             </a>
           </li>
           <li className='navMore'>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className='navLink'>
-              <i className='fas fa-ellipsis-h fa-2x' />
+              <i
+                className='fas fa-ellipsis-h fa-2x'
+                style={{ cursor: 'pointer' }}
+              />
             </a>
           </li>
         </li>

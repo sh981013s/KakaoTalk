@@ -10,10 +10,7 @@ import '../resources/css/mainpage/MainPage.scss';
  * @date 2021.10.22
  * @description Friends | Chat | More를 관리하는 컴포넌트
  */
-// eslint-disable-next-line react/prop-types
-function MainPage({ match }) {
-  // eslint-disable-next-line react/prop-types
-  const { param } = match.params;
+function ChatListPage() {
   const [searchText, setSearchText] = useState('');
   const [userList, setUserList] = useState([]);
 
@@ -25,28 +22,15 @@ function MainPage({ match }) {
     setUserList(props);
   };
 
-  // eslint-disable-next-line consistent-return
-  const selectPage = (page) => {
-    // eslint-disable-next-line default-case
-    switch (page) {
-      case 'friends':
-        return <Friends searchText={searchText} func={pullData} />;
-      default:
-        return <div>Chat component</div>;
-    }
-  };
-
   return (
     <div className='mainPage'>
       <div>
-        {/* eslint-disable-next-line react/prop-types */}
-        <Header receive={receive} userList={userList} type={param} />
-        {/* eslint-disable-next-line react/prop-types */}
-        {selectPage(param)}
+        <Header receive={receive} userList={userList} />
+        <Friends searchText={searchText} func={pullData} />
       </div>
       <LeftMenu />
     </div>
   );
 }
 
-export default MainPage;
+export default ChatListPage;

@@ -6,6 +6,8 @@ import telCode from '../utils/telCode';
 import basic from '../resources/img/basic_profile.jpg';
 
 function Header(props) {
+  // eslint-disable-next-line react/prop-types
+  const { receive, type } = props;
   const [text, setText] = useState('');
   const [trigger, setTrigger] = useState(false);
   const [current, setCurrent] = useState('contacts');
@@ -49,8 +51,7 @@ function Header(props) {
   }, []);
 
   useEffect(() => {
-    // eslint-disable-next-line react/prop-types
-    props.receive(text);
+    receive(text);
   }, [text]);
 
   const entireUser = [
@@ -176,8 +177,7 @@ function Header(props) {
     ) : null;
 
   useEffect(() => {
-    // eslint-disable-next-line react/prop-types
-    props.receive(text);
+    receive(text);
   }, [text]);
 
   // eslint-disable-next-line no-nested-ternary
@@ -293,7 +293,7 @@ function Header(props) {
             console.log(friendsList);
           }}
         >
-          Friends
+          {type === 'friends' ? 'Friends' : 'Chat'}
         </h1>
         <div className='screenHeaderIcons'>
           <span>
@@ -306,9 +306,23 @@ function Header(props) {
             />
           </span>
           <span>
-            <Popover placement='bottomRight' content={content} trigger='click'>
-              <i className='fas fa-user-plus fa-lg' />
-            </Popover>
+            {type === 'friends' ? (
+              <Popover
+                placement='bottomRight'
+                content={content}
+                trigger='click'
+              >
+                <i className='fas fa-user-plus fa-lg' />
+              </Popover>
+            ) : (
+              <Popover
+                placement='bottomRight'
+                content={content}
+                trigger='click'
+              >
+                ???
+              </Popover>
+            )}
           </span>
         </div>
       </div>

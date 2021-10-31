@@ -1,10 +1,10 @@
 import { Input } from 'antd';
 import { useState } from 'react';
-import { pageStepStore } from '../../../zustand/FriendsStore';
+import { pageStepStore, userRegiInfoStore } from '../../../zustand/FriendsStore';
 
 const FifthPage = () => {
   const { setRegPage } = pageStepStore((state) => state);
-
+  const {userInfo, setUserInfo } = userRegiInfoStore((state) => state);
   const [inputPw, setInputPw] = useState({ pw: '', conPw: '' });
 
   return (
@@ -57,6 +57,10 @@ const FifthPage = () => {
             type='submit'
             className='agreeBtn'
             onClick={() => {
+              setUserInfo({
+                ...userInfo,
+                pw: inputPw.pw,
+              });
               setRegPage(5);
             }}
           >

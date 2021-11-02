@@ -9,9 +9,10 @@ const InitialPage = () => {
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
   const [allFilled, setAllFilled] = useState(false);
+  const [isValidInput, setIsValidInput] = useState(true);
 
   useEffect(() => {
-    if (emailInput && passwordInput !== '') {
+    if (emailInput !== '' && passwordInput.length > 3) {
       setAllFilled(true);
     } else {
       setAllFilled(false);
@@ -29,6 +30,8 @@ const InitialPage = () => {
     localStorage.setItem('token', resultData.data.accessToken);
     if (resultData.data.resultType === 'success') {
       history.push('mainpage/friends');
+    } else {
+      setIsValidInput(false);
     }
   };
 
@@ -48,6 +51,11 @@ const InitialPage = () => {
               placeholder='Password'
               onChange={(e) => setPasswordInput(e.target.value)}
             />
+            {
+              isValidInput
+              ? null
+                : <p style={{color:'red', marginTop:'1rem'}}>Invalid Email / Password</p>
+            }
           </div>
           <button
             className={

@@ -7,7 +7,7 @@ const FirstPage = () => {
     <div className='firstEntire'>
       <div className='firstContents'>
         <div className='first'>
-          <h1>SeungKaoTalk</h1>
+          <h1>KakaoTalk</h1>
           <div className='firstBox'>
             <h2>가입을 시작합니다!</h2>
             <h3>카카오 계정 하나로</h3>

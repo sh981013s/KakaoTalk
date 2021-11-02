@@ -1,14 +1,58 @@
 import { Checkbox } from 'antd';
+import { useEffect, useState } from 'react';
 import { pageStepStore } from '../../../zustand/FriendsStore';
 
 const SecondPage = () => {
   const { setRegPage } = pageStepStore((state) => state);
+  const [checkAll, setCheckAll] = useState(false);
+  const [oneChecked, setOneChecked] = useState(false);
+  const [twoChecked, setTwoChecked] = useState(false);
+  const [threeChecked, setThreeChecked] = useState(false);
+  const [fourChecked, setFourChecked] = useState(false);
+  const [fiveChecked, setFiveChecked] = useState(false);
+  const [sixChecked, setSixChecked] = useState(false);
+  const [sevenChecked, setSevenChecked] = useState(false);
+
+  const [btnActive, setBtnActive] = useState(false);
+
+  const btnClassNames = ['agreeBtn', 'agreeBtnDisabled'];
+
+
+  useEffect(()=>{
+    if(checkAll) {
+      setOneChecked(true)
+      setTwoChecked(true)
+      setThreeChecked(true)
+      setFourChecked(true)
+      setFiveChecked(true)
+      setSixChecked(true)
+      setSevenChecked(true)
+    } else {
+      setOneChecked(false)
+      setTwoChecked(false)
+      setThreeChecked(false)
+      setFourChecked(false)
+      setFiveChecked(false)
+      setSixChecked(false)
+      setSevenChecked(false)
+    }
+  },[checkAll])
+
+  useEffect(()=> {
+    if(twoChecked && threeChecked && fiveChecked === true) {
+      setBtnActive(true);
+    } else {
+      setBtnActive(false);
+    }
+  },[twoChecked, threeChecked, fiveChecked])
+
+
 
   return (
     <div className='firstEntire'>
       <div className='firstContents'>
         <div className='second'>
-          <h1>SeungKaoTalk</h1>
+          <h1>KakaoTalk</h1>
           <div className='secondBox'>
             <div className='progressBar'>
               <div className='realBar' />
@@ -16,7 +60,7 @@ const SecondPage = () => {
             <h2>카카오 계정</h2>
             <h2>서비스 약관에 동의해 주세요.</h2>
             <div className='firstCheckbox'>
-              <Checkbox />
+              <Checkbox onChange={()=>setCheckAll(!checkAll)} />
               <p className='checkboxText'>모두 동의합니다.</p>
             </div>
             <div className='secondDesc'>
@@ -28,18 +72,19 @@ const SecondPage = () => {
             </div>
             <hr />
             <div className='firstCheckbox'>
-              <Checkbox />
+              <Checkbox checked={oneChecked} onChange={()=>setOneChecked(!oneChecked)}/>
               <p className='checkboxText'>만 14세 이상입니다.</p>
             </div>
             <div className='otherCheckbox'>
-              <Checkbox />
+              <Checkbox checked={twoChecked} onChange={()=>setTwoChecked(!twoChecked)}/>
               <p className='otherCheckboxText'>[필수] 카카오계정 약관</p>
               <div className='checkboxIcon'>
                 <i className='fas fa-chevron-right' />
               </div>
             </div>
             <div className='otherCheckbox'>
-              <Checkbox />
+              <Checkbox checked={threeChecked} onChange={()=>setThreeChecked(!threeChecked)}/>
+
               <p className='otherCheckboxText'>[필수] 카카오 통합서비스 약관</p>
               <div className='checkboxIcon'>
                 <i className='fas fa-chevron-right' />
@@ -53,7 +98,7 @@ const SecondPage = () => {
               </p>
             </div>
             <div className='otherCheckbox'>
-              <Checkbox />
+              <Checkbox checked={fourChecked} onChange={()=>setFourChecked(!fourChecked)}/>
               <p className='otherCheckboxText'>
                 [선택] 카카오알림 채널 추가 및 광고메시지 수신
               </p>
@@ -62,7 +107,7 @@ const SecondPage = () => {
               </div>
             </div>
             <div className='otherCheckbox'>
-              <Checkbox />
+              <Checkbox checked={fiveChecked} onChange={()=>setFiveChecked(!fiveChecked)}/>
               <p className='otherCheckboxText'>
                 [필수] 개인정보 수집 및 이용 동의
               </p>
@@ -71,7 +116,7 @@ const SecondPage = () => {
               </div>
             </div>
             <div className='otherCheckbox'>
-              <Checkbox />
+              <Checkbox checked={sixChecked} onChange={()=>setSixChecked(!sixChecked)}/>
               <p className='otherCheckboxText'>
                 [선택] 위치정보 수집 및 이용 동의
               </p>
@@ -80,7 +125,7 @@ const SecondPage = () => {
               </div>
             </div>
             <div className='otherCheckbox'>
-              <Checkbox />
+              <Checkbox checked={sevenChecked} onChange={()=>setSevenChecked(!sevenChecked)}/>
               <p className='otherCheckboxText'>
                 [선택] 프로필정보 추가 수집 동의
               </p>
@@ -88,13 +133,25 @@ const SecondPage = () => {
                 <i className='fas fa-chevron-right' />
               </div>
             </div>
-            <button
-              type='submit'
-              className='agreeBtn'
-              onClick={() => setRegPage(2)}
-            >
-              동의
-            </button>
+            {
+              btnActive
+              ?             <button
+                  type='submit'
+                  className={btnClassNames[0]}
+                  disabled={btnActive}
+                  onClick={() => setRegPage(2)}
+                >
+                  동의
+                </button>
+                : <button
+                  type='submit'
+                  className={btnClassNames[1]}
+                  disabled
+                >
+                  동의
+                </button>
+            }
+
           </div>
           <ul className='regiBottom'>
             <li>이용약관</li>
@@ -104,7 +161,8 @@ const SecondPage = () => {
             <li>공지사항</li>
             <li>한국어</li>
           </ul>
-          <p className='regiBottomText'>
+          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
+          <p onClick={()=>console.log(btnActive)} className='regiBottomText'>
             Copyright SeungHwanLee. All rights reserved.
           </p>
         </div>

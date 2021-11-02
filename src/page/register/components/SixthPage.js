@@ -1,19 +1,35 @@
 import { Checkbox, Input, Select } from 'antd';
-import { Option } from 'antd/es/mentions';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 // import { useHistory } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
+import { Option } from 'antd/es/mentions';
 import { userRegiInfoStore } from '../../../zustand/FriendsStore';
 import { getData } from '../../../utils/Api';
+import { year, month, day } from '../../../utils/Date'
 
 const SixthPage = () => {
 	const history = useHistory();
+	const { userInfo, setUserInfo } = userRegiInfoStore((state) => state);
+	const [birthDay, setBirthDay] = useState(
+		{
+			year: '',
+			month: '',
+			day: ''
+		}
+	);
+	const [gender, setGender] = useState('');
+	const [userName, setUserName] = useState('');
 
-	const { userInfo } = userRegiInfoStore((state) => state);
+	const includeInfo = () => {
+		const userBirthday = `${ birthDay.year }-${ birthDay.month }-${ birthDay.day }`;
+		setUserInfo({...userInfo, birth: userBirthday, sex: gender, name: userName});
+	}
 
 	useEffect(() => {
 		console.log(userInfo, 'userInfo::::');
 	}, [userInfo]);
+
+
 
 
 	return (
@@ -27,34 +43,42 @@ const SixthPage = () => {
 					<h2 className='regiTitle'>카카오계정 프로필을</h2>
 					<h2 className='regiTitle'>설정해 주세요.</h2>
 
-					<p className='regiRow'>닉네임</p>
+					<p className='regiRow'>이름</p>
 					<div className='registerThirdPhoneInput'>
-						<Input placeholder='닉네임 입력' className='addFriendsPhone' />
+						<Input placeholder='닉네임 입력' className='addFriendsPhone' onChange={(e)=>setUserName(e.target.value)}/>
 					</div>
 					<p className='regiRow'>생일</p>
 					<div className='registerFourthPhoneInput'>
-						<Select defaultValue='연도'>
-							<Option>2021</Option>
-							<Option>2022</Option>
+						<Select defaultValue='연도' onChange={(e)=>{setBirthDay({...birthDay, year: e.toString()})}} >
+							{
+								year.map((singleYear) => (
+										<Option value={ singleYear } key={ singleYear }>{ singleYear }</Option>
+									))
+							}
 						</Select>
-						<Select defaultValue='월'>
-							<Option>12</Option>
-							<Option>11</Option>
-							<Option>10</Option>
+						<Select defaultValue='월' onChange={(e)=>{setBirthDay({...birthDay, month: e.toString()})}}>
+							{
+								month.map((singleMonth) => (
+									<Option value={ singleMonth } key={ singleMonth }>{ singleMonth }</Option>
+								))
+							}
 						</Select>
-						<Select defaultValue	='일'>
-							<Option>31</Option>
-							<Option>30</Option>
+						<Select defaultValue='일' onChange={(e)=>{setBirthDay({...birthDay, day: e})}}>
+							{
+								day.map((singleDay) => (
+									<Option value={ singleDay } key={ singleDay }>{ singleDay }</Option>
+								))
+							}
 						</Select>
-						<Checkbox>음력</Checkbox>
+						<Checkbox disabled='true'>음력</Checkbox>
 					</div>
 					<p className='regiRow'>성별</p>
 					<ul className='regiGender'>
 						<li>
-							<Checkbox>남성</Checkbox>
+							<Checkbox onClick={()=>setGender('male')}>남성</Checkbox>
 						</li>
 						<li>
-							<Checkbox>여성</Checkbox>
+							<Checkbox value='female' onClick={()=>setGender('female')}>여성</Checkbox>
 						</li>
 						<li>
 							<Checkbox>선택안함</Checkbox>
@@ -64,6 +88,7 @@ const SixthPage = () => {
 						type='submit'
 						className='agreeBtn'
 						onClick={async () => {
+							includeInfo();
 							const resultData = await getData.post('member/signup', userInfo)
 							if(resultData.data.resultType === 'success'){
 								alert('회원가입이 되었습니다ㅣ.')

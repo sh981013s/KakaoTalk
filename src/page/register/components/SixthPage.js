@@ -3,11 +3,12 @@ import { useEffect, useState } from 'react';
 // import { useHistory } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { Option } from 'antd/es/mentions';
-import { userRegiInfoStore } from '../../../zustand/FriendsStore';
+import { pageStepStore, userRegiInfoStore } from '../../../zustand/FriendsStore';
 import { getData } from '../../../utils/Api';
 import { year, month, day } from '../../../utils/Date'
 
 const SixthPage = () => {
+	const { setRegPage } = pageStepStore((state) => state);
 	const history = useHistory();
 	const { userInfo, setUserInfo } = userRegiInfoStore((state) => state);
 	const [birthDay, setBirthDay] = useState(
@@ -91,7 +92,8 @@ const SixthPage = () => {
 							includeInfo();
 							const resultData = await getData.post('member/signup', userInfo)
 							if(resultData.data.resultType === 'success'){
-								alert('회원가입이 되었습니다ㅣ.')
+								setRegPage(0);
+								alert('회원가입을 완료했습니다!')
 								history.push('/')
 							}
 						}}

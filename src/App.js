@@ -11,6 +11,8 @@ import BirthFriends from './page/BirthFriends';
 import Chat from './component/contents/Chat';
 import Register from './page/register/Register';
 import { getData } from './utils/Api';
+import { myInfoStore } from './zustand/FriendsStore';
+
 
 /**
  * @author Lee seung hwan
@@ -18,13 +20,15 @@ import { getData } from './utils/Api';
  */
 
 function App() {
+  const { setMyInfo } = myInfoStore((state) => state);
+
   const getInfo = async () => {
     const tokenValue = localStorage.getItem('token');
     const parameter = {
       token: tokenValue,
     };
-    const resultData = await getData.get('member/me', { params: parameter });
-    console.log(resultData, 'resultData');
+    const myInfo = await getData.get('member/me', { params: parameter });
+    setMyInfo(myInfo);
   };
 
   useEffect(() => {

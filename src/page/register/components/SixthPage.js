@@ -36,7 +36,7 @@ const SixthPage = () => {
 	return (
 		<div className='firstEntire'>
 			<div className='third'>
-				<h1>SeungKaoTalk</h1>
+				<h1>KakaoTalk</h1>
 				<div className='fourthBox'>
 					<div className='progressBar'>
 						<div className='realBar' />

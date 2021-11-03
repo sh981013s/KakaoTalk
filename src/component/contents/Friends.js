@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Popover } from 'antd';
-import jason from '../../resources/img/jason.jpg';
 import { getData } from '../../utils/Api';
-import { useStore } from '../../zustand/FriendsStore';
+import {  useStore } from '../../zustand/FriendsStore';
 import Profile from '../MainPage/Profile';
 
 function Friends(props) {
@@ -11,9 +10,20 @@ function Friends(props) {
   const [rawFriendsData, setRawFriendsData] = useState([]);
   const [copyList, setCopyList] = useState([]);
   const [showProfile, setShowProfile] = useState(true);
+  const [me, setMe] = useState({name: '', pic: '', state: ''});
+
+
+  const getInfo = async () => {
+    const tokenValue = localStorage.getItem('token');
+    const parameter = {
+      token: tokenValue,
+    };
+    // eslint-disable-next-line no-shadow
+    const myInfo = await getData.get('member/me', { params: parameter });
+    setMe(myInfo.data.userInfo[0]);
+  };
 
   const getFriendsData = async () => {
-
     const resultData = await getData.get('friend/getFriends');
     console.log(resultData,'::')
     setRawFriendsData(resultData.data);
@@ -21,6 +31,7 @@ function Friends(props) {
   };
 
   useEffect(() => {
+    getInfo();
     getFriendsData();
     setCopyList(rawFriendsData);
     setFriendsLists(copyList);
@@ -29,6 +40,9 @@ function Friends(props) {
   useEffect(() => {
     setFriendsLists(copyList);
   }, [copyList]);
+
+
+
 
   useEffect(() => {
     const resultData = rawFriendsData.filter((value) =>
@@ -66,25 +80,28 @@ function Friends(props) {
   };
   return (
     <main className='friendsList'>
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
+      <p onClick={()=>console.log(me)}>asdasdsada</p>
       {showProfile ? (
         <>
           <div className='userComponent'>
             <img
-              src={jason}
+              src={`http://localhost:8080/img/${me.pic}`}
               alt='lol'
               className='userComponentAvatar userComponentAvatarXl'
             />
             <div className='userComponentDetails'>
               <div className='userComponentName'>
-                <h4>Jason Lee</h4>
+                <h4>{me.name}</h4>
               </div>
               <div className='userComponentDesc'>
-                <h5>Hi</h5>
+                <h5>{me.state}</h5>
               </div>
             </div>
           </div>
           <hr />
-          <p>Friends with Birthdays {copyList.length}</p>
+          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
+          <p onClick={()=>console.log(rawFriendsData)}>Friends with Birthdays</p>
           <div className='userComponent' onDoubleClick={openBirthPage}>
             <div className='friendsListIcon'>
               <div className='iconBox'>

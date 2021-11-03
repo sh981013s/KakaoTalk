@@ -3,10 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="1b0de1a9-88bf-4c9b-a461-f6a07594e31e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/InitialPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/InitialPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/register/components/FirstPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/register/components/FirstPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/MainPage/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/MainPage/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/contents/Friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/contents/Friends.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/register/components/FifthPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/register/components/FifthPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/register/components/FourthPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/register/components/FourthPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/register/components/SecondPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/register/components/SecondPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/css/initialpage/components/login.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/initialpage/components/login.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/register/components/SixthPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/register/components/SixthPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/register/components/ThirdPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/register/components/ThirdPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zustand/FriendsStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/zustand/FriendsStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

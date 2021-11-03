@@ -25,3 +25,8 @@ export const userRegiInfoStore = create((set) => ({
   },
   setUserInfo: (props) => set({ userInfo: props }),
 }));
+
+export const myInfoStore = create((set) => ({
+  myInfo: '123' ,
+  setMyInfo: (props) => set({ myInfo: props }),
+}));

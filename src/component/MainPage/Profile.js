@@ -1,8 +1,8 @@
 // Profile 컴포넌트
-import basic from '../../resources/img/basic_profile.jpg';
+
 
 // eslint-disable-next-line react/prop-types
-export default function Profile({ name, state }, type) {
+export default function Profile({ name, state, pic }, type) {
   return (
     <>
       <div className='profileEntire'>
@@ -13,7 +13,7 @@ export default function Profile({ name, state }, type) {
         <div className='profileInfo'>
           <div className='profileImg'>
             <img
-              src={basic}
+              src={`http://localhost:8080/img/${pic}`}
               alt='lol'
               className='userComponentAvatar userComponentAvatarXl'
             />

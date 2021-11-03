@@ -138,7 +138,6 @@ const SecondPage = () => {
               ?             <button
                   type='submit'
                   className={btnClassNames[0]}
-                  disabled={btnActive}
                   onClick={() => setRegPage(2)}
                 >
                   동의

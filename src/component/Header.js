@@ -293,7 +293,10 @@ function Header(props) {
             console.log(friendsList);
           }}
         >
-          {type === 'friends' ? 'Friends' : 'Chat'}
+          {/* eslint-disable-next-line no-nested-ternary */}
+          {type === 'friends' ? 'Friends'
+            : type === 'chats' ? 'Chat'
+          : 'More'}
         </h1>
         <div className='screenHeaderIcons'>
           <span>
@@ -306,6 +309,7 @@ function Header(props) {
             />
           </span>
           <span>
+            {/* eslint-disable-next-line no-nested-ternary */}
             {type === 'friends' ? (
               <Popover
                 placement='bottomRight'
@@ -314,7 +318,7 @@ function Header(props) {
               >
                 <i className='fas fa-user-plus fa-lg' />
               </Popover>
-            ) : (
+            ) : type === 'chats' ? (
               <Popover
                 placement='bottomRight'
                 content={content}
@@ -322,7 +326,7 @@ function Header(props) {
               >
                 <i className='fas fa-comment-medical fa-lg' />
               </Popover>
-            )}
+            ) : null }
           </span>
         </div>
       </div>

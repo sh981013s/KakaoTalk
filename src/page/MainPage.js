@@ -4,6 +4,7 @@ import LeftMenu from '../component/LeftMenu';
 import Header from '../component/Header';
 import '../resources/css/mainpage/MainPage.scss';
 import ChatListPage from './ChatListPage';
+import MorePage from './MorePage';
 // import {getData} from '../utils/Api';
 
 /**
@@ -34,6 +35,8 @@ function MainPage({ match }) {
         return <Friends searchText={searchText} func={pullData} />;
       case 'chats':
         return <ChatListPage />;
+      case 'more':
+        return <MorePage />;
       default:
         return <div>4044040404404040404040404040</div>;
     }

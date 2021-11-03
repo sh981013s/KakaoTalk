@@ -87,10 +87,12 @@ function LeftMenu() {
           <li className='navMore'>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className='navLink'>
+              <Link to='/mainpage/more'>
               <i
                 className='fas fa-ellipsis-h fa-2x'
                 style={{ cursor: 'pointer' }}
               />
+              </Link>
             </a>
           </li>
         </li>

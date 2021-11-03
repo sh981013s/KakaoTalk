@@ -80,8 +80,6 @@ function Friends(props) {
   };
   return (
     <main className='friendsList'>
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
-      <p onClick={()=>console.log(me)}>asdasdsada</p>
       {showProfile ? (
         <>
           <div className='userComponent'>

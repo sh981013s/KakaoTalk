@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1b0de1a9-88bf-4c9b-a461-f6a07594e31e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/LeftMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/LeftMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/contents/Friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/contents/Friends.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/MainPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/css/mainpage/MainPage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/mainpage/MainPage.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/MorePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/MorePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/css/mainpage/MorePage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/mainpage/MorePage.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +22,9 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="TaskManager">
     <servers />

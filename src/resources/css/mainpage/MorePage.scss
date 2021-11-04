@@ -1,7 +1,9 @@
 .mainWrap {
   width: 100%;
   padding: 0 8rem 0 11rem;
-  background: red;
+  hr {
+    border: 1px solid #E2E2E2;
+  }
 }
 
 .userCard {
@@ -9,5 +11,91 @@
   height: 14rem;
   background: #F8F8F8;
   border-radius: 1rem;
+  border: 1px solid #E2E2E2;
+  margin-bottom: 3rem;
+}
+
+.cardTop {
+  display: flex;
+  width: 100%;
+  padding: 1.3rem;
+
+}
+
+.cardTopDesc {
+  width: 90%;
+}
+
+.cardTopDescText {
+  h2 {
+    font-size: 1.6rem;
+  }
+  p {
+    font-size: 1.3rem;
+    opacity: .6;
+  }
+}
+
+.cardTopDescIcon {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardBtm {
+  display: flex;
+  padding: 1rem;
+  //border: 1px solid #E2E2E2;
+  p {
+    width: 94%;
+  }
+  i {
+    width: 5%;
+    color: #D2D2D2;
+  }
+}
+
+.moreIconBox {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
   padding: 2rem;
+  li {
+    width: 25%;
+    .iconSingleBox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      i {
+        width: 100%;
+        font-size: 2.5rem;
+        text-align: center;
+      }
+      p {
+        margin-top: 1rem;
+        width: 100%;
+        font-size: 1.5rem;
+        text-align: center;
+        color: #c2c2c2;
+      }
+    }
+  }
+}
+
+.versionInfo {
+  margin-top: 3rem;
+  display: flex;
+  align-items: baseline;
+  font-size: 1.5rem;
+  font-weight: 400;
+  :nth-child(2) {
+    margin-left: 1rem;
+    width: 90%;
+  }
+  p:last-child {
+    width: 10%;
+    opacity: .6;
+  }
 }

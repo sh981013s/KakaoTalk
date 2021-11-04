@@ -83,11 +83,18 @@ function Friends(props) {
       {showProfile ? (
         <>
           <div className='userComponent'>
-            <img
-              src={`http://localhost:8080/img/${me.pic}`}
-              alt='lol'
-              className='userComponentAvatar userComponentAvatarXl'
-            />
+            <Popover
+              placement='left'
+              overlayClassName='profileOverall'
+              content={Profile(me, 'me')}
+              trigger='click'
+            >
+              <img
+                src={`http://localhost:8080/img/${me.pic}`}
+                alt='lol'
+                className='userComponentAvatar userComponentAvatarXl'
+              />
+            </Popover>
             <div className='userComponentDetails'>
               <div className='userComponentName'>
                 <h4>{me.name}</h4>
@@ -97,6 +104,7 @@ function Friends(props) {
               </div>
             </div>
           </div>
+
           <hr />
           {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
           <p onClick={()=>console.log(rawFriendsData)}>Friends with Birthdays</p>

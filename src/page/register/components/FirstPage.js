@@ -13,8 +13,7 @@ const FirstPage = () => {
             <h3>카카오 계정 하나로</h3>
             <h3>다양한 서비스를 편리하게 이용해 보세요!</h3>
             <h4>카카오 계정으로 사용할 이메일이 있나요?</h4>
-            {/* eslint-disable-next-line react/button-has-type */}
-            <button onClick={() => setRegPage(1)}>
+            <button type='button' onClick={() => setRegPage(1)}>
               새 이메일이 필요합니다.
             </button>
             <p>사용 중인 Daum 아이디가 있다면,</p>

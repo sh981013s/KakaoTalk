@@ -29,10 +29,7 @@ export default function Profile({ name, state, pic }, type) {
 }
 
 // eslint-disable-next-line react/prop-types
-const Tester = ({ type }) => {
-  // eslint-disable-next-line no-console
-  console.log(type, ':::');
-  return (
+const Tester = ({ type }) => (
     <>
       {type === 'friends' ? (
         <div className='profileAction'>
@@ -50,8 +47,20 @@ const Tester = ({ type }) => {
           </div>
         </div>
       ) : (
-        <div>나</div>
+        <div className='profileAction'>
+          <div>
+            <i className='fas fa-comment' />
+            <p style={{fontSize: 12, marginTop:5}}>My Chatroom</p>
+          </div>
+          <div>
+            <i className="fas fa-pencil-alt" />
+            <p style={{fontSize: 12, marginTop:5}}>Edit Profile</p>
+          </div>
+          <div>
+            <i className='fas fa-comment-alt' />
+            <p style={{fontSize: 12, marginTop:5}}>KakaoStory</p>
+          </div>
+        </div>
       )}
     </>
   );
-};

@@ -58,15 +58,24 @@ const InitialPage = () => {
                 : <p style={{color:'red', marginTop:'1rem'}}>Invalid Email / Password</p>
             }
           </div>
-          <button
-            className={
-              allFilled ? loginBtnClassNames[1] : loginBtnClassNames[0]
-            }
-            type='submit'
-            onClick={getLogin}
-          >
-            Login
-          </button>
+          {
+            allFilled ?
+              <button
+                className={loginBtnClassNames[1]}
+                type='submit'
+                onClick={getLogin}
+              >
+                Login
+              </button>
+              :           <button
+                className={loginBtnClassNames[0]}
+                type='submit'
+                onClick={getLogin}
+                disabled
+              >
+                Login
+              </button>
+          }
           <div className='desc'>
             <Checkbox />
             <p>Keep me logged in</p>

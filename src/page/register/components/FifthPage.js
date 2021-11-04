@@ -54,6 +54,13 @@ const FifthPage = () => {
               placeholder='비밀번호 재입력'
               className='addFriendsPhone'
               type='password'
+              onPressEnter={() => {
+                setUserInfo({
+                  ...userInfo,
+                  pw: inputPw.pw,
+                });
+                setRegPage(5);
+              }}
               onChange={(e) => {
                 setInputPw({ ...inputPw, conPw: e.target.value });
               }}

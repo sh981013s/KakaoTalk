@@ -45,6 +45,13 @@ const ThirdPage = () => {
             <Input
               placeholder='전화번호 입력'
               className='addFriendsPhone'
+              onPressEnter={() => {
+                setUserInfo({
+                  ...userInfo,
+                  tel: userPhoneNum
+                });
+                setRegPage(3);
+              }}
               onChange={(e) => setUserPhoneNum(e.target.value)}
             />
             <button

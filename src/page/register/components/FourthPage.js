@@ -34,6 +34,13 @@ const FourthPage = () => {
             <Input
               placeholder='이메일 입력'
               className='addFriendsPhone'
+              onPressEnter={() => {
+                setRegPage(4);
+                setUserInfo({
+                  ...userInfo,
+                  email: userEmail,
+                });
+              }}
               onChange={(e) => setUserEmail(e.target.value)}
             />
           </div>

@@ -46,11 +46,13 @@ const InitialPage = () => {
             <Input
               placeholder='Email or Phone Number'
               onChange={(e) => setEmailInput(e.target.value)}
+              onPressEnter={getLogin}
             />
             <Input
               placeholder='Password'
               type='password'
               onChange={(e) => setPasswordInput(e.target.value)}
+              onPressEnter={getLogin}
             />
             {
               isValidInput

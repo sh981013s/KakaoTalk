@@ -63,6 +63,9 @@
 		width: 13rem;
 		display: flex;
 		align-items: center;
+		li {
+			cursor: pointer;
+		}
 		ul:nth-child(1) {
 			li {
 				width: 100%;

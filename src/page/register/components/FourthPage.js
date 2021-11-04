@@ -1,5 +1,5 @@
 import { Input } from 'antd';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   pageStepStore,
   userRegiInfoStore,
@@ -10,6 +10,16 @@ const FourthPage = () => {
   const { userInfo, setUserInfo } = userRegiInfoStore((state) => state);
   const [userEmail, setUserEmail] = useState('');
 
+  const [btnActive, setBtnActive] = useState(false);
+  const btnClassNames = ['agreeBtn', 'agreeBtnDisabled'];
+
+  useEffect(()=>{
+    if(userEmail.length > 0) {
+      setBtnActive(true)
+    } else {
+      setBtnActive(false);
+    }
+  },[userEmail])
   return (
     <div className='firstEntire'>
       <div className='third'>
@@ -22,13 +32,10 @@ const FourthPage = () => {
           <h2>카카오 메일을 만들어 주세요</h2>
           <div className='registerThirdPhoneInput'>
             <Input
-              placeholder='아이디 입력'
+              placeholder='이메일 입력'
               className='addFriendsPhone'
               onChange={(e) => setUserEmail(e.target.value)}
             />
-            <button type='submit' className='thirdCertificationBtn'>
-              @kako.com
-            </button>
           </div>
           <ul className='fourthList'>
             <li>입력한 카카오메일로 카카오계정에 로그인할 수 있습니다.</li>
@@ -41,19 +48,29 @@ const FourthPage = () => {
               있습니다.
             </li>
           </ul>
-          <button
-            type='submit'
-            className='agreeBtn'
-            onClick={() => {
-              setRegPage(4);
-              setUserInfo({
-                ...userInfo,
-                email: userEmail,
-              });
-            }}
-          >
-            다음
-          </button>
+          {
+            btnActive
+              ?                                 <button
+                type='submit'
+                className='agreeBtn'
+                onClick={() => {
+                  setRegPage(4);
+                  setUserInfo({
+                    ...userInfo,
+                    email: userEmail,
+                  });
+                }}
+              >
+                다음
+              </button>
+              : <button
+                type='submit'
+                className={btnClassNames[1]}
+                disabled
+              >
+                다음
+              </button>
+          }
         </div>
         <ul className='regiBottom'>
           <li>이용약관</li>

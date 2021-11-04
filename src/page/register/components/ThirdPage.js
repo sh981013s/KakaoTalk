@@ -1,6 +1,6 @@
 import { Input, Select } from 'antd';
 import { Option } from 'antd/es/mentions';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import telCode from '../../../utils/telCode';
 import {
   pageStepStore,
@@ -11,6 +11,18 @@ const ThirdPage = () => {
   const { setRegPage } = pageStepStore((state) => state);
   const { userInfo, setUserInfo } = userRegiInfoStore((state) => state);
   const [userPhoneNum, setUserPhoneNum] = useState('');
+
+  const [btnActive, setBtnActive] = useState(false);
+  const btnClassNames = ['agreeBtn', 'agreeBtnDisabled'];
+
+  useEffect(()=>{
+    if(userPhoneNum.length > 10) {
+      setBtnActive(true)
+    } else {
+      setBtnActive(false);
+    }
+  },[userPhoneNum])
+
   return (
     <div className='firstEntire'>
       <div className='third'>
@@ -22,7 +34,7 @@ const ThirdPage = () => {
           <h2>카카오계정 가입을 위해</h2>
           <h2>휴대폰 인증을 진행해 주세요.</h2>
           <div className='registerThirdPhoneInput'>
-            <Select className='thirdCountry' style={{ width: 100 }}>
+            <Select defaultValue='+82' className='thirdCountry' style={{ width: 100 }}>
               {telCode.map((country) => (
                 // eslint-disable-next-line react/jsx-key
                 <Option value={country.dial_code}>
@@ -43,19 +55,29 @@ const ThirdPage = () => {
               인증요청
             </button>
           </div>
-          <button
-            type='submit'
-            className='agreeBtn'
-            onClick={() => {
-              setUserInfo({
-                ...userInfo,
-                tel: userPhoneNum
-              });
-              setRegPage(3);
-            }}
-          >
-            다음
-          </button>
+          {
+            btnActive
+              ?                       <button
+                type='submit'
+                className='agreeBtn'
+                onClick={() => {
+                  setUserInfo({
+                    ...userInfo,
+                    tel: userPhoneNum
+                  });
+                  setRegPage(3);
+                }}
+              >
+                다음
+              </button>
+              : <button
+                type='submit'
+                className={btnClassNames[1]}
+                disabled
+              >
+                다음
+              </button>
+          }
         </div>
         <ul className='regiBottom'>
           <li>이용약관</li>

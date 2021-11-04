@@ -30,7 +30,16 @@ const SixthPage = () => {
 		console.log(userInfo, 'userInfo::::');
 	}, [userInfo]);
 
+	const [btnActive, setBtnActive] = useState(false);
+	const btnClassNames = ['agreeBtn', 'agreeBtnDisabled'];
 
+	useEffect(()=>{
+		if(birthDay && gender && userName) {
+			setBtnActive(true)
+		} else {
+			setBtnActive(false);
+		}
+	},[birthDay,gender,userName])
 
 
 	return (
@@ -85,21 +94,32 @@ const SixthPage = () => {
 							<Checkbox>선택안함</Checkbox>
 						</li>
 					</ul>
-					<button
-						type='submit'
-						className='agreeBtn'
-						onClick={async () => {
-							includeInfo();
-							const resultData = await getData.post('member/signup', userInfo)
-							if(resultData.data.resultType === 'success'){
-								setRegPage(0);
-								alert('회원가입을 완료했습니다!')
-								history.push('/')
-							}
-						}}
-					>
-						확인
-					</button>
+
+					{
+						btnActive
+							?                       					<button
+								type='submit'
+								className='agreeBtn'
+								onClick={async () => {
+									includeInfo();
+									const resultData = await getData.post('member/signup', userInfo)
+									if(resultData.data.resultType === 'success'){
+										setRegPage(0);
+										alert('회원가입을 완료했습니다!')
+										history.push('/')
+									}
+								}}
+							>
+								회원가입 완료
+							</button>
+							: <button
+								type='submit'
+								className={btnClassNames[1]}
+								disabled
+							>
+								회원가입 완료
+							</button>
+					}
 				</div>
 				<ul className='regiBottom'>
 					<li>이용약관</li>

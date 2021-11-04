@@ -49,6 +49,7 @@ const InitialPage = () => {
             />
             <Input
               placeholder='Password'
+              type='password'
               onChange={(e) => setPasswordInput(e.target.value)}
             />
             {
@@ -72,7 +73,7 @@ const InitialPage = () => {
           </div>
           <div className='register'>
             <Link to='/register'>
-              <p>Create a SeungKaoTalk Account</p>
+              <p>Create a KakaoTalk Account</p>
             </Link>
           </div>
         </div>

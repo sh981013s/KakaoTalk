@@ -2,7 +2,11 @@
 
 
 // eslint-disable-next-line react/prop-types
+import { myInfoStore } from '../../zustand/FriendsStore';
+
+// eslint-disable-next-line react/prop-types
 export default function Profile({ name, state, pic }, type) {
+
   return (
     <>
       <div className='profileEntire'>
@@ -29,7 +33,18 @@ export default function Profile({ name, state, pic }, type) {
 }
 
 // eslint-disable-next-line react/prop-types
-const Tester = ({ type }) => (
+const Tester = ({ type }) => {
+  const { myInfo } = myInfoStore((states) => states);
+
+  const openChat = () => {
+    window.open(
+      `/chat/${myInfo.uid}`,
+      '네이버새창',
+      'width=500, height=800, toolbar=no, menubar=no, scrollbars=no, resizable=yes'
+    );
+  };
+
+  return (
     <>
       {type === 'friends' ? (
         <div className='profileAction'>
@@ -48,7 +63,8 @@ const Tester = ({ type }) => (
         </div>
       ) : (
         <div className='profileAction'>
-          <div>
+          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
+          <div onClick={openChat}>
             <i className='fas fa-comment' />
             <p style={{fontSize: 12, marginTop:5}}>My Chatroom</p>
           </div>
@@ -63,4 +79,7 @@ const Tester = ({ type }) => (
         </div>
       )}
     </>
-  );
+  )
+}
+
+

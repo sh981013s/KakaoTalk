@@ -151,10 +151,18 @@ function Header(props) {
 	const searchByIdContent =
 		// eslint-disable-next-line no-nested-ternary
 		isExistById && !!searchInfo ? (
-				<div>
+/*				<div>
 					<span>{searchInfo.name}</span>
 					<img src={`${API_URL}img/${searchInfo.pic}`} style={{width: 50}} alt="" />
+				</div> */
+
+			<div className='searchByIdContent'>
+				<div className='addFriendsByIdProfilePicBox'>
+					<img src={`${API_URL}img/${searchInfo.pic}`} alt='lol' className='addFriendsByIdProfilePic' />
 				</div>
+				<p className='searchByIdContentName'>{searchInfo.name}</p>
+				<p className='searchByIdContentDesc'>{searchInfo.state}</p>
+			</div>
 			) : // eslint-disable-next-line no-nested-ternary
 			isExistById === false ? (
 				<div className='searchByIdContent'>

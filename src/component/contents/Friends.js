@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Popover, Spin } from 'antd';
-// import _ from 'lodash';
 import { getData } from '../../utils/Api';
 import { myInfoStore, useStore } from '../../zustand/FriendsStore';
 import Profile from '../MainPage/Profile';
@@ -9,8 +8,8 @@ function Friends(props) {
 	const {friendsLists, setFriendsLists } = useStore((state) => state);
 
 	const { myInfo } = myInfoStore((state) => state);
-	const [friendList , setFriendsList] = useState([]);
-	const [showProfile] = useState(true);
+	const [friendList, setFriendsList] = useState([]);
+	const [showProfile, setShowProfile] = useState(true);
 
 	const [loading, setLoading] = useState(true);
 
@@ -29,28 +28,21 @@ function Friends(props) {
 
 	useEffect(() => {
 		getFriendsData();
-		// setCopyList(rawFriendsData);
-		// setFriendsLists(copyList);
 	}, [myInfo]);
 
 
 
 	useEffect(() => {
-		// eslint-disable-next-line react/prop-types
-
-			// const copyData = _.cloneDeep(friendsLists);
-
-
 		// eslint-disable-next-line array-callback-return,react/prop-types
 		const resultData = friendsLists.filter((value) => value.name.includes(props.searchText));
-
 		setFriendsList(resultData);
-		// // eslint-disable-next-line react/prop-types
-		// if (props.searchText !== '') {
-		// 	setShowProfile(false);
-		// } else {
-		// 	setShowProfile(true);
-		// }
+			// eslint-disable-next-line react/prop-types
+			if (props.searchText !== '') {
+				setShowProfile(false);
+			} else {
+				setShowProfile(true);
+			}
+
 		// eslint-disable-next-line react/destructuring-assignment,react/prop-types
 	}, [props.searchText]);
 
@@ -70,11 +62,11 @@ function Friends(props) {
 		);
 	};
 	return (
-		<Spin spinning={loading}>
+		<Spin spinning={loading} tip='Loading...'>
 		<main className='friendsList'>
 			{showProfile ? (
 				<>
-					<div className='userComponent'>
+					<div className='userComponent' onDoubleClick={openChat}>
 						<Popover
 							placement='left'
 							overlayClassName='profileOverall'

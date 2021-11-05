@@ -85,8 +85,6 @@ useEffect(()=>{
       [data[0]]
     );
 
-  // let baseData = sampleData(sample);
-
   const today = new Date();
   let time = `${today.getHours()}:${today.getMinutes()}`;
   if (today.getMinutes() < 10) {

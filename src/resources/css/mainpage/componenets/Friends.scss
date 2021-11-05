@@ -18,6 +18,12 @@
   height: 11rem;
   display: flex;
   padding: 2rem;
+  :hover {
+    background: #F0F0F0;
+  }
+  :visited {
+    background: #F0F0F0;
+  }
 }
 
 .userComponentDetails {

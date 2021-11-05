@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b0de1a9-88bf-4c9b-a461-f6a07594e31e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4e732fe4-9e5f-4496-a4a9-6c92a8bd8aaa.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4e732fe4-9e5f-4496-a4a9-6c92a8bd8aaa.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7ae3fa3c-214c-4c25-b09d-44a707114e03.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7ae3fa3c-214c-4c25-b09d-44a707114e03.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/contents/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/contents/Chat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/MainPage/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/MainPage/Profile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/contents/Friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/contents/Friends.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/ChatListPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/ChatListPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/css/mainpage/MorePage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/mainpage/MorePage.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/zustand/FriendsStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/zustand/FriendsStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/contents/More.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/MorePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/MorePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/Friends.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/Friends.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +17,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/page/InitialPage.js" root0="FORCE_HIGHLIGHTING" />
@@ -54,7 +58,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1636105526248</updated>
-      <workItem from="1636105533848" duration="2991000" />
+      <workItem from="1636105533848" duration="5226000" />
     </task>
     <servers />
   </component>

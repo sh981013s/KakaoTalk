@@ -4,6 +4,7 @@ import create from 'zustand';
 export const useStore = create((set) => ({
   friendsLists: [],
   setFriendsLists: (props) => set({ friendsLists: props }),
+  // setFriendsLists: (props) => set({ friendsLists: props }),
   friendsWhoseBirthdayIsToday: [],
   setFriendsWhoseBirthdayIsToday: (props) =>
     set({ friendsWhoseBirthdayIsToday: props }),
@@ -27,6 +28,12 @@ export const userRegiInfoStore = create((set) => ({
 }));
 
 export const myInfoStore = create((set) => ({
-  myInfo: '123' ,
+  myInfo: {} ,
   setMyInfo: (props) => set({ myInfo: props }),
+}));
+
+
+export const searchStore = create((set) => ({
+  searchState: true,
+  setSearchState: (props) => set({ searchState: props }),
 }));

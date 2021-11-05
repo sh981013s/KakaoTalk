@@ -23,12 +23,12 @@ function App() {
   const { setMyInfo } = myInfoStore((state) => state);
 
   const getInfo = async () => {
-    const tokenValue = localStorage.getItem('token');
-    const parameter = {
+      const tokenValue = localStorage.getItem('token');
+      const parameter = {
       token: tokenValue,
     };
     const myInfo = await getData.get('member/me', { params: parameter });
-    setMyInfo(myInfo);
+    setMyInfo(myInfo.data.userInfo[0]);
   };
 
   useEffect(() => {
@@ -44,7 +44,7 @@ function App() {
           <Route exact path='/chatList' component={ChatListPage} />
           <Route exact path='/birthFriends' component={BirthFriends} />
           <Route exact path='/login' component={Login} />
-          <Route exact path='/chat' component={Chat} />
+          <Route exact path='/chat/:param' component={Chat} />
         </Switch>
       </BrowserRouter>
     </>

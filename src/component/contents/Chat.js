@@ -1,8 +1,33 @@
 import { useEffect, useState } from 'react';
 import kakaoChat from '../../resources/img/kakaoChat.png';
 import blank from '../../resources/img/blank.png';
+import { getData } from '../../utils/Api';
 
-const Chat = () => {
+const Chat = (props) => {
+  // eslint-disable-next-line react/prop-types
+  const {match} = props;
+
+
+ const getChatList = async () => {
+   const parameter = {
+     // eslint-disable-next-line react/prop-types
+     uid: match.params.param
+   }
+   await getData.post('chat/getChatlist', parameter).then(res=>console.log(res,'::::'))
+ }
+useEffect(()=>{
+  getChatList();
+},[])
+
+  const sendMessage = async () => {
+    const parameter = {
+      // eslint-disable-next-line react/prop-types
+      uid: match.params.param,
+      contents: 'a ssi pal'
+    }
+    await getData.post('chat/addChat', parameter)
+  }
+
   const [sample, setSample] = useState([
     { name: 'beom', contents: 'hi', time: '21:27', profile: 'beom' },
     { name: 'beom', contents: 'howRu', time: '21:27', profile: 'beom' },
@@ -218,14 +243,17 @@ const Chat = () => {
               <i id='iconPush' className='far fa-grin fa-lg' />
               {/* eslint-disable-next-line react/button-has-type */}
               <button
-                onClick={() => {
+                onClick={() =>{
+                  sendMessage();
+                {
                   setSample([
                     ...sample,
                     { name: 'me', contents: input, time, profile: 'me' },
                   ]);
                   const chatInput = document.querySelector('#chatInput');
                   chatInput.value = '';
-                }}
+                }
+                  }}
               >
                 <i className='fas fa-arrow-up' />
               </button>

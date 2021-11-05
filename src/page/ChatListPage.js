@@ -12,6 +12,7 @@ import basic from '../resources/img/basic_profile.jpg';
  * @description Friends | Chat | More를 관리하는 컴포넌트
  */
 function ChatListPage() {
+
   return (
     <div className='chatList'>
       <div className='userComponent'>

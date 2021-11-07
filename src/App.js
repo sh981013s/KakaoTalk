@@ -10,8 +10,8 @@ import Login from './page/account/Login';
 import BirthFriends from './page/BirthFriends';
 import Chat from './component/contents/Chat';
 import Register from './page/register/Register';
-import { getData } from './utils/Api';
-import { myInfoStore } from './zustand/FriendsStore';
+// import { getData } from './utils/Api';
+// import { myInfoStore } from './zustand/FriendsStore';
 
 
 /**
@@ -20,7 +20,7 @@ import { myInfoStore } from './zustand/FriendsStore';
  */
 
 function App() {
-  const { setMyInfo } = myInfoStore((state) => state);
+/*  const { setMyInfo } = myInfoStore((state) => state);
 
   const getInfo = async () => {
       const tokenValue = localStorage.getItem('token');
@@ -30,10 +30,10 @@ function App() {
     const myInfo = await getData.get('member/me', { params: parameter });
     setMyInfo(myInfo.data.userInfo[0]);
     console.log(myInfo)
-  };
+  }; */
 
   useEffect(() => {
-    getInfo();
+    // getInfo();
   }, []);
   return (
     <>

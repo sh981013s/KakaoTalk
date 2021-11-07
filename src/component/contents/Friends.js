@@ -30,6 +30,23 @@ function Friends(props) {
 		getFriendsData();
 	}, [myInfo]);
 
+	  const { setMyInfo } = myInfoStore((state) => state);
+
+  const getInfo = async () => {
+      const tokenValue = localStorage.getItem('token');
+      const parameter = {
+      token: tokenValue,
+    };
+    const myInfoFromServer = await getData.get('member/me', { params: parameter });
+    setMyInfo(myInfoFromServer.data.userInfo[0]);
+    console.log(myInfo)
+  };
+
+
+
+	useEffect(() => {
+		getInfo();
+	}, []);
 
 
 	useEffect(() => {

@@ -32,8 +32,7 @@ export const myInfoStore = create((set) => ({
   setMyInfo: (props) => set({ myInfo: props }),
 }));
 
-
-export const searchStore = create((set) => ({
-  searchState: true,
-  setSearchState: (props) => set({ searchState: props }),
+export const myChatStore = create((set) => ({
+  myChat: [] ,
+  setMyChat: (props) => set({ myChat: props }),
 }));

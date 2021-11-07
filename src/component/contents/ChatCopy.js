@@ -1,25 +1,24 @@
-/* eslint-disable */
 import { useEffect, useState } from 'react';
-import _ from 'lodash';
 import kakaoChat from '../../resources/img/kakaoChat.png';
 import blank from '../../resources/img/blank.png';
 import { getData } from '../../utils/Api';
-import { myChatStore } from '../../zustand/FriendsStore'
-import * as moment from 'moment';
-
 
 const Chat = (props) => {
-  const { myChat, setMyChat } = myChatStore((state)=> state)
+  // eslint-disable-next-line react/prop-types
   const {match} = props;
+
 
   const getChatList = async () => {
     const parameter = {
+      // eslint-disable-next-line react/prop-types
       uid: match.params.param
     }
-    await getData.post('chat/getChatlist', parameter).then((res) => setMyChat(res.data));
+    await getData.post('chat/getChatlist', parameter).then(res=>console.log(res.data));
   }
 
-  const [myChatToUse, setMyChatToUse] = useState(_.cloneDeep(myChat));
+useEffect(()=>{
+  getChatList();
+},[])
 
   const sendMessage = async () => {
     const parameter = {
@@ -30,78 +29,80 @@ const Chat = (props) => {
     await getData.post('chat/addChat', parameter)
   }
 
-  const indexDataReudcer = (acc, cur) => {
-    const date = new Date(cur.time)
-    const dateToUse = `${date.getMonth()+1} ${date.getDate()}, ${date.getFullYear()}`
-    const timeToUse = moment(date).format('HH:mm A');
-    return (
-      [...acc, {date: dateToUse, time: timeToUse, contents: cur.contents}]
-    )
-  };
+  const [sample, setSample] = useState([
+    { name: 'beom', contents: 'hi', time: '21:27', profile: 'beom' },
+    { name: 'beom', contents: 'howRu', time: '21:27', profile: 'beom' },
+    { name: 'me', contents: 'kinda', time: '21:28', profile: 'me' },
+    { name: 'me', contents: 'good', time: '21:28', profile: 'me' },
+    { name: 'me', contents: 'how', time: '21:29', profile: 'me' },
+    { name: 'me', contents: 'boutU', time: '21:29', profile: 'me' },
+    { name: 'beom', contents: 'damn', time: '21:31', profile: 'beom' },
+    { name: 'beom', contents: 'notBad', time: '21:31', profile: 'beom' },
+    { name: 'beom', contents: 'for sure', time: '21:31', profile: 'beom' },
+    { name: 'me', contents: 'cool', time: '21:31', profile: 'me' },
+    { name: 'beom', contents: 'ok', time: '21:33', profile: 'beom' },
+    { name: 'beom', contents: 'bye', time: '21:34', profile: 'beom' },
+  ]);
 
-  const timeCompressingReducer = (acc, cur) => {
-/*    if(cur === tmp[0]) {
-      return (
-        [{date: cur.date, time: [{time: cur.time, contents: [cur.contents]}]}]
-      )
-    }*/
-    return(
-      [...acc, {date: cur.date, time: [{time: cur.time, contents: [cur.contents]}]}]
-    )
-  }
+  const sampleData = (data) =>
+    data.reduce(
+      (acc, cur) => {
+        if (cur === sample[0]) {
+          return acc;
+        }
+        if (
+          acc[acc.length - 1].name === cur.name &&
+          acc[acc.length - 1].time === cur.time
+        ) {
+          const popData = acc.pop();
+          if (typeof popData.contents === 'string') {
+            // single
+            // console.log('single', '--------------------', cur);
+            return [
+              ...acc,
+              {
+                name: cur.name,
+                contents: [popData.contents, cur.contents],
+                time: cur.time,
+                profile: cur.profile,
+              },
+            ];
+          }
+          // already multiple
+          // console.log('multiple', '--------------------', cur);
+          return [
+            ...acc,
+            {
+              name: cur.name,
+              contents: [...popData.contents, cur.contents],
+              time: cur.time,
+              profile: cur.profile,
+            },
+          ];
+        }
+        // console.log('diff', '--------------------', cur);
+        return [...acc, cur];
+      },
+      [data[0]]
+    );
 
-/*  [
-    {
-      date: '11 5 2021',
-      time: [
-        {time: '9:40 AM', contents: 'yes'},
-        {time: '3 20 PM', contents: ['hi','bye']}
-      ]
-    },
-    {
-      date: '11 6 2021',
-      time: [
-        {time: '5:40 AM', contents: 'yes'},
-        {time: '8 20 PM', contents: ['hi','bye']}
-      ]
-    }
-  ]*/
-
-
-
-/*  const today = new Date();
+  const today = new Date();
   let time = `${today.getHours()}:${today.getMinutes()}`;
   if (today.getMinutes() < 10) {
     time = `${today.getHours()}:${+0}${today.getMinutes()}`;
-  }*/
+  }
 
+  const [newData, dataChange] = useState(sampleData(sample));
   const [input, inputChange] = useState('');
 
+  useEffect(() => {
+    dataChange(sampleData(sample));
+  }, [sample]);
 
-  const last = '';
-
-  const [tmp,setTmp] = useState([{time: '00', contents:'--'}]);
-  const [real, setReal] = useState([]);
-
-  useEffect(()=>{
-    getChatList();
-    setMyChatToUse(myChat);
-    // console.log(myChatToUse.reduce(indexDataReudcer, ''));
-    setTmp(myChatToUse.reduce(indexDataReudcer, ''));
-    setReal(tmp.reduce(timeCompressingReducer, ''));
-    // console.log(tmp)
-  },[])
-
-
-/*  const tmptmp = moment(myChat[0].time).format('YYYY-MM-DD HH:mm Z');
-  console.log(tmptmp, '::::;123')
-  const tmptmp2 = new Date(myChat[0].time)
-  const tmptmp3 = new Date(myChat[1].time)*/
-
+  let last = '';
 
   return (
-      <div onClick={()=>console.log(real, 'real')}>asdasdas</div>
-/*    <div className='chatScreen'>
+    <div className='chatScreen'>
       <div className='main'>
         <div className='mainChat'>
           {newData.map((e) => {
@@ -128,7 +129,7 @@ const Chat = (props) => {
                       <div className='messageRow'>
                         <img src={blank} alt='profile' />
                         <div className='messageRowContent'>
-                          {/!* <span className="messageAuthor">{e.name}</span> *!/}
+                          {/* <span className="messageAuthor">{e.name}</span> */}
                           <div className='messageInfo'>
                             <span className='messageBubble'>
                               {e.contents[e.contents.length - 1]}
@@ -144,7 +145,7 @@ const Chat = (props) => {
                     <div className='messageRow'>
                       <img src={blank} alt='profile' />
                       <div className='messageRowContent'>
-                        {/!* <span className="messageAuthor">{e.name}</span> *!/}
+                        {/* <span className="messageAuthor">{e.name}</span> */}
                         <div className='messageInfo'>
                           <span className='messageBubble'>
                             {e.contents[idx]}
@@ -239,7 +240,7 @@ const Chat = (props) => {
                 }}
               />
               <i id='iconPush' className='far fa-grin fa-lg' />
-              {/!* eslint-disable-next-line react/button-has-type *!/}
+              {/* eslint-disable-next-line react/button-has-type */}
               <button
                 onClick={() =>{
                   sendMessage();
@@ -259,7 +260,7 @@ const Chat = (props) => {
           </div>
         </div>
       </div>
-    </div> */
+    </div>
   );
 };
 

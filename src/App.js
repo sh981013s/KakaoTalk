@@ -29,6 +29,7 @@ function App() {
     };
     const myInfo = await getData.get('member/me', { params: parameter });
     setMyInfo(myInfo.data.userInfo[0]);
+    console.log(myInfo)
   };
 
   useEffect(() => {

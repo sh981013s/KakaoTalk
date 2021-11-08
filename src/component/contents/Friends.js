@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Popover, Spin } from 'antd';
 import { getData } from '../../utils/Api';
-import { myInfoStore, useStore } from '../../zustand/FriendsStore';
+import { myInfoStore, useStore, friendsRefreshStore } from '../../zustand/FriendsStore';
 import Profile from '../MainPage/Profile';
 
 function Friends(props) {
 	const {friendsLists, setFriendsLists } = useStore((state) => state);
+	const { refresh, setRefresh } = friendsRefreshStore((state) => state);
 
 	const { myInfo } = myInfoStore((state) => state);
 	const [friendList, setFriendsList] = useState([]);
@@ -30,19 +31,26 @@ function Friends(props) {
 		getFriendsData();
 	}, [myInfo]);
 
-	  const { setMyInfo } = myInfoStore((state) => state);
+	const { setMyInfo } = myInfoStore((state) => state);
 
-  const getInfo = async () => {
-      const tokenValue = localStorage.getItem('token');
-      const parameter = {
-      token: tokenValue,
-    };
-    const myInfoFromServer = await getData.get('member/me', { params: parameter });
-    setMyInfo(myInfoFromServer.data.userInfo[0]);
-    console.log(myInfo)
-  };
+	const getInfo = async () => {
+		const tokenValue = localStorage.getItem('token');
+		const parameter = {
+			token: tokenValue,
+		};
+		const myInfoFromServer = await getData.get('member/me', { params: parameter });
+		setMyInfo(myInfoFromServer.data.userInfo[0]);
+		console.log(myInfo)
+	};
 
-
+	useEffect(() => {
+		if(refresh) {
+			setLoading(true)
+			getFriendsData()
+				.then(() => setLoading(false))
+				.then(() => setRefresh(false));
+		}
+	}, [refresh]);
 
 	useEffect(() => {
 		getInfo();
@@ -53,12 +61,12 @@ function Friends(props) {
 		// eslint-disable-next-line array-callback-return,react/prop-types
 		const resultData = friendsLists.filter((value) => value.name.includes(props.searchText));
 		setFriendsList(resultData);
-			// eslint-disable-next-line react/prop-types
-			if (props.searchText !== '') {
-				setShowProfile(false);
-			} else {
-				setShowProfile(true);
-			}
+		// eslint-disable-next-line react/prop-types
+		if (props.searchText !== '') {
+			setShowProfile(false);
+		} else {
+			setShowProfile(true);
+		}
 
 		// eslint-disable-next-line react/destructuring-assignment,react/prop-types
 	}, [props.searchText]);
@@ -80,76 +88,76 @@ function Friends(props) {
 	};
 	return (
 		<Spin spinning={loading} tip='Loading...'>
-		<main className='friendsList'>
-			{showProfile ? (
-				<>
+			<main className='friendsList'>
+				{showProfile ? (
+					<>
+						<div className='userComponent' onDoubleClick={openChat}>
+							<Popover
+								placement='left'
+								overlayClassName='profileOverall'
+								content={Profile(myInfo, 'me')}
+								trigger='click'
+							>
+								<img
+									src={`http://localhost:8080/img/${myInfo.pic}`}
+									alt='lol'
+									className='userComponentAvatar userComponentAvatarXl'
+								/>
+							</Popover>
+							<div className='userComponentDetails'>
+								<div className='userComponentName'>
+									<h4>{myInfo.name}</h4>
+								</div>
+								<div className='userComponentDesc'>
+									<h5>{myInfo.state}</h5>
+								</div>
+							</div>
+						</div>
+
+						<hr />
+						<p>Friends with Birthdays</p>
+						<div className='userComponent' onDoubleClick={openBirthPage}>
+							<div className='friendsListIcon'>
+								<div className='iconBox'>
+									<i className='fas fa-birthday-cake fa-3x' />
+								</div>
+							</div>
+							<div className='userComponentDetails'>
+								<div className='userComponentName'>
+									<h4>View more birthdays</h4>
+								</div>
+							</div>
+						</div>
+						<hr />
+						<p>friends {friendsLists.length}</p>
+					</>
+				) : null}
+				{friendList.map((value) => (
+					// eslint-disable-next-line react/jsx-key
 					<div className='userComponent' onDoubleClick={openChat}>
 						<Popover
 							placement='left'
 							overlayClassName='profileOverall'
-							content={Profile(myInfo, 'me')}
+							content={Profile(value, 'friends')}
 							trigger='click'
 						>
 							<img
-								src={`http://localhost:8080/img/${myInfo.pic}`}
+								src={`http://localhost:8080/img/${value.pic}`}
 								alt='lol'
 								className='userComponentAvatar userComponentAvatarXl'
 							/>
 						</Popover>
 						<div className='userComponentDetails'>
 							<div className='userComponentName'>
-								<h4>{myInfo.name}</h4>
+								<h4>{value.name}</h4>
 							</div>
 							<div className='userComponentDesc'>
-								<h5>{myInfo.state}</h5>
+								<h5>{value.desc}</h5>
 							</div>
 						</div>
 					</div>
-
-					<hr />
-					<p>Friends with Birthdays</p>
-					<div className='userComponent' onDoubleClick={openBirthPage}>
-						<div className='friendsListIcon'>
-							<div className='iconBox'>
-								<i className='fas fa-birthday-cake fa-3x' />
-							</div>
-						</div>
-						<div className='userComponentDetails'>
-							<div className='userComponentName'>
-								<h4>View more birthdays</h4>
-							</div>
-						</div>
-					</div>
-					<hr />
-					<p>friends {friendsLists.length}</p>
-				</>
-			) : null}
-			{friendList.map((value) => (
-				// eslint-disable-next-line react/jsx-key
-				<div className='userComponent' onDoubleClick={openChat}>
-					<Popover
-						placement='left'
-						overlayClassName='profileOverall'
-						content={Profile(value, 'friends')}
-						trigger='click'
-					>
-						<img
-							src={`http://localhost:8080/img/${value.pic}`}
-							alt='lol'
-							className='userComponentAvatar userComponentAvatarXl'
-						/>
-					</Popover>
-					<div className='userComponentDetails'>
-						<div className='userComponentName'>
-							<h4>{value.name}</h4>
-						</div>
-						<div className='userComponentDesc'>
-							<h5>{value.desc}</h5>
-						</div>
-					</div>
-				</div>
-			))}
-		</main>
+				))}
+			</main>
 		</Spin>
 	);
 }

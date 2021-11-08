@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react';
-// import {getData} from '../utils/Api';
 import { Button, Input, Menu, Popover, Select } from 'antd';
 import { Option } from 'antd/es/mentions';
 import telCode from '../utils/telCode';
-// import basic from '../resources/img/basic_profile.jpg';
-import { myInfoStore, useStore } from '../zustand/FriendsStore';
+import { myInfoStore, useStore, friendsRefreshStore } from '../zustand/FriendsStore';
 import { API_URL, getData } from '../utils/Api';
+import Friends from '../component/contents/Friends'
 
 
 function Header(props) {
 	const { myInfo } = myInfoStore((state) => state);
-
+	const { setRefresh } = friendsRefreshStore((state) => state);
 
 	// eslint-disable-next-line react/prop-types
 	const { receive, type } = props;
@@ -38,6 +37,24 @@ function Header(props) {
 	const addFriendsButtonColor = `addFriendsButton${
 		allFilled ? ' addFriendsButton-active' : ''
 	}`;
+
+	const [visible, setVisible] = useState(false);
+
+	const handleVisibleChange = () => {
+		setVisible(!visible);
+	}
+
+	const getFriendsData = async () => {
+		if (myInfo) {
+			const parameter = {
+				uid: myInfo.uid
+			};
+			await getData.get('friend/getFriends', { params: parameter }).then(res=> {
+				setFriendsLists(res.data);
+			} );
+		}
+	};
+
 
 	useEffect(() => {
 		if (
@@ -141,7 +158,10 @@ function Header(props) {
 				uid: myInfo.uid
 			}
 			await getData.post('friend/addFriends', parameter).then(async () => {
-				await getData.get('friend/getFriends', { params: param }).then(res => setFriendsLists(res.data));
+				await getData.get('friend/getFriends', { params: param })
+					.then(res => setFriendsLists(res.data))
+					.then(()=>setVisible(false))
+					.then(()=>setRefresh(true));
 			})
 		} else {
 			// 1:1
@@ -291,6 +311,8 @@ function Header(props) {
 		</div>
 	);
 
+
+
 	return (
 		<header className='screenHeader'>
 			<div className='mainTop'>
@@ -322,6 +344,8 @@ function Header(props) {
 								placement='bottomRight'
 								content={content}
 								trigger='click'
+								visible={visible}
+								onVisibleChange={handleVisibleChange}
 							>
 								<i className='fas fa-user-plus fa-lg' />
 							</Popover>
@@ -330,6 +354,8 @@ function Header(props) {
 								placement='bottomRight'
 								content={content}
 								trigger='click'
+								visible={visible}
+								onVisibleChange={handleVisibleChange}
 							>
 								<i className='fas fa-comment-medical fa-lg' />
 							</Popover>

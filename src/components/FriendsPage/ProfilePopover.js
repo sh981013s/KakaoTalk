@@ -1,14 +1,11 @@
-// Profile 컴포넌트
-
-
-// eslint-disable-next-line react/prop-types
-import { myInfoStore } from '../../zustand/FriendsStore';
+// ProfilePopover 컴포넌트
+import { Fragment } from 'react';
 
 // eslint-disable-next-line react/prop-types
-export default function Profile({ name, state, pic }, type) {
+export default function ProfilePopover({ name, state, pic }, type) {
 
   return (
-    <>
+    <Fragment>
       <div className='profileEntire'>
         <div className='profileHeader'>
           <i className='far fa-user-circle' />
@@ -27,25 +24,23 @@ export default function Profile({ name, state, pic }, type) {
         </div>
         <hr />
       </div>
-      <Tester type={type} />
-    </>
+      <MyProfilePopover type={type} />
+    </Fragment>
   );
 }
-
 // eslint-disable-next-line react/prop-types
-const Tester = ({ type }) => {
-  const { myInfo } = myInfoStore((states) => states);
+const MyProfilePopover = ({ type }) => {
 
-  const openChat = () => {
+  const openChatWithMe = () => {
     window.open(
-      `/chat/${myInfo.uid}`,
+      `/chatwithme`,
       '네이버새창',
       'width=500, height=800, toolbar=no, menubar=no, scrollbars=no, resizable=yes'
     );
   };
 
   return (
-    <>
+    <Fragment>
       {type === 'friends' ? (
         <div className='profileAction'>
           <div>
@@ -64,7 +59,7 @@ const Tester = ({ type }) => {
       ) : (
         <div className='profileAction'>
           {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-          <div onClick={openChat}>
+          <div onClick={openChatWithMe}>
             <i className='fas fa-comment' />
             <p style={{fontSize: 12, marginTop:5}}>My Chatroom</p>
           </div>
@@ -78,7 +73,7 @@ const Tester = ({ type }) => {
           </div>
         </div>
       )}
-    </>
+    </Fragment>
   )
 }
 

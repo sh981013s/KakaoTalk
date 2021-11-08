@@ -1,5 +1,5 @@
 // import { useState } from 'react';
-/* import Friends from '../components/contents/Friends';
+/* import Friends from '../components/tmp/Friends';
 import LeftMenu from '../components/LeftMenu'; */
 // import Header from '../components/Header';
 import '../../resources/css/mainpage/MainPage.scss';

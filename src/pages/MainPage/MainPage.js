@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import Friends from '../../components/contents/Friends';
-import LeftMenu from '../../components/LeftMenu';
-import Header from '../../components/Header';
+import Friends from '../../components/FriendsPage/Friends';
+import LeftMenu from '../../components/MainPage/LeftMenu';
+import Header from '../../components/MainPage/Header';
 import '../../resources/css/mainpage/MainPage.scss';
 import ChatListPage from '../ChatListPage/ChatListPage';
 import MorePage from '../MorePage/MorePage';

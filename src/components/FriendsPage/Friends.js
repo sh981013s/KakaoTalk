@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Popover, Spin } from 'antd';
 import { getData } from '../../utils/Api';
 import { myInfoStore, useStore, friendsRefreshStore } from '../../zustand/FriendsStore';
-import Profile from '../MainPage/Profile';
+import ProfilePopover from './ProfilePopover';
 
 function Friends(props) {
 	const {friendsLists, setFriendsLists } = useStore((state) => state);
@@ -103,7 +103,7 @@ function Friends(props) {
 							<Popover
 								placement='left'
 								overlayClassName='profileOverall'
-								content={Profile(myInfo, 'me')}
+								content={ProfilePopover(myInfo, 'me')}
 								trigger='click'
 							>
 								<img
@@ -146,7 +146,7 @@ function Friends(props) {
 						<Popover
 							placement='left'
 							overlayClassName='profileOverall'
-							content={Profile(value, 'friends')}
+							content={ProfilePopover(value, 'friends')}
 							trigger='click'
 						>
 							<img

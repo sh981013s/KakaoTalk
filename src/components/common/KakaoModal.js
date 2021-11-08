@@ -3,12 +3,12 @@
 //
 // function KakaoModal(props) {
 // 	const [showModal, setShowModal] = useState(false);
-// 	const [contents, setContents] = useState('');
+// 	const [tmp, setContents] = useState('');
 // 	console.log(props.showModal, 'showModal');
 //
 // 	useEffect(() => {
 // 		setShowModal(props.showModal);
-// 		setContents(props.contents);
+// 		setContents(props.tmp);
 // 	}, [props.showModal]);
 //
 // 	return (
@@ -18,7 +18,7 @@
 // 			onOk={() => setShowModal(false)}
 // 			onCancel={() => setShowModal(false)}
 // 		>
-// 			{contents}
+// 			{tmp}
 // 		</Modal>
 // 	);
 // }

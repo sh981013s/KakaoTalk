@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Button, Input, Menu, Popover, Select } from 'antd';
 import { Option } from 'antd/es/mentions';
-import telCode from '../utils/telCode';
-import { myInfoStore, useStore, friendsRefreshStore } from '../zustand/FriendsStore';
-import { API_URL, getData } from '../utils/Api';
-import Friends from './/contents/Friends'
+import telCode from '../../utils/telCode';
+import { myInfoStore, useStore, friendsRefreshStore } from '../../zustand/FriendsStore';
+import { API_URL, getData } from '../../utils/Api';
+import Friends from '../FriendsPage/Friends'
 
 
 function Header(props) {

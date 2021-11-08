@@ -42,7 +42,7 @@ const ChatWithMePage = (props) => {
   const timeCompressingReducer = (acc, cur) => {
 /*    if(cur === tmp[0]) {
       return (
-        [{date: cur.date, time: [{time: cur.time, contents: [cur.contents]}]}]
+        [{date: cur.date, time: [{time: cur.time, tmp: [cur.tmp]}]}]
       )
     }*/
     return(
@@ -54,15 +54,15 @@ const ChatWithMePage = (props) => {
     {
       date: '11 5 2021',
       time: [
-        {time: '9:40 AM', contents: 'yes'},
-        {time: '3 20 PM', contents: ['hi','bye']}
+        {time: '9:40 AM', tmp: 'yes'},
+        {time: '3 20 PM', tmp: ['hi','bye']}
       ]
     },
     {
       date: '11 6 2021',
       time: [
-        {time: '5:40 AM', contents: 'yes'},
-        {time: '8 20 PM', contents: ['hi','bye']}
+        {time: '5:40 AM', tmp: 'yes'},
+        {time: '8 20 PM', tmp: ['hi','bye']}
       ]
     }
   ]*/
@@ -106,8 +106,8 @@ const ChatWithMePage = (props) => {
         <div className='mainChat'>
           {newData.map((e) => {
             if (e.name === 'beom') {
-              if (typeof e.contents !== 'string') {
-                return e.contents.map((f, idx) => {
+              if (typeof e.tmp !== 'string') {
+                return e.tmp.map((f, idx) => {
                   if (idx === 0) {
                     return (
                       <div className='messageRow'>
@@ -116,14 +116,14 @@ const ChatWithMePage = (props) => {
                           <span className='messageAuthor'>{e.name}</span>
                           <div className='messageInfo'>
                             <span className='messageBubble'>
-                              {e.contents[0]}
+                              {e.tmp[0]}
                             </span>
                           </div>
                         </div>
                       </div>
                     );
                   }
-                  if (idx === e.contents.length - 1) {
+                  if (idx === e.tmp.length - 1) {
                     return (
                       <div className='messageRow'>
                         <img src={blank} alt='profile' />
@@ -131,7 +131,7 @@ const ChatWithMePage = (props) => {
                           {/!* <span className="messageAuthor">{e.name}</span> *!/}
                           <div className='messageInfo'>
                             <span className='messageBubble'>
-                              {e.contents[e.contents.length - 1]}
+                              {e.tmp[e.tmp.length - 1]}
                             </span>
                             <span className='messageTime'>21:27</span>
                           </div>
@@ -147,7 +147,7 @@ const ChatWithMePage = (props) => {
                         {/!* <span className="messageAuthor">{e.name}</span> *!/}
                         <div className='messageInfo'>
                           <span className='messageBubble'>
-                            {e.contents[idx]}
+                            {e.tmp[idx]}
                           </span>
                         </div>
                       </div>
@@ -162,7 +162,7 @@ const ChatWithMePage = (props) => {
                     <img src={blank} alt='profile' />
                     <div className='messageRowContent'>
                       <div className='messageInfo'>
-                        <span className='messageBubble'>{e.contents}</span>
+                        <span className='messageBubble'>{e.tmp}</span>
                         <span className='messageTime'>{e.time}</span>
                       </div>
                     </div>
@@ -176,7 +176,7 @@ const ChatWithMePage = (props) => {
                   <div className='messageRowContent'>
                     <span className='messageAuthor'>{e.name}</span>
                     <div className='messageInfo'>
-                      <span className='messageBubble'>{e.contents}</span>
+                      <span className='messageBubble'>{e.tmp}</span>
                       <span className='messageTime'>{e.time}</span>
                     </div>
                   </div>
@@ -184,15 +184,15 @@ const ChatWithMePage = (props) => {
               );
             }
             // 나라면
-            if (typeof e.contents !== 'string') {
-              return e.contents.map((f, idx) => {
-                if (idx === e.contents.length - 1) {
+            if (typeof e.tmp !== 'string') {
+              return e.tmp.map((f, idx) => {
+                if (idx === e.tmp.length - 1) {
                   return (
                     <div className='messageRow messageRowOwn'>
                       <div className='messageRowContent'>
                         <div className='messageInfo'>
                           <div className='messageBubble'>
-                            {e.contents[e.contents.length - 1]}
+                            {e.tmp[e.tmp.length - 1]}
                           </div>
                           <div className='messageTime'>{e.time}</div>
                         </div>
@@ -205,7 +205,7 @@ const ChatWithMePage = (props) => {
                   <div className='messageRow messageRowOwn'>
                     <div className='messageRowContent'>
                       <div className='messageInfo'>
-                        <div className='messageBubble'>{e.contents[idx]}</div>
+                        <div className='messageBubble'>{e.tmp[idx]}</div>
                       </div>
                     </div>
                   </div>
@@ -217,7 +217,7 @@ const ChatWithMePage = (props) => {
               <div className='messageRow messageRowOwn'>
                 <div className='messageRowContent'>
                   <div className='messageInfo'>
-                    <div className='messageBubble'>{e.contents}</div>
+                    <div className='messageBubble'>{e.tmp}</div>
                     <div className='messageTime'>{e.time}</div>
                   </div>
                 </div>
@@ -246,7 +246,7 @@ const ChatWithMePage = (props) => {
                 {
                   setSample([
                     ...sample,
-                    { name: 'me', contents: input, time, profile: 'me' },
+                    { name: 'me', tmp: input, time, profile: 'me' },
                   ]);
                   const chatInput = document.querySelector('#chatInput');
                   chatInput.value = '';

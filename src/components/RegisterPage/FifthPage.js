@@ -1,6 +1,6 @@
 import { Input } from 'antd';
 import { useEffect, useState } from 'react';
-import { pageStepStore, userRegiInfoStore } from '../../../zustand/FriendsStore';
+import { pageStepStore, userRegiInfoStore } from '../../zustand/FriendsStore';
 
 const FifthPage = () => {
   const { setRegPage } = pageStepStore((state) => state);

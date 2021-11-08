@@ -1,11 +1,11 @@
 import { Input, Select } from 'antd';
 import { Option } from 'antd/es/mentions';
 import { useEffect, useState } from 'react';
-import telCode from '../../../utils/telCode';
+import telCode from '../../utils/telCode';
 import {
   pageStepStore,
   userRegiInfoStore,
-} from '../../../zustand/FriendsStore';
+} from '../../zustand/FriendsStore';
 
 const ThirdPage = () => {
   const { setRegPage } = pageStepStore((state) => state);

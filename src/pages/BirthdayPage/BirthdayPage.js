@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react';
 import moment from 'moment';
 // import { Popover } from 'antd';
-import { getData } from '../utils/Api';
-import basic from '../resources/img/basic_profile.jpg';
-import { useStore } from '../zustand/FriendsStore';
+import { getData } from '../../utils/Api';
+import basic from '../../resources/img/basic_profile.jpg';
+import { useStore } from '../../zustand/FriendsStore';
 
 /**
  * @author seung hwan lee
  * @date 2021.10.23
- * @description birth friends component
+ * @description birth friends components
  * */
 
-const BirthFriends = () => {
+const BirthdayPage = () => {
   const { setFriendsLists } = useStore((state) => state);
+
 
   const [pastTodayUpcomingBirthday, setPastTodayUpcomingBirthday] = useState([
     [],
@@ -64,6 +65,7 @@ const BirthFriends = () => {
 
     // eslint-disable-next-line array-callback-return
     monthlyBirthday.map((user) => {
+      console.log(user)
       const day = user.birthday.toString().slice(-2);
       const month =
         months[parseInt(user.birthday.toString().slice(0, 2), 10) - 1];
@@ -89,52 +91,27 @@ const BirthFriends = () => {
     setFriendsLists(pastTodayUpcomingBirthday);
   }, []);
 
+
   return (
     <div className='entireBirthday'>
-      {/*      <Popover
-        placement='left'
-        overlayClassName='profileOverall'
-        content={<div>asdads</div>}
-        trigger='click'
-      >
-        <div>asdasd</div>
-      </Popover> */}
       <div className='birthdayModal'>
         <h1>Friends with Birthdays</h1>
         <div className='birthdayModalDivision'>
           {
-            // eslint-disable-next-line no-tabs,consistent-return,func-names
-            (function () {
-              if (pastTodayUpcomingBirthday[0].length > 0) {
-                return <h3>Past Birthdays</h3>;
-              }
-            })()
+            pastTodayUpcomingBirthday[0].length > 0
+            ? <h3>Birthdays</h3>
+              : null
           }
           {pastTodayUpcomingBirthday[0].length > 0
-            ? pastTodayUpcomingBirthday[0].map((user) => {
-                if (user.birthday !== tmpPerson.birthday) {
-                  tmpPerson = user;
-                  return (
-                    <div>
-                      <div>
-                        <p className='birthdayModalDate'>{user.birthday}</p>
-                      </div>
-                      <div className='birthdayDesc'>
-                        <div className='birthdayPic'>
-                          <img src={basic} alt='' />
-                        </div>
-                        <div className='birthdayUsername'>{user.name}</div>
-                        <div className='sendGiftContainer'>
-                          <div className='sendGift'>Send Gift</div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                }
+            ?
+            pastTodayUpcomingBirthday[0].map((user) => {
+              if (user.birthday !== tmpPerson.birthday) {
                 tmpPerson = user;
                 return (
-                  // eslint-disable-next-line react/jsx-key
                   <div>
+                    <div>
+                      <p className='birthdayModalDate'>{user.birthday}</p>
+                    </div>
                     <div className='birthdayDesc'>
                       <div className='birthdayPic'>
                         <img src={basic} alt='' />
@@ -146,7 +123,23 @@ const BirthFriends = () => {
                     </div>
                   </div>
                 );
-              })
+              }
+              tmpPerson = user;
+              return (
+                // eslint-disable-next-line react/jsx-key
+                <div>
+                  <div className='birthdayDesc'>
+                    <div className='birthdayPic'>
+                      <img src={basic} alt='' />
+                    </div>
+                    <div className='birthdayUsername'>{user.name}</div>
+                    <div className='sendGiftContainer'>
+                      <div className='sendGift'>Send Gift</div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })
             : null}
           {/* eslint-disable-next-line consistent-return,func-names */}
           {(function () {
@@ -168,32 +161,13 @@ const BirthFriends = () => {
           })()}
           {pastTodayUpcomingBirthday[1].length > 0
             ? pastTodayUpcomingBirthday[1].map((user) => {
-                if (user.birthday !== tmpPerson.birthday) {
-                  tmpPerson = user;
-                  return (
-                    <div>
-                      <div>
-                        <p className='birthdayModalDate'>{user.birthday}</p>
-                      </div>
-                      <div className='birthdayDesc'>
-                        <div className='birthdayPic'>
-                          <img src={basic} alt='' />
-                        </div>
-                        <div className='birthdayUsername'>
-                          {user.name}
-                          <i className='fas fa-birthday-cake' />
-                        </div>
-                        <div className='sendGiftContainer'>
-                          <div className='sendGift'>Send Gift</div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                }
+              if (user.birthday !== tmpPerson.birthday) {
                 tmpPerson = user;
                 return (
-                  // eslint-disable-next-line react/jsx-key
                   <div>
+                    <div>
+                      <p className='birthdayModalDate'>{user.birthday}</p>
+                    </div>
                     <div className='birthdayDesc'>
                       <div className='birthdayPic'>
                         <img src={basic} alt='' />
@@ -208,55 +182,51 @@ const BirthFriends = () => {
                     </div>
                   </div>
                 );
-              })
-            : null}
-          {/* eslint-disable-next-line consistent-return,func-names */}
-          {(function () {
-            if (pastTodayUpcomingBirthday[1].length > 0) {
+              }
+              tmpPerson = user;
               return (
-                <>
-                  <hr />
-                </>
+                // eslint-disable-next-line react/jsx-key
+                <div>
+                  <div className='birthdayDesc'>
+                    <div className='birthdayPic'>
+                      <img src={basic} alt='' />
+                    </div>
+                    <div className='birthdayUsername'>
+                      {user.name}
+                      <i className='fas fa-birthday-cake' />
+                    </div>
+                    <div className='sendGiftContainer'>
+                      <div className='sendGift'>Send Gift</div>
+                    </div>
+                  </div>
+                </div>
               );
+            })
+            : null}
+          {
+            pastTodayUpcomingBirthday[1].length > 0
+            ? <hr />
+              : null
             }
-          })()}
         </div>
         <div className='birthdayModalDivision'>
-          {/* eslint-disable-next-line consistent-return,func-names */}
-          {(function () {
-            if (pastTodayUpcomingBirthday[2].length > 0) {
-              return <h3>Upcoming Birthdays</h3>;
-            }
-          })()}
+          {
+            pastTodayUpcomingBirthday[2].length > 0
+              ? <h3>Upcoming Birthdays</h3>
+              : null
+          }
           {pastTodayUpcomingBirthday[2].length > 0
             ? pastTodayUpcomingBirthday[2].map((user) => {
-                if (user.birthday !== tmpPerson.birthday) {
-                  tmpPerson = user;
-                  return (
-                    <div>
-                      <div>
-                        <p className='birthdayModalDate'>{user.birthday}</p>
-                      </div>
-                      <div className='birthdayDesc'>
-                        <div className='birthdayPic'>
-                          <img src={basic} alt='birthday' />
-                        </div>
-                        <div className='birthdayUsername'>{user.name}</div>
-                        <div className='sendGiftContainer'>
-                          <div className='sendGift'>Send Gift</div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                }
+              if (user.birthday !== tmpPerson.birthday) {
                 tmpPerson = user;
                 return (
-                  // eslint-disable-next-line react/jsx-key
                   <div>
+                    <div>
+                      <p className='birthdayModalDate'>{user.birthday}</p>
+                    </div>
                     <div className='birthdayDesc'>
                       <div className='birthdayPic'>
-                        {/* eslint-disable-next-line jsx-a11y/alt-text */}
-                        <img src={basic} />
+                        <img src={basic} alt='birthday' />
                       </div>
                       <div className='birthdayUsername'>{user.name}</div>
                       <div className='sendGiftContainer'>
@@ -265,11 +235,28 @@ const BirthFriends = () => {
                     </div>
                   </div>
                 );
-              })
+              }
+              tmpPerson = user;
+              return (
+                // eslint-disable-next-line react/jsx-key
+                <div>
+                  <div className='birthdayDesc'>
+                    <div className='birthdayPic'>
+                      {/* eslint-disable-next-line jsx-a11y/alt-text */}
+                      <img src={basic} />
+                    </div>
+                    <div className='birthdayUsername'>{user.name}</div>
+                    <div className='sendGiftContainer'>
+                      <div className='sendGift'>Send Gift</div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })
             : null}
         </div>
       </div>
     </div>
   );
 };
-export default BirthFriends;
+export default BirthdayPage;

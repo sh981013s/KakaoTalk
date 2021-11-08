@@ -1,4 +1,4 @@
-import { pageStepStore } from '../../../zustand/FriendsStore';
+import { pageStepStore } from '../../zustand/FriendsStore';
 
 const FirstPage = () => {
   const { setRegPage } = pageStepStore((state) => state);

@@ -1,6 +1,6 @@
 import { Checkbox } from 'antd';
 import { useEffect, useState } from 'react';
-import { pageStepStore } from '../../../zustand/FriendsStore';
+import { pageStepStore } from '../../zustand/FriendsStore';
 
 const SecondPage = () => {
   const { setRegPage } = pageStepStore((state) => state);

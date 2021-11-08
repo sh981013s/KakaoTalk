@@ -3,11 +3,29 @@
   <component name="ChangeListManager">
     <list default="true" id="1b0de1a9-88bf-4c9b-a461-f6a07594e31e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/contents/Friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/contents/Friends.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/zustand/FriendsStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/zustand/FriendsStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/LeftMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LeftMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/MainPage/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainPage/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/common/KakaoModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/KakaoModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/contents/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ChatWithMePage/ChatWithMePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/contents/ChatCopy.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/contents/ChatCopy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/contents/Friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/contents/Friends.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/BirthFriends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/BirthdayPage/BirthdayPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/ChatListPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ChatListPage/ChatListPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/InitialPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/InitialPage/InitialPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MainPage/MainPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/MorePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MorePage/MorePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/account/Login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/register/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/RegisterPage/RegisterPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/register/components/FifthPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterPage/FifthPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/register/components/FirstPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterPage/FirstPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/register/components/FourthPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterPage/FourthPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/register/components/SecondPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterPage/SecondPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/register/components/SixthPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterPage/SixthPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/register/components/ThirdPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterPage/ThirdPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/Friends.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/mainpage/componenets/Friends.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tmp.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +44,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/page/InitialPage.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/pages/InitialPage/InitialPage.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/resources/css/base/styles.scss" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/App.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/resources/css/initialpage/initialpage.scss" root0="FORCE_HIGHLIGHTING" />
@@ -44,7 +62,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/component/contents" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/component/RegisterPage" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -53,7 +71,15 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/component/RegisterPage" />
       <recent name="$PROJECT_DIR$/src/component/contents" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pages/BirthdayPage" />
+      <recent name="$PROJECT_DIR$/src/component" />
+      <recent name="$PROJECT_DIR$/src/components/" />
+      <recent name="$PROJECT_DIR$/src/pages/ChatWithMePage" />
+      <recent name="$PROJECT_DIR$/src/pages/MorePage" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -64,7 +90,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1636105526248</updated>
-      <workItem from="1636105533848" duration="33751000" />
+      <workItem from="1636105533848" duration="41555000" />
     </task>
     <servers />
   </component>

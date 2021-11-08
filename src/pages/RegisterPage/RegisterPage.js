@@ -1,12 +1,12 @@
-import FirstPage from './components/FirstPage';
-import SecondPage from './components/SecondPage';
-import ThirdPage from './components/ThirdPage';
-import FourthPage from './components/FourthPage';
-import FifthPage from './components/FifthPage';
-import SixthPage from './components/SixthPage';
+import FirstPage from '../../components/RegisterPage/FirstPage';
+import SecondPage from '../../components/RegisterPage/SecondPage';
+import ThirdPage from '../../components/RegisterPage/ThirdPage';
+import FourthPage from '../../components/RegisterPage/FourthPage';
+import FifthPage from '../../components/RegisterPage/FifthPage';
+import SixthPage from '../../components/RegisterPage/SixthPage';
 import { pageStepStore } from '../../zustand/FriendsStore';
 
-const Register = () => {
+const RegisterPage = () => {
   const { regPage } = pageStepStore((state) => state);
 
   // eslint-disable-next-line consistent-return
@@ -30,4 +30,4 @@ const Register = () => {
   return <>{selectPage(regPage)}</>;
 };
 
-export default Register;
+export default RegisterPage;

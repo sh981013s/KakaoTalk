@@ -4,7 +4,7 @@ import { Option } from 'antd/es/mentions';
 import telCode from '../utils/telCode';
 import { myInfoStore, useStore, friendsRefreshStore } from '../zustand/FriendsStore';
 import { API_URL, getData } from '../utils/Api';
-import Friends from '../component/contents/Friends'
+import Friends from './/contents/Friends'
 
 
 function Header(props) {

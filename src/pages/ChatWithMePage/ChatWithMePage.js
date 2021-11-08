@@ -8,7 +8,7 @@ import { myChatStore } from '../../zustand/FriendsStore'
 import * as moment from 'moment';
 
 
-const Chat = (props) => {
+const ChatWithMePage = (props) => {
   const { myChat, setMyChat } = myChatStore((state)=> state)
   const {match} = props;
 
@@ -263,4 +263,4 @@ const Chat = (props) => {
   );
 };
 
-export default Chat;
+export default ChatWithMePage;

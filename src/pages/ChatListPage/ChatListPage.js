@@ -1,15 +1,15 @@
 // import { useState } from 'react';
-/* import Friends from '../component/contents/Friends';
-import LeftMenu from '../component/LeftMenu'; */
-// import Header from '../component/Header';
-import '../resources/css/mainpage/MainPage.scss';
-import basic from '../resources/img/basic_profile.jpg';
+/* import Friends from '../components/contents/Friends';
+import LeftMenu from '../components/LeftMenu'; */
+// import Header from '../components/Header';
+import '../../resources/css/mainpage/MainPage.scss';
+import basic from '../../resources/img/basic_profile.jpg';
 // import {getData} from '../utils/Api';
 
 /**
  * @author Lee seung hwan
  * @date 2021.10.22
- * @description Friends | Chat | More를 관리하는 컴포넌트
+ * @description Friends | ChatWithMePage | More를 관리하는 컴포넌트
  */
 function ChatListPage() {
 

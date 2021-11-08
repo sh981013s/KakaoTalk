@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 // import { useHistory } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { Option } from 'antd/es/mentions';
-import { pageStepStore, userRegiInfoStore } from '../../../zustand/FriendsStore';
-import { getData } from '../../../utils/Api';
-import { year, month, day } from '../../../utils/Date'
+import { pageStepStore, userRegiInfoStore } from '../../zustand/FriendsStore';
+import { getData } from '../../utils/Api';
+import { year, month, day } from '../../utils/Date'
 
 const SixthPage = () => {
 	const { setRegPage } = pageStepStore((state) => state);

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import {
   pageStepStore,
   userRegiInfoStore,
-} from '../../../zustand/FriendsStore';
+} from '../../zustand/FriendsStore';
 
 const FourthPage = () => {
   const { setRegPage } = pageStepStore((state) => state);

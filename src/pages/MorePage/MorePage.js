@@ -1,9 +1,8 @@
-import '../resources/css/mainpage/MainPage.scss';
+import '../../resources/css/mainpage/MainPage.scss';
 import { useEffect, useState } from 'react';
 import { Spin } from 'antd';
-import { getData } from '../utils/Api';
-import walletIcon from '../resources/img/cardImg.png';
-
+import { getData } from '../../utils/Api';
+import walletIcon from '../../resources/img/cardImg.png';
 
 const MorePage = () =>  {
 	const [me, setMe] = useState('');
@@ -112,14 +111,18 @@ const MorePage = () =>  {
 					<p>KakaoTalk Info</p>
 					<p>ver. 2.9.6</p>
 				</div>
+				<div className='versionInfo'>
+					<i className="fab fa-github" />
+					<p>SourceCode</p>
+					<a
+						href='https://github.com/sh981013s/kakaoTalk'
+						target='_blank'>
+						<p>https://github.com/sh981013s/kakaoTalk</p>
+					</a>
+				</div>
 			</div>
 		</Spin>
 	)
-
 }
-
-
-
-
 
 export default MorePage

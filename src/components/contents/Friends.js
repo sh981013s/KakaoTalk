@@ -79,6 +79,14 @@ function Friends(props) {
 		);
 	};
 
+	const openChatWithMe = () => {
+		window.open(
+			`/chatwithme`,
+			'네이버새창',
+			'width=500, height=800, toolbar=no, menubar=no, scrollbars=no, resizable=yes'
+		);
+	};
+
 	const openBirthPage = () => {
 		window.open(
 			'/birthFriends',
@@ -91,7 +99,7 @@ function Friends(props) {
 			<main className='friendsList'>
 				{showProfile ? (
 					<>
-						<div className='userComponent' onDoubleClick={openChat}>
+						<div className='userComponent' onDoubleClick={openChatWithMe}>
 							<Popover
 								placement='left'
 								overlayClassName='profileOverall'
@@ -129,7 +137,7 @@ function Friends(props) {
 							</div>
 						</div>
 						<hr />
-						<p>friends {friendsLists.length}</p>
+						<p>Friends {friendsLists.length}</p>
 					</>
 				) : null}
 				{friendList.map((value) => (
@@ -152,7 +160,7 @@ function Friends(props) {
 								<h4>{value.name}</h4>
 							</div>
 							<div className='userComponentDesc'>
-								<h5>{value.desc}</h5>
+								<h5>{value.state}</h5>
 							</div>
 						</div>
 					</div>

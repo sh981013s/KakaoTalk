@@ -1,8 +1,8 @@
 import { Input, Checkbox } from 'antd';
 import { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import mainImg from '../resources/img/kakaoLoginMain.png';
-import { getData } from '../utils/Api';
+import mainImg from '../../resources/img/kakaoLoginMain.png';
+import { getData } from '../../utils/Api';
 
 const InitialPage = () => {
   const history = useHistory();

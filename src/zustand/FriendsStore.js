@@ -23,6 +23,7 @@ export const userRegiInfoStore = create((set) => ({
     tel: '',
     birth: '',
     sex: '',
+    id: '',
   },
   setUserInfo: (props) => set({ userInfo: props }),
 }));

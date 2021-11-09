@@ -23,7 +23,8 @@ const SixthPage = () => {
 
 	const includeInfo = () => {
 		const userBirthday = `${ birthDay.year }-${ birthDay.month }-${ birthDay.day }`;
-		setUserInfo({...userInfo, birth: userBirthday, sex: gender, name: userName});
+		const userId = (userInfo.email.slice(0,userInfo.email.indexOf('@')));
+		setUserInfo({...userInfo, birth: userBirthday, sex: gender, name: userName, id: userId});
 	}
 
 	useEffect(() => {
@@ -44,6 +45,7 @@ const SixthPage = () => {
 
 	return (
 		<div className='firstEntire'>
+			<div onClick={()=>console.log(userInfo)}>asdasdas</div>
 			<div className='third'>
 				<h1>KakaoTalk</h1>
 				<div className='fourthBox'>
@@ -102,7 +104,9 @@ const SixthPage = () => {
 								className='agreeBtn'
 								onClick={async () => {
 									includeInfo();
+									console.log(userInfo,'userInfo')
 									const resultData = await getData.post('member/signup', userInfo)
+									console.log(resultData, 'result')
 									if(resultData.data.resultType === 'success'){
 										setRegPage(0);
 										alert('회원가입을 완료했습니다!')

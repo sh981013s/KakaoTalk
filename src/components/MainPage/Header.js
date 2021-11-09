@@ -101,7 +101,6 @@ function Header(props) {
 				setAllFilled(false);
 			} else {
 				userToAdd[0].name = searchFriends;
-				// friendsList.push(...userToAdd);
 
 				setFriendsList([...friendsList, { ...userToAdd[0] }]);
 				setIsValidInfoToAdd(true);
@@ -144,7 +143,7 @@ function Header(props) {
 			keyword: searchFriendsById
 		};
 
-		await getData.get('friend/searchFriends', { params: parameter }).then(res => searchResult(res.data));
+		await getData.get('friend/searchFriendsById', { params: parameter }).then(res => searchResult(res.data));
 	};
 
 	// eslint-disable-next-line consistent-return

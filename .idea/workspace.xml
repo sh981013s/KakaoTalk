@@ -3,15 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1b0de1a9-88bf-4c9b-a461-f6a07594e31e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainPage/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LeftMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainPage/LeftMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainPage/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendsPage/ProfilePopover.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/KakaoModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/KakaoModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/contents/ChatCopy.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tmp/ChatCopy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/contents/Friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendsPage/Friends.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ChatListPage/ChatListPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ChatListPage/ChatListPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ChatWithMePage/ChatWithMePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ChatWithMePage/ChatWithMePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MainPage/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MainPage/MainPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainPage/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainPage/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RegisterPage/SixthPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterPage/SixthPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zustand/FriendsStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/zustand/FriendsStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +70,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1636105526248</updated>
-      <workItem from="1636105533848" duration="42589000" />
+      <workItem from="1636105533848" duration="46140000" />
     </task>
     <servers />
   </component>

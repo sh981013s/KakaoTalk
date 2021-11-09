@@ -112,19 +112,18 @@ function Header(props) {
 		}
 	};
 
-
 	// eslint-disable-next-line consistent-return
 	const searchResult = (prop) => {
 		switch (prop.resultType) {
 			case 0 :
 				return alert('None');
-
-				// it's not my friend
+				// it's already my friend
 			case 1 :
 				setIsExistById(true);
 				setFdSwitch(false);
 				setSearchInfo(prop.fdInfo);
 				break;
+				// has to be added
 				case 2 :
 					setIsExistById(true);
 					setFdSwitch(true);
@@ -133,16 +132,21 @@ function Header(props) {
 			default :
 				return null;
 		}
+	};
 
+	const searchByContact = async () => {
+		const parameter = {
+			uid: myInfo.uid,
+			keyword: phoneNumber.slice(1)
+		};
+		await getData.get('friend/searchFriendsByContact', { params: parameter }).then(res => searchResult(res.data));
 	};
 
 	const searchById = async () => {
-
 		const parameter = {
 			uid: myInfo.uid,
 			keyword: searchFriendsById
 		};
-
 		await getData.get('friend/searchFriendsById', { params: parameter }).then(res => searchResult(res.data));
 	};
 
@@ -163,18 +167,20 @@ function Header(props) {
 					.then(()=>setRefresh(true));
 			})
 		} else {
-			// 1:1
+			console.log('nope')
 		}
 	};
+
+	const addFriendEventByContact = async () => {
+		await searchByContact().then(()=>	{
+			addFriendEventById()
+		})
+		// alert('Successfully added to your Friend List')
+	}
 
 	const searchByIdContent =
 		// eslint-disable-next-line no-nested-ternary
 		isExistById && !!searchInfo ? (
-/*				<div>
-					<span>{searchInfo.name}</span>
-					<img src={`${API_URL}img/${searchInfo.pic}`} style={{width: 50}} alt="" />
-				</div> */
-
 			<div className='searchByIdContent'>
 				<div className='addFriendsByIdProfilePicBox'>
 					<img src={`${API_URL}img/${searchInfo.pic}`} alt='lol' className='addFriendsByIdProfilePic' />
@@ -273,7 +279,7 @@ function Header(props) {
 						<Button
 							className={addFriendsButtonColor}
 							disabled={!allFilled}
-							onClick={addFriendEventByContacts}
+							onClick={addFriendEventByContact}
 						>
 							Add Friends
 						</Button>
@@ -302,7 +308,7 @@ function Header(props) {
 							onClick={addFriendEventById}
 						>
 							{/* eslint-disable-next-line no-nested-ternary */}
-							{fdSwitch ? 'Add Friends' :  (searchInfo.uid !== myInfo.uid ? '1:1 chat' : "it's me" )}
+							{fdSwitch ? 'Add Friends' :  (searchInfo.uid === myInfo.uid ? '1:1 chat' : "it's me" )}
 						</Button>
 					</div>
 				</>

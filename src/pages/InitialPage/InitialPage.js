@@ -3,28 +3,29 @@ import { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import mainImg from '../../resources/img/kakaoLoginMain.png';
 import { getData } from '../../utils/Api';
+import useInput from '../../hooks/useInput'
 
 const InitialPage = () => {
   const history = useHistory();
-  const [emailInput, setEmailInput] = useState('');
-  const [passwordInput, setPasswordInput] = useState('');
   const [allFilled, setAllFilled] = useState(false);
   const [isValidInput, setIsValidInput] = useState(true);
+  const [email, onChangeEmail] = useInput('');
+  const [password, onChangePassword] = useInput('');
 
   useEffect(() => {
-    if (emailInput !== '' && passwordInput.length > 3) {
+    if (email !== '' && password.length > 3) {
       setAllFilled(true);
     } else {
       setAllFilled(false);
     }
-  }, [emailInput, passwordInput, allFilled]);
+  }, [email, password]);
 
   const loginBtnClassNames = ['loginDisabled', 'loginActive'];
 
   const getLogin = async () => {
     const parameter = {
-      email: emailInput,
-      pw: passwordInput,
+      email: email,
+      pw: password,
     };
     const resultData = await getData.post('member/signin', parameter);
     localStorage.setItem('token', resultData.data.accessToken);
@@ -44,14 +45,18 @@ const InitialPage = () => {
           </div>
           <div className='inputBox'>
             <Input
+              name='email'
+              value={email}
+              onChange={onChangeEmail}
               placeholder='Email or Phone Number'
-              onChange={(e) => setEmailInput(e.target.value)}
               onPressEnter={getLogin}
             />
             <Input
+              name='password'
               placeholder='Password'
               type='password'
-              onChange={(e) => setPasswordInput(e.target.value)}
+              value={password}
+              onChange={onChangePassword}
               onPressEnter={getLogin}
             />
             {

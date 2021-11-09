@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b0de1a9-88bf-4c9b-a461-f6a07594e31e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7ae3fa3c-214c-4c25-b09d-44a707114e03.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7ae3fa3c-214c-4c25-b09d-44a707114e03.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FriendsPage/Friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendsPage/Friends.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MainPage/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainPage/Header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/RegisterPage/SixthPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterPage/SixthPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/zustand/FriendsStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/zustand/FriendsStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/InitialPage/InitialPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/InitialPage/InitialPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +72,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1636105526248</updated>
-      <workItem from="1636105533848" duration="46140000" />
+      <workItem from="1636105533848" duration="62953000" />
     </task>
     <servers />
   </component>

@@ -27,10 +27,6 @@ const SixthPage = () => {
 		setUserInfo({...userInfo, birth: userBirthday, sex: gender, name: userName, id: userId});
 	}
 
-	useEffect(() => {
-		console.log(userInfo, 'userInfo::::');
-	}, [userInfo]);
-
 	const [btnActive, setBtnActive] = useState(false);
 	const btnClassNames = ['agreeBtn', 'agreeBtnDisabled'];
 
@@ -45,7 +41,6 @@ const SixthPage = () => {
 
 	return (
 		<div className='firstEntire'>
-			<div onClick={()=>console.log(userInfo)}>asdasdas</div>
 			<div className='third'>
 				<h1>KakaoTalk</h1>
 				<div className='fourthBox'>

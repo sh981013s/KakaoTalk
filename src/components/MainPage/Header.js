@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Button, Input, Menu, Popover, Select } from 'antd';
+import { Alert, Button, Input, Menu, Popover, Select } from 'antd';
 import { Option } from 'antd/es/mentions';
 import telCode from '../../utils/telCode';
 import { myInfoStore, useStore, friendsRefreshStore } from '../../zustand/FriendsStore';
@@ -30,6 +30,7 @@ function Header(props) {
 	const [searchByIdInputSave] = useState('');
 	const [searchInfo, setSearchInfo] = useState('');
 	const [fdSwitch, setFdSwitch] = useState(false);
+	const [showAlert, setShowAlert] = useState(false);
 	const { friendsLists ,setFriendsLists} = useStore((state) => state);
 
 
@@ -107,7 +108,9 @@ function Header(props) {
 				await getData.get('friend/getFriends', { params: param })
 					.then(res => setFriendsLists(res.data))
 					.then(()=>setVisible(false))
-					.then(()=>setRefresh(true));
+					.then(()=>setShowAlert(true))
+					.then(()=>setRefresh(true))
+					.then(()=>setTimeout(()=> { setShowAlert(false) }, 6000))
 			})
 		} else {
 			console.log('nope')
@@ -266,7 +269,6 @@ function Header(props) {
                 </span>
 							}
 						/>
-						{/* <p>{ addFriendsModalDesc }</p> */}
 						{searchByIdContent}
 						<Button
 							className={addFriendsButtonColor}
@@ -277,11 +279,8 @@ function Header(props) {
 							{
 								searchInfo.uid === myInfo.uid ? 'My Chatroom'
 									: fdSwitch ? 'Add Friends'
-									: '1:1 Chat'
+										: '1:1 Chat'
 							}
-
-
-
 						</Button>
 						<div onClick={()=>{console.log(fdSwitch,searchInfo.uid,myInfo.uid,'lol')}}>asdasd</div>
 					</div>
@@ -294,6 +293,16 @@ function Header(props) {
 
 	return (
 		<header className='screenHeader'>
+			{
+				showAlert ?
+					<Alert
+						message="Successfully added to your friendLists"
+						type="success"
+						showIcon='false'
+						closable
+					/>
+					: null
+			}
 			<div className='mainTop'>
 				{/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
 				<h1

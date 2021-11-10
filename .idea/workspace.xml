@@ -4,9 +4,9 @@
     <list default="true" id="1b0de1a9-88bf-4c9b-a461-f6a07594e31e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/FriendsPage/Friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendsPage/Friends.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/BirthdayPage/BirthdayPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/BirthdayPage/BirthdayPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/InitialPage/InitialPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/InitialPage/InitialPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MainPage/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MainPage/MainPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/RegisterPage/RegisterPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/RegisterPage/RegisterPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/CheckIsUserLoggedIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/CheckIsUserLoggedIn.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,11 +56,11 @@
       <recent name="$PROJECT_DIR$/src/component/contents" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/common" />
       <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$/src/pages" />
       <recent name="$PROJECT_DIR$/src/components/MainPage/FriendsPage" />
       <recent name="$PROJECT_DIR$/src/components/MainPage" />
-      <recent name="$PROJECT_DIR$/src/pages/BirthdayPage" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -71,7 +71,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1636105526248</updated>
-      <workItem from="1636105533848" duration="67727000" />
+      <workItem from="1636105533848" duration="72764000" />
     </task>
     <servers />
   </component>

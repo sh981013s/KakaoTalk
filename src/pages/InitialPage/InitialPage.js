@@ -4,7 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import mainImg from '../../resources/img/kakaoLoginMain.png';
 import { getData } from '../../utils/Api';
 import useInput from '../../hooks/useInput'
-import CheckIsUserLoggedIn from '../../utils/CheckIsUserLoggedIn';
+import CheckIsUserLoggedIn from '../../components/common/CheckIsUserLoggedIn';
 
 const InitialPage = () => {
   const history = useHistory();

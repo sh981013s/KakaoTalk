@@ -8,57 +8,43 @@ import BirthdayList from './BirthdayList'
 function Friends(props) {
 	const {friendsLists, setFriendsLists } = useStore((state) => state);
 	const { refresh, setRefresh } = friendsRefreshStore((state) => state);
-	const { myInfo, setMyInfo } = myInfoStore((state) => state);
+	const { setMyInfo } = myInfoStore((state) => state);
 	const [friendList, setFriendsList] = useState([]);
 	const [showProfile, setShowProfile] = useState(true);
 	const [loading, setLoading] = useState(true);
 
-	const getFriendsData = async () => {
-		console.log('friendsStart')
-		console.log(myInfo)
-		if (myInfo) {
-			const parameter = {
-				uid: myInfo.uid
-			};
-			await getData.get('friend/getFriends', { params: parameter }).then(res=> {
-				setFriendsLists(res.data);
-				setFriendsList(res.data);
-				setLoading(false)
-			} );
-		}
-	};
-
-/*	useEffect(() => {
-		getFriendsData();
-	}, [myInfo]);*/
-
-
-	const getMyInfo = async () => {
+	const GetMyAndFriendsData = async ( ) => {
 		const tokenValue = localStorage.getItem('token');
 		const parameter = {
 			token: tokenValue,
 		};
-		const myInfoFromServer = await getData.get('member/me', { params: parameter });
-		setMyInfo(myInfoFromServer.data.userInfo[0]);
-		// setMyInfo(() => myInfoFromServer.data.userInfo[0]);
+		await getData.get('member/me', { params: parameter })
+			.then((res)=>{
+				setMyInfo(res.data.userInfo[0])
+				const param = {
+					uid: res.data.userInfo[0].uid
+				}
+				getData.get('friend/getFriends', { params: param }).then(resu=> {
+					setFriendsLists(resu.data);
+					setFriendsList(resu.data);
+					setLoading(false);
+				} );
+			})
 	};
 
 	useEffect(() => {
 		if(refresh) {
 			setLoading(true)
-			getFriendsData()
+			GetMyAndFriendsData()
 				.then(() => setLoading(false))
 				.then(() => setRefresh(false));
 		}
 	}, [refresh]);
 
 	useEffect(() => {
-		getMyInfo()
+		GetMyAndFriendsData()
 	}, []);
 
-	useEffect(()=>{
-		getFriendsData();
-	},[myInfo])
 
 
 	useEffect(() => {

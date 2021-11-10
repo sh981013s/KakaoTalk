@@ -39,9 +39,14 @@ const BirthdayPage = () => {
   let tmpPerson = { birthday: '1234' };
 
   const getBirthFriends = async () => {
-    let resultData = await getData.get('member/getFriends');
+    const resultData = [];
+/*    let resultData = await getData.get('friend/getFriends');
     resultData = resultData.data;
-    const monthlyBirthday = [];
+    console.log(resultData, 'result')*/
+    await getData.get('friend/getFriends').then((res)=>console.log(res,'res'))
+    // await getData.get('friend/getFriends', { params: parameter }).then(res=> {
+
+      const monthlyBirthday = [];
     // eslint-disable-next-line no-underscore-dangle
     let today = moment()._d;
     today = parseInt(
@@ -81,15 +86,18 @@ const BirthdayPage = () => {
     });
 
     setPastTodayUpcomingBirthday(tmp);
-    setFriendsLists(pastTodayUpcomingBirthday);
+    // setFriendsLists(pastTodayUpcomingBirthday);
   };
 
-  // getBirthFriends();
 
   useEffect(() => {
     getBirthFriends();
     setFriendsLists(pastTodayUpcomingBirthday);
   }, []);
+
+  useEffect(()=>{
+    console.log(pastTodayUpcomingBirthday)
+  },[pastTodayUpcomingBirthday])
 
 
   return (

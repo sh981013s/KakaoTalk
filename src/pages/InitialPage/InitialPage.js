@@ -4,7 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import mainImg from '../../resources/img/kakaoLoginMain.png';
 import { getData } from '../../utils/Api';
 import useInput from '../../hooks/useInput'
-import CheckIsUserLoggedIn from '../../components/common/CheckIsUserLoggedIn';
+import { InitialCheckIsUserLoggedIn } from '../../components/common/CheckIsUserLoggedIn';
 
 const InitialPage = () => {
   const history = useHistory();
@@ -40,7 +40,7 @@ const InitialPage = () => {
 
 
   useEffect(()=>{
-    CheckIsUserLoggedIn();
+    InitialCheckIsUserLoggedIn();
   },[])
 
   return (

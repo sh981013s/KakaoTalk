@@ -33,7 +33,6 @@ function Header(props) {
 	const { friendsLists ,setFriendsLists} = useStore((state) => state);
 
 
-	const [friendsList, setFriendsList] = useState([]);
 	const addFriendsButtonColor = `addFriendsButton${
 		allFilled ? ' addFriendsButton-active' : ''
 	}`;
@@ -43,18 +42,6 @@ function Header(props) {
 	const handleVisibleChange = () => {
 		setVisible(!visible);
 	}
-
-	const getFriendsData = async () => {
-		if (myInfo) {
-			const parameter = {
-				uid: myInfo.uid
-			};
-			await getData.get('friend/getFriends', { params: parameter }).then(res=> {
-				setFriendsLists(res.data);
-			} );
-		}
-	};
-
 
 	useEffect(() => {
 		if (
@@ -67,50 +54,14 @@ function Header(props) {
 		}
 	}, [countryCode, searchFriends, phoneNumber, searchFriendsById]);
 
-	const getSearchData = async () => {
-	};
 
 	const handleClick = (e) => {
 		setCurrent(e.key);
 	};
 
-	let entireUser = [];
-
-	useEffect(() => {
-		getSearchData();
-		entireUser = friendsLists;
-	}, []);
-
 	useEffect(() => {
 		receive(text);
 	}, [text]);
-
-
-	const addFriendEventByContacts = () => {
-		const userToAdd = entireUser.filter(
-			(user) =>
-				user.countryCode === countryCode && user.phoneNumber === phoneNumber
-		);
-		if (userToAdd.length > 0) {
-			const isAlreadyExist = friendsList.find(
-				(c) => c.phoneNumber === userToAdd[0].phoneNumber
-			);
-			if (isAlreadyExist) {
-				setIsValidInfoToAdd(false);
-				setIsAlreadyExistAs(true);
-				setAllFilled(false);
-			} else {
-				userToAdd[0].name = searchFriends;
-
-				setFriendsList([...friendsList, { ...userToAdd[0] }]);
-				setIsValidInfoToAdd(true);
-
-			}
-		} else {
-			setIsValidInfoToAdd(false);
-			setAllFilled(false);
-		}
-	};
 
 	// eslint-disable-next-line consistent-return
 	const searchResult = (prop) => {
@@ -132,14 +83,6 @@ function Header(props) {
 			default :
 				return null;
 		}
-	};
-
-	const searchByContact = async () => {
-		const parameter = {
-			uid: myInfo.uid,
-			keyword: phoneNumber.slice(1)
-		};
-		await getData.get('friend/searchFriendsByContact', { params: parameter }).then(res => searchResult(res.data));
 	};
 
 	const searchById = async () => {
@@ -172,10 +115,31 @@ function Header(props) {
 	};
 
 	const addFriendEventByContact = async () => {
-		await searchByContact().then(()=>	{
-			addFriendEventById()
-		})
-		// alert('Successfully added to your Friend List')
+		const parameter = {
+			uid: myInfo.uid,
+			keyword: phoneNumber.slice(1)
+		};
+		await getData.get('friend/searchFriendsByContact', { params: parameter })
+			.then(async(res) => {
+				await searchResult(res.data)
+				if (fdSwitch) {
+					const addParam = {
+						uid: myInfo.uid,
+						fdId: searchInfo.uid
+					}
+					const getParam = {
+						uid: myInfo.uid
+					}
+					await getData.post('friend/addFriends', addParam).then(async () => {
+						await getData.get('friend/getFriends', { params: getParam })
+							.then(friends => setFriendsLists(friends.data))
+							.then(()=>setVisible(false))
+							.then(()=>setRefresh(true));
+					})
+				} else {
+					console.log('nope')
+				}
+			});
 	}
 
 	const searchByIdContent =
@@ -239,6 +203,8 @@ function Header(props) {
 			{current === 'contacts' ? (
 				<>
 					<div className='addFriendsContent'>
+						<div onClick={()=>console.log(myInfo, 'myInfo')}>asdasd</div>
+						<div onClick={()=>console.log(fdSwitch, 'fdswitch')}>asdasd</div>
 						<Input
 							placeholder='Name'
 							value={searchFriends}

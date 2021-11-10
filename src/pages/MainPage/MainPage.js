@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Friends from '../../components/FriendsPage/Friends';
 import LeftMenu from '../../components/MainPage/LeftMenu';
 import Header from '../../components/MainPage/Header';
 import '../../resources/css/mainpage/MainPage.scss';
 import ChatListPage from '../ChatListPage/ChatListPage';
 import MorePage from '../MorePage/MorePage';
+import { checkIsUserLoggedIn } from '../../components/common/CheckIsUserLoggedIn';
+
 
 /**
  * @author Lee seung hwan
@@ -40,6 +42,10 @@ function MainPage({ match }) {
         return <div>4044040404404040404040404040</div>;
     }
   };
+
+  useEffect(() => {
+    checkIsUserLoggedIn();
+  },[]);
 
   return (
     <div className='mainPage'>

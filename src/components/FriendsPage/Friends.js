@@ -24,9 +24,9 @@ function Friends(props) {
 				const param = {
 					uid: res.data.userInfo[0].uid
 				}
-				getData.get('friend/getFriends', { params: param }).then(resu=> {
-					setFriendsLists(resu.data);
-					setFriendsList(resu.data);
+				getData.get('friend/getFriends', { params: param }).then(friends=> {
+					setFriendsLists(friends.data);
+					setFriendsList(friends.data);
 					setLoading(false);
 				} );
 			})

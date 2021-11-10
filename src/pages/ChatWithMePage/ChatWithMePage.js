@@ -6,6 +6,8 @@ import blank from '../../resources/img/blank.png';
 import { getData } from '../../utils/Api';
 import { myChatStore } from '../../zustand/FriendsStore'
 import * as moment from 'moment';
+import { checkIsUserLoggedIn } from '../../components/common/CheckIsUserLoggedIn';
+
 
 
 const ChatWithMePage = (props) => {
@@ -84,6 +86,7 @@ const ChatWithMePage = (props) => {
   const [real, setReal] = useState([]);
 
   useEffect(()=>{
+    checkIsUserLoggedIn();
     getChatList();
     setMyChatToUse(myChat);
     // console.log(myChatToUse.reduce(indexDataReudcer, ''));

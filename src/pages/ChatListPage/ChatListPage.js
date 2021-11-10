@@ -1,17 +1,19 @@
-// import { useState } from 'react';
-/* import Friends from '../components/tmp/Friends';
-import LeftMenu from '../components/LeftMenu'; */
-// import Header from '../components/Header';
 import '../../resources/css/mainpage/MainPage.scss';
 import basic from '../../resources/img/basic_profile.jpg';
-// import {getData} from '../utils/Api';
+import { checkIsUserLoggedIn } from '../../components/common/CheckIsUserLoggedIn';
+import { useEffect } from 'react';
+
 
 /**
  * @author Lee seung hwan
  * @date 2021.10.22
  * @description Friends | ChatWithMePage | More를 관리하는 컴포넌트
  */
-function ChatListPage() {
+const ChatListPage = () => {
+
+  useEffect(()=>{
+    checkIsUserLoggedIn();
+  },[]);
 
   return (
     <div className='chatList'>

@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import moment from 'moment';
-// import { Popover } from 'antd';
 import { getData } from '../../utils/Api';
 import basic from '../../resources/img/basic_profile.jpg';
 import { useStore } from '../../zustand/FriendsStore';
+import { checkIsUserLoggedIn } from '../../components/common/CheckIsUserLoggedIn';
+
 
 /**
  * @author seung hwan lee
@@ -13,7 +14,23 @@ import { useStore } from '../../zustand/FriendsStore';
 
 const BirthdayPage = () => {
   const { setFriendsLists } = useStore((state) => state);
+  const [resultData, setResultData] = useState([]);
 
+  const GetMyAndFriendsData = async ( ) => {
+    const tokenValue = localStorage.getItem('token');
+    const parameter = {
+      token: tokenValue,
+    };
+    await getData.get('member/me', { params: parameter })
+      .then((res)=>{
+        const param = {
+          uid: res.data.userInfo[0].uid
+        }
+        getData.get('friend/getFriends', { params: param }).then(friends=> {
+          setResultData(friends.data);
+        } );
+      })
+  };
 
   const [pastTodayUpcomingBirthday, setPastTodayUpcomingBirthday] = useState([
     [],
@@ -39,12 +56,6 @@ const BirthdayPage = () => {
   let tmpPerson = { birthday: '1234' };
 
   const getBirthFriends = async () => {
-    const resultData = [];
-/*    let resultData = await getData.get('friend/getFriends');
-    resultData = resultData.data;
-    console.log(resultData, 'result')*/
-    await getData.get('friend/getFriends').then((res)=>console.log(res,'res'))
-    // await getData.get('friend/getFriends', { params: parameter }).then(res=> {
 
       const monthlyBirthday = [];
     // eslint-disable-next-line no-underscore-dangle
@@ -53,6 +64,7 @@ const BirthdayPage = () => {
       moment(today, 'YYYY MM DD').format('MM-DD').split('-').join(''),
       10
     );
+    console.log(today,'today')
 
     resultData.forEach((person) => {
       let eachBirthday = moment(person.birth, 'YYYY MM DD hh:mm:ss').format(
@@ -91,9 +103,23 @@ const BirthdayPage = () => {
 
 
   useEffect(() => {
-    getBirthFriends();
-    setFriendsLists(pastTodayUpcomingBirthday);
+/*    const start = async () => {
+      await checkIsUserLoggedIn();
+      await GetMyAndFriendsData();
+      await getBirthFriends();
+      setFriendsLists(pastTodayUpcomingBirthday);
+    }*/
+    checkIsUserLoggedIn();
+    GetMyAndFriendsData();
   }, []);
+
+  useEffect(()=>{
+    getBirthFriends();
+  },[resultData])
+
+  useEffect(()=>{
+    console.log(pastTodayUpcomingBirthday,'pastfinal')
+  },[pastTodayUpcomingBirthday])
 
   useEffect(()=>{
     console.log(pastTodayUpcomingBirthday)
@@ -107,7 +133,7 @@ const BirthdayPage = () => {
         <div className='birthdayModalDivision'>
           {
             pastTodayUpcomingBirthday[0].length > 0
-            ? <h3>Birthdays</h3>
+            ? <h3>Past Birthdays</h3>
               : null
           }
           {pastTodayUpcomingBirthday[0].length > 0

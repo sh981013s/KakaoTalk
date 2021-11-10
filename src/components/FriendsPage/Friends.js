@@ -14,6 +14,8 @@ function Friends(props) {
 	const [loading, setLoading] = useState(true);
 
 	const getFriendsData = async () => {
+		console.log('friendsStart')
+		console.log(myInfo)
 		if (myInfo) {
 			const parameter = {
 				uid: myInfo.uid
@@ -38,7 +40,7 @@ function Friends(props) {
 		};
 		const myInfoFromServer = await getData.get('member/me', { params: parameter });
 		setMyInfo(myInfoFromServer.data.userInfo[0]);
-		console.log(myInfo)
+		// setMyInfo(() => myInfoFromServer.data.userInfo[0]);
 	};
 
 	useEffect(() => {
@@ -51,12 +53,12 @@ function Friends(props) {
 	}, [refresh]);
 
 	useEffect(() => {
-		async function setBase() {
-			await getMyInfo();
-			getFriendsData();
-		}
-		setBase();
+		getMyInfo()
 	}, []);
+
+	useEffect(()=>{
+		getFriendsData();
+	},[myInfo])
 
 
 	useEffect(() => {

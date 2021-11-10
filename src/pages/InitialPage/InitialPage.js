@@ -4,6 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import mainImg from '../../resources/img/kakaoLoginMain.png';
 import { getData } from '../../utils/Api';
 import useInput from '../../hooks/useInput'
+import CheckIsUserLoggedIn from '../../utils/CheckIsUserLoggedIn';
 
 const InitialPage = () => {
   const history = useHistory();
@@ -36,12 +37,7 @@ const InitialPage = () => {
     }
   };
 
-  const CheckIsUserLoggedIn = async () => {
-    const tokenValue = await localStorage.getItem('token');
-    if(tokenValue) {
-      window.location.replace('/mainpage/friends')
-    }
-  };
+
 
   useEffect(()=>{
     CheckIsUserLoggedIn();

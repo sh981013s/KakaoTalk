@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import FirstPage from '../../components/RegisterPage/FirstPage';
 import SecondPage from '../../components/RegisterPage/SecondPage';
 import ThirdPage from '../../components/RegisterPage/ThirdPage';
@@ -27,7 +28,7 @@ const RegisterPage = () => {
         return <SixthPage />;
     }
   };
-  return <>{selectPage(regPage)}</>;
+  return <Fragment>{selectPage(regPage)}</Fragment>;
 };
 
 export default RegisterPage;

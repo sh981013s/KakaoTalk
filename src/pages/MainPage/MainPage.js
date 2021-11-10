@@ -5,7 +5,6 @@ import Header from '../../components/MainPage/Header';
 import '../../resources/css/mainpage/MainPage.scss';
 import ChatListPage from '../ChatListPage/ChatListPage';
 import MorePage from '../MorePage/MorePage';
-// import {getData} from '../utils/Api';
 
 /**
  * @author Lee seung hwan

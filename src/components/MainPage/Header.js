@@ -274,8 +274,16 @@ function Header(props) {
 							onClick={addFriendEventById}
 						>
 							{/* eslint-disable-next-line no-nested-ternary */}
-							{fdSwitch ? 'Add Friends' :  (searchInfo.uid === myInfo.uid ? '1:1 chat' : "it's me" )}
+							{
+								searchInfo.uid === myInfo.uid ? 'My Chatroom'
+									: fdSwitch ? 'Add Friends'
+									: '1:1 Chat'
+							}
+
+
+
 						</Button>
+						<div onClick={()=>{console.log(fdSwitch,searchInfo.uid,myInfo.uid,'lol')}}>asdasd</div>
 					</div>
 				</>
 			)}

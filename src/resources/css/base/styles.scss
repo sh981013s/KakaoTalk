@@ -2,6 +2,8 @@
 @import '../mainpage/MainPage.scss';
 @import '../initialpage/initialpage.scss';
 @import '../ChatPage/ChatPage.scss';
+//@import '../node_modules/scss-reset/src/scss/_reset.scss';
+@import 'scss-reset/_reset.scss';
 
 * {
   margin: 0;

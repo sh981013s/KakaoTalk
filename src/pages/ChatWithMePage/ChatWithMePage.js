@@ -9,6 +9,7 @@ import { getData } from '../../utils/Api';
 import { myChatStore } from '../../zustand/FriendsStore'
 import { checkIsUserLoggedIn } from '../../components/common/CheckIsUserLoggedIn';
 import ChatHeader from '../../components/ChatPage/ChatHeader'
+import MyChatInput from '../../components/ChatPage/MyChatInput'
 
 
 
@@ -38,71 +39,66 @@ const ChatWithMePage = (props) => {
     await getData.post('chat/addChat', parameter)
   }
 
-  const [input, inputChange] = useState('');
-
-
-  const last = '';
 
   useEffect(()=>{
     checkIsUserLoggedIn();
     getChatList();
   },[])
 
-
-
-  const aaa = [1,2,3]
-
   return (
     <div className='chatScreen'>
       <ChatHeader match = {match} />
-      {
-        myChat.map((chat,idx)=>{
-          if (typeof chat.time !== 'string') {
-            return chat.time.map((single,idx)=>{
-              if(idx === 0) {
-                return (
-                  <>
-                    <div className='chatHr'>{chat.date}</div>
+      <div className='chatMain'>
+        {
+          myChat.map((chat,idx)=>{
+            if (typeof chat.time !== 'string') {
+              return chat.time.map((single,idx)=>{
+                if(idx === 0) {
+                  return (
+                    <>
+                      <div className='chatHr'>{chat.date}</div>
+                      <div className='messageRow messageRowOwn'>
+                        <div className='messageRowContent'>
+                          <div className='messageInfo'>
+                            <div className='messageBubble'>{chat.contents[idx]}</div>
+                            <div className='messageTime' />
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  )
+                } else {
+                  return (
                     <div className='messageRow messageRowOwn'>
                       <div className='messageRowContent'>
                         <div className='messageInfo'>
                           <div className='messageBubble'>{chat.contents[idx]}</div>
-                          <div className='messageTime' />
+                          <div className='messageTime'>{chat.time[idx]}</div>
                         </div>
                       </div>
                     </div>
-                  </>
-                )
-              } else {
-                return (
+                  )
+                }
+              })
+            } else {
+              return (
+                <>
+                  <div className='chatHr'>{chat.date}</div>
                   <div className='messageRow messageRowOwn'>
                     <div className='messageRowContent'>
                       <div className='messageInfo'>
-                        <div className='messageBubble'>{chat.contents[idx]}</div>
-                        <div className='messageTime'>{chat.time[idx]}</div>
+                        <div className='messageBubble'>{chat.contents}</div>
+                        <div className='messageTime'>{chat.time}</div>
                       </div>
                     </div>
                   </div>
-                )
-              }
-            })
-          } else {
-            return (
-              <>
-                <div className='chatHr'>{chat.date}</div>
-                <div className='messageRow messageRowOwn'>
-                  <div className='messageRowContent'>
-                    <div className='messageInfo'>
-                      <div className='messageBubble'>{chat.contents}</div>
-                      <div className='messageTime'>{chat.time}</div>
-                    </div>
-                  </div>
-                </div>
-              </>
-            )
-          }
-        })
-      }
+                </>
+              )
+            }
+          })
+        }
+      </div>
+      <MyChatInput />
     </div>
   );
 };

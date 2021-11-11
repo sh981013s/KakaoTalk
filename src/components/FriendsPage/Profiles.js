@@ -7,7 +7,7 @@ export const MyProfileList = () => {
 	const { myInfo } = myInfoStore((state) => state);
 	const openChatWithMe = () => {
 		window.open(
-			`/chatwithme`,
+			`/chat/${myInfo.uid}`,
 			'네이버새창',
 			'width=500, height=800, toolbar=no, menubar=no, scrollbars=no, resizable=yes'
 		);

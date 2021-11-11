@@ -1,5 +1,6 @@
 // ProfilePopover 컴포넌트
 import { Fragment } from 'react';
+import { myInfoStore } from '../../zustand/FriendsStore'
 
 // eslint-disable-next-line react/prop-types
 export default function ProfilePopover({ name, state, pic }, type) {
@@ -30,10 +31,11 @@ export default function ProfilePopover({ name, state, pic }, type) {
 }
 // eslint-disable-next-line react/prop-types
 const MyProfilePopover = ({ type }) => {
+const {myInfo} = myInfoStore(state=>state)
 
   const openChatWithMe = () => {
     window.open(
-      `/chatwithme`,
+      `/chat/${myInfo.uid}`,
       '네이버새창',
       'width=500, height=800, toolbar=no, menubar=no, scrollbars=no, resizable=yes'
     );

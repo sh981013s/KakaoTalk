@@ -12,13 +12,16 @@ import { checkIsUserLoggedIn } from '../../components/common/CheckIsUserLoggedIn
 
 const ChatWithMePage = (props) => {
   const { myChat, setMyChat } = myChatStore((state)=> state)
+
   const {match} = props;
 
   const getChatList = async () => {
     const parameter = {
       uid: match.params.param
     }
-    await getData.post('chat/getChatlist', parameter).then((res) => setMyChat(res.data));
+    await getData.post('chat/getChatlist', parameter)
+      .then((res) => setMyChat(res.data))
+      .then(res=>console.log(res,'res'))
   }
 
   const [myChatToUse, setMyChatToUse] = useState(_.cloneDeep(myChat));
@@ -91,7 +94,8 @@ const ChatWithMePage = (props) => {
     setMyChatToUse(myChat);
     // console.log(myChatToUse.reduce(indexDataReudcer, ''));
     setTmp(myChatToUse.reduce(indexDataReudcer, ''));
-    setReal(tmp.reduce(timeCompressingReducer, ''));
+    // setReal(tmp.reduce(timeCompressingReducer, ''));
+    console.log(myChat, 'real')
     // console.log(tmp)
   },[])
 
@@ -103,7 +107,7 @@ const ChatWithMePage = (props) => {
 
 
   return (
-      <div onClick={()=>console.log(real, 'real')}>asdasdas</div>
+      <div onClick={()=>console.log(real, 'real')}>asdasd</div>
 /*    <div className='chatScreen'>
       <div className='main'>
         <div className='mainChat'>

@@ -24,7 +24,7 @@ function App() {
         <Route exact path='/register' component={RegisterPage} />
         <Route exact path='/mainpage/:param' component={MainPage} />
         <Route exact path='/birthFriends' component={BirthdayPage} />
-        <Route exact path='/chatwithme' component={ChatWithMePage} />
+        <Route exact path='/chat/:param' component={ChatWithMePage} />
       </ResponsiveLayout>
     </BrowserRouter>
   );

@@ -43,3 +43,8 @@ export const friendsRefreshStore = create((set) => ({
   setRefresh: (props) => set({ refresh: props }),
 }));
 
+export const myChatRefreshStore = create((set) => ({
+  myChatRefresh: false ,
+  setMyChatRefresh: (props) => set({ refresh: props }),
+}));
+

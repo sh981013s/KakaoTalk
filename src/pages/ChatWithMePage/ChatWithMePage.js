@@ -30,20 +30,12 @@ const ChatWithMePage = (props) => {
   }
 
 
-  const sendMessage = async () => {
-    const parameter = {
-      // eslint-disable-next-line react/prop-types
-      uid: match.params.param,
-      contents: 'a ssi pal'
-    }
-    await getData.post('chat/addChat', parameter)
-  }
-
-
   useEffect(()=>{
     checkIsUserLoggedIn();
     getChatList();
   },[])
+
+  let prev = '';
 
   return (
     <div className='chatScreen'>
@@ -54,9 +46,39 @@ const ChatWithMePage = (props) => {
             if (typeof chat.time !== 'string') {
               return chat.time.map((single,idx)=>{
                 if(idx === 0) {
-                  return (
-                    <>
-                      <div className='chatHr'>{chat.date}</div>
+                  if(chat.time[idx] === chat.time[idx+1]) {
+                    // prev = chat.time[idx]
+                    return (
+                      <>
+                        <div className='chatHr'>{chat.date}</div>
+                        <div className='messageRow messageRowOwn'>
+                          <div className='messageRowContent'>
+                            <div className='messageInfo'>
+                              <div className='messageBubble'>{chat.contents[idx]}</div>
+                              <div className='messageTime' />
+                            </div>
+                          </div>
+                        </div>
+                      </>
+                    )
+                  } else {
+                    return (
+                      <>
+                        <div className='chatHr'>{chat.date}</div>
+                        <div className='messageRow messageRowOwn'>
+                          <div className='messageRowContent'>
+                            <div className='messageInfo'>
+                              <div className='messageBubble'>{chat.contents[idx]}</div>
+                              <div className='messageTime'>{chat.time[idx]}</div>
+                            </div>
+                          </div>
+                        </div>
+                      </>
+                    )
+                  }
+                } else {
+                  if(chat.time[idx] === chat.time[idx+1]) {
+                    return (
                       <div className='messageRow messageRowOwn'>
                         <div className='messageRowContent'>
                           <div className='messageInfo'>
@@ -65,19 +87,19 @@ const ChatWithMePage = (props) => {
                           </div>
                         </div>
                       </div>
-                    </>
-                  )
-                } else {
-                  return (
-                    <div className='messageRow messageRowOwn'>
-                      <div className='messageRowContent'>
-                        <div className='messageInfo'>
-                          <div className='messageBubble'>{chat.contents[idx]}</div>
-                          <div className='messageTime'>{chat.time[idx]}</div>
+                    )
+                  } else {
+                    return (
+                      <div className='messageRow messageRowOwn'>
+                        <div className='messageRowContent'>
+                          <div className='messageInfo'>
+                            <div className='messageBubble'>{chat.contents[idx]}</div>
+                            <div className='messageTime'>{chat.time[idx]}</div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  )
+                    )
+                  }
                 }
               })
             } else {
@@ -98,7 +120,9 @@ const ChatWithMePage = (props) => {
           })
         }
       </div>
-      <MyChatInput />
+      <MyChatInput
+        uid={match}
+      />
     </div>
   );
 };

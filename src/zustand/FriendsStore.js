@@ -45,6 +45,6 @@ export const friendsRefreshStore = create((set) => ({
 
 export const myChatRefreshStore = create((set) => ({
   myChatRefresh: false ,
-  setMyChatRefresh: (props) => set({ refresh: props }),
+  setMyChatRefresh: (props) => set({ myChatRefresh: props }),
 }));
 

@@ -1,12 +1,12 @@
 import '../../resources/css/base/styles.scss'
 import useInput from '../../hooks/useInput';
 import { getData } from '../../utils/Api';
-import { myChatStore } from '../../zustand/FriendsStore'
+import { myChatStore, myChatRefreshStore } from '../../zustand/FriendsStore'
 
 
 const MyChatInput = (props) => {
-	const { myChat,setMyChat } = myChatStore((state)=> state)
-
+	const { myChat,setMyChat } = myChatStore((state)=> state);
+	const { setMyChatRefresh } = myChatRefreshStore((state)=>state);
 	const [chatMsg, onChangeChatMsg, setChatMsg] = useInput('');
 
 	const handleKeyDown = (e) => {
@@ -28,11 +28,14 @@ const MyChatInput = (props) => {
 			contents: chatMsg
 		}
 		await getData.post('chat/addChat', parameter)
-			.then(res => {
+			.then(()=>{
+				setMyChatRefresh(true);
+			});
+/*			.then(res => {
 				setMyChat(res);
-			})
+			})*/
 
-	}
+	};
 
 	return (
 		<div className='entireChatInput'>

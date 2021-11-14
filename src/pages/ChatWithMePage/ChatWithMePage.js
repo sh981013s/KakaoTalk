@@ -1,12 +1,12 @@
 /* eslint-disable */
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import '../../resources/css/base/styles.scss';
 
 import _ from 'lodash';
 import kakaoChat from '../../resources/img/kakaoChat.png';
 import blank from '../../resources/img/blank.png';
 import { getData } from '../../utils/Api';
-import { myChatStore } from '../../zustand/FriendsStore'
+import { myChatRefreshStore, myChatStore } from '../../zustand/FriendsStore';
 import { checkIsUserLoggedIn } from '../../components/common/CheckIsUserLoggedIn';
 import ChatHeader from '../../components/ChatPage/ChatHeader'
 import MyChatInput from '../../components/ChatPage/MyChatInput'
@@ -15,8 +15,9 @@ import MyChatInput from '../../components/ChatPage/MyChatInput'
 
 const ChatWithMePage = (props) => {
   const { myChat, setMyChat } = myChatStore((state)=> state)
-
+  const { myChatRefresh,setMyChatRefresh } = myChatRefreshStore((state)=>state);
   const { match } = props;
+  const chatScreen = useRef();
 
   const getChatList = async () => {
     const parameter = {
@@ -29,6 +30,15 @@ const ChatWithMePage = (props) => {
       })
   }
 
+  useEffect(()=>{
+    if (myChatRefresh) {
+      getChatList();
+      setMyChatRefresh(false);
+      chatScreen.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+
+    }
+  },[myChatRefresh])
+
 
   useEffect(()=>{
     checkIsUserLoggedIn();
@@ -40,7 +50,7 @@ const ChatWithMePage = (props) => {
   return (
     <div className='chatScreen'>
       <ChatHeader match = {match} />
-      <div className='chatMain'>
+      <div className='chatMain' ref={chatScreen}>
         {
           myChat.map((chat,idx)=>{
             if (typeof chat.time !== 'string') {

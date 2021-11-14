@@ -309,7 +309,7 @@
 
 .chatMain {
   margin-top: 10vh;
-  margin-bottom: 15vh;
-  height: 75vh;
-  overflow-y: scroll;
+  padding-bottom: 15vh !important;
+  min-height: 75vh;
+  //overflow-y: scroll;
 }

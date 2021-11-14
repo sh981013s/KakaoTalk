@@ -11,13 +11,12 @@ const MyChatInput = (props) => {
 
 	const handleKeyDown = (e) => {
 		const keyCode = e.which || e.keyCode;
-
-		// 13 represents the Enter key
 		if (keyCode === 13 && !e.shiftKey) {
 			e.preventDefault();
-			// console.log(props.uid.params.param, 'asd');
-			sendMessage();
-			setChatMsg('');
+			if(!!chatMsg) {
+				sendMessage();
+				setChatMsg('');
+			}
 		}
 	}
 
@@ -52,7 +51,20 @@ const MyChatInput = (props) => {
 					onChange={onChangeChatMsg}
 					onKeyDown={handleKeyDown}>
 				</textarea>
-				<button className='chatInputBtn'>Send</button>
+				{
+					!!chatMsg ?
+						<button
+							className='chatInputBtnActive'
+							onClick={()=>{
+								sendMessage();
+								setChatMsg('');
+							}}
+						>
+							Send
+						</button>
+						:  <button className='chatInputBtnInActive'>Send</button>
+
+				}
 			</div>
 		</div>
 	)

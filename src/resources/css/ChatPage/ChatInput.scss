@@ -31,13 +31,24 @@
   background: #FFFFFF;
 }
 
-.chatInputBtn {
+.chatInputBtnInActive{
   position: absolute;
   top: 35%;
   right: 2%;
   width: 7.5rem;
   height: 6.5rem;
   background: #F8F8F8;
+  border: 1px solid #E9E9E9;
+  border-radius: .5rem;
+}
+
+.chatInputBtnActive{
+  position: absolute;
+  top: 35%;
+  right: 2%;
+  width: 7.5rem;
+  height: 6.5rem;
+  background: #FDE33A;
   border: 1px solid #E9E9E9;
   border-radius: .5rem;
 }

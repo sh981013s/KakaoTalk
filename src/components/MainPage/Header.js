@@ -65,21 +65,21 @@ function Header(props) {
 	}, [text]);
 
 	// eslint-disable-next-line consistent-return
-	const searchResult = (prop) => {
+	const searchResult = async(prop) => {
 		switch (prop.resultType) {
 			case 0 :
 				return alert('None');
 				// it's already my friend
 			case 1 :
-				setIsExistById(true);
-				setFdSwitch(false);
-				setSearchInfo(prop.fdInfo);
+				await setIsExistById(true);
+				await setFdSwitch(false);
+				await setSearchInfo(prop.fdInfo);
 				break;
 				// has to be added
 				case 2 :
-					setIsExistById(true);
-					setFdSwitch(true);
-					setSearchInfo(prop.fdInfo);
+					await setIsExistById(true);
+					await setFdSwitch(true);
+					await setSearchInfo(prop.fdInfo);
 					break;
 			default :
 				return null;
@@ -124,6 +124,7 @@ function Header(props) {
 		};
 		await getData.get('friend/searchFriendsByContact', { params: parameter })
 			.then(async(res) => {
+				console.log(res,'result')
 				await searchResult(res.data)
 				if (fdSwitch) {
 					const addParam = {
@@ -133,12 +134,13 @@ function Header(props) {
 					const getParam = {
 						uid: myInfo.uid
 					}
-					await getData.post('friend/addFriends', addParam).then(async () => {
-						await getData.get('friend/getFriends', { params: getParam })
-							.then(friends => setFriendsLists(friends.data))
-							.then(()=>setVisible(false))
-							.then(()=>setRefresh(true));
-					})
+					await getData.post('friend/addFriends', addParam)
+						.then(async () => {
+							await getData.get('friend/getFriends', { params: getParam })
+								.then(friends => setFriendsLists(friends.data))
+								.then(()=>setVisible(false))
+								.then(()=>setRefresh(true));
+						})
 				} else {
 					console.log('nope')
 				}

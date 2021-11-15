@@ -21,7 +21,7 @@ const SocketTmpPage = () => {
 	},[])
 
 	return (
-		<div className='sex'>
+		<div className='lol'>
 			<div>
 				<section>
 					{

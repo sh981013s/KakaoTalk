@@ -52,15 +52,44 @@ const ChatWithMePage = (props) => {
       <ChatHeader match = {match} />
       <div className='chatMain' ref={chatScreen}>
         {
-          myChat.map((chat,idx)=>{
-            if (typeof chat.time !== 'string') {
-              return chat.time.map((single,idx)=>{
-                if(idx === 0) {
-                  if(chat.time[idx] === chat.time[idx+1]) {
-                    // prev = chat.time[idx]
-                    return (
-                      <>
-                        <div className='chatHr'>{chat.date}</div>
+          myChat ? (
+            myChat.map((chat,idx)=>{
+              if (typeof chat.time !== 'string') {
+                return chat.time.map((single,idx)=>{
+                  if(idx === 0) {
+                    if(chat.time[idx] === chat.time[idx+1]) {
+                      // prev = chat.time[idx]
+                      return (
+                        <>
+                          <div className='chatHr'>{chat.date}</div>
+                          <div className='messageRow messageRowOwn'>
+                            <div className='messageRowContent'>
+                              <div className='messageInfo'>
+                                <div className='messageBubble'>{chat.contents[idx]}</div>
+                                <div className='messageTime' />
+                              </div>
+                            </div>
+                          </div>
+                        </>
+                      )
+                    } else {
+                      return (
+                        <>
+                          <div className='chatHr'>{chat.date}</div>
+                          <div className='messageRow messageRowOwn'>
+                            <div className='messageRowContent'>
+                              <div className='messageInfo'>
+                                <div className='messageBubble'>{chat.contents[idx]}</div>
+                                <div className='messageTime'>{chat.time[idx]}</div>
+                              </div>
+                            </div>
+                          </div>
+                        </>
+                      )
+                    }
+                  } else {
+                    if(chat.time[idx] === chat.time[idx+1]) {
+                      return (
                         <div className='messageRow messageRowOwn'>
                           <div className='messageRowContent'>
                             <div className='messageInfo'>
@@ -69,12 +98,9 @@ const ChatWithMePage = (props) => {
                             </div>
                           </div>
                         </div>
-                      </>
-                    )
-                  } else {
-                    return (
-                      <>
-                        <div className='chatHr'>{chat.date}</div>
+                      )
+                    } else {
+                      return (
                         <div className='messageRow messageRowOwn'>
                           <div className='messageRowContent'>
                             <div className='messageInfo'>
@@ -83,51 +109,27 @@ const ChatWithMePage = (props) => {
                             </div>
                           </div>
                         </div>
-                      </>
-                    )
+                      )
+                    }
                   }
-                } else {
-                  if(chat.time[idx] === chat.time[idx+1]) {
-                    return (
-                      <div className='messageRow messageRowOwn'>
-                        <div className='messageRowContent'>
-                          <div className='messageInfo'>
-                            <div className='messageBubble'>{chat.contents[idx]}</div>
-                            <div className='messageTime' />
-                          </div>
+                })
+              } else {
+                return (
+                  <>
+                    <div className='chatHr'>{chat.date}</div>
+                    <div className='messageRow messageRowOwn'>
+                      <div className='messageRowContent'>
+                        <div className='messageInfo'>
+                          <div className='messageBubble'>{chat.contents}</div>
+                          <div className='messageTime'>{chat.time}</div>
                         </div>
-                      </div>
-                    )
-                  } else {
-                    return (
-                      <div className='messageRow messageRowOwn'>
-                        <div className='messageRowContent'>
-                          <div className='messageInfo'>
-                            <div className='messageBubble'>{chat.contents[idx]}</div>
-                            <div className='messageTime'>{chat.time[idx]}</div>
-                          </div>
-                        </div>
-                      </div>
-                    )
-                  }
-                }
-              })
-            } else {
-              return (
-                <>
-                  <div className='chatHr'>{chat.date}</div>
-                  <div className='messageRow messageRowOwn'>
-                    <div className='messageRowContent'>
-                      <div className='messageInfo'>
-                        <div className='messageBubble'>{chat.contents}</div>
-                        <div className='messageTime'>{chat.time}</div>
                       </div>
                     </div>
-                  </div>
-                </>
-              )
-            }
-          })
+                  </>
+                )
+              }
+            })
+          ) : null
         }
       </div>
       <MyChatInput

@@ -7,7 +7,7 @@ export const MyProfileList = () => {
 	const { myInfo } = myInfoStore((state) => state);
 	const openChatWithMe = () => {
 		window.open(
-			`/chat/${myInfo.uid}`,
+			`/chatwithme/${myInfo.uid}`,
 			'네이버새창',
 			'width=500, height=800, toolbar=no, menubar=no, scrollbars=no, resizable=yes'
 		);
@@ -47,7 +47,7 @@ export const FriendList = ({ friend }) => {
 
 	const openChat = () => {
 		window.open(
-			`/chat/${myInfo.uid}`,
+			`/chat/${myInfo.uid + friend.uid}`,
 			'네이버새창',
 			'width=500, height=800, toolbar=no, menubar=no, scrollbars=no, resizable=yes'
 		);

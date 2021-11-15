@@ -5,7 +5,8 @@ import {
   MainPage,
   RegisterPage,
   ChatWithMePage,
-  BirthdayPage
+  BirthdayPage,
+  ChatwithFriend
 } from './pages/index'
 import ResponsiveLayout from './layouts/responsive.layout';
 
@@ -24,7 +25,9 @@ function App() {
         <Route exact path='/register' component={RegisterPage} />
         <Route exact path='/mainpage/:param' component={MainPage} />
         <Route exact path='/birthFriends' component={BirthdayPage} />
-        <Route exact path='/chat/:param' component={ChatWithMePage} />
+        <Route exact path='/chatwithme/:param' component={ChatWithMePage} />
+        <Route exact path='/chat/:param' component={ChatwithFriend} />
+        <Route exact path='/socket' component={ChatwithFriend} />
       </ResponsiveLayout>
     </BrowserRouter>
   );

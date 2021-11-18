@@ -1,24 +1,23 @@
-import '../../resources/css/base/styles.scss'
+import '../../resources/css/base/styles.scss';
 import useInput from '../../hooks/useInput';
 import { getData } from '../../utils/Api';
-import { myChatStore, myChatRefreshStore } from '../../zustand/FriendsStore'
+import { myChatRefreshStore } from '../../zustand/FriendsStore';
 
 
-const MyChatInput = (props) => {
-	const { myChat,setMyChat } = myChatStore((state)=> state);
-	const { setMyChatRefresh } = myChatRefreshStore((state)=>state);
+const MyChatInput = (propsY) => {
+	const { setMyChatRefresh } = myChatRefreshStore((state) => state);
 	const [chatMsg, onChangeChatMsg, setChatMsg] = useInput('');
 
 	const handleKeyDown = (e) => {
 		const keyCode = e.which || e.keyCode;
 		if (keyCode === 13 && !e.shiftKey) {
 			e.preventDefault();
-			if(!!chatMsg) {
+			if (chatMsg) {
 				sendMessage();
 				setChatMsg('');
 			}
 		}
-	}
+	};
 
 
 	const sendMessage = async () => {
@@ -26,53 +25,49 @@ const MyChatInput = (props) => {
 			// eslint-disable-next-line react/prop-types
 			uid: props.uid.params.param,
 			contents: chatMsg
-		}
+		};
 		await getData.post('chat/addChat', parameter)
-			.then(()=>{
+			.then(() => {
 				setMyChatRefresh(true);
 			});
-/*			.then(res => {
-				setMyChat(res);
-			})*/
 
 	};
 
 	return (
 		<div className='entireChatInput'>
 			<div className='chatInputIconBox'>
-				<i className="far fa-smile" />
-				<i className="fas fa-paperclip" />
-				<i className="far fa-clipboard" />
+				<i className='far fa-smile' />
+				<i className='fas fa-paperclip' />
+				<i className='far fa-clipboard' />
 			</div>
 			<div className='chatInputBox'>
 				<textarea
 					className='chatInput'
-					name="chatMsg"
-					cols="40"
-					rows="5"
+					name='chatMsg'
+					cols='40'
+					rows='5'
 					value={chatMsg}
 					onChange={onChangeChatMsg}
-					onKeyDown={handleKeyDown}>
-				</textarea>
+					onKeyDown={handleKeyDown} />
 				{
-					!!chatMsg ?
+					chatMsg ?
 						<button
+							type='button'
 							className='chatInputBtnActive'
-							onClick={()=>{
+							onClick={() => {
 								sendMessage();
 								setChatMsg('');
 							}}
 						>
 							Send
 						</button>
-						:  <button className='chatInputBtnInActive'>Send</button>
+						: <button type='button' className='chatInputBtnInActive'>Send</button>
 
 				}
 			</div>
 		</div>
-	)
-}
-
+	);
+};
 
 
 export default MyChatInput;

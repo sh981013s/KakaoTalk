@@ -1,23 +1,25 @@
-import { getData } from '../../utils/Api';
 import { useEffect, useState } from 'react';
-import '../../resources/css/base/styles.scss'
-const ChatHeader = ({match}) => {
+import { getData } from '../../utils/Api';
+import '../../resources/css/base/styles.scss';
+
+// eslint-disable-next-line react/prop-types
+const ChatHeader = ({ match }) => {
 	const [myInfo, setMyInfo] = useState({});
 
-	const getMyInfo = async() => {
+	const getMyInfo = async () => {
 		const parameter = {
-			uid: match.params.param,
+			uid: match.params.param
 		};
-		await getData.get('member/myinfo', {params: parameter})
+		await getData.get('member/myinfo', { params: parameter })
 			.then((res) => {
-				setMyInfo(res.data[0])
-			})
-	}
+				setMyInfo(res.data[0]);
+			});
+	};
 
 
-	useEffect(() =>{
+	useEffect(() => {
 		getMyInfo();
-	},[])
+	}, []);
 
 	return (
 		<div className='entireChatHeader'>
@@ -31,21 +33,21 @@ const ChatHeader = ({match}) => {
 				<input type='range' className='chatHeaderRange' />
 				<div className='ChatIconBox'>
 					<div className='iconBoxIcon'>
-						<i className="fas fa-search" />
+						<i className='fas fa-search' />
 					</div>
 					<div className='iconBoxIcon'>
-						<i className="fas fa-bell" />
+						<i className='fas fa-bell' />
 					</div>
 					<div className='iconBoxIcon'>
-						<i className="fas fa-box" />
+						<i className='fas fa-box' />
 					</div>
 					<div className='iconBoxIcon'>
-						<i className="fas fa-bars" />
+						<i className='fas fa-bars' />
 					</div>
 				</div>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
 export default ChatHeader;
